@@ -1,0 +1,465 @@
+<admintpl file="header" />
+<style type="text/css">
+    .col-auto {
+        overflow: hidden;
+        _zoom: 1;
+        _float: left;
+        border: 1px solid #c2d1d8;
+    }
+    .col-right {
+        float: right;
+        width: 210px;
+        overflow: hidden;
+        margin-left: 6px;
+        border: 1px solid #c2d1d8;
+    }
+    .t_head{
+        text-align: center;
+        background-color: #dbe5e7;
+        font-size: 20px;
+        height: 30px;
+        float: inherit;
+    }
+    body fieldset {
+        border: 1px solid #D8D8D8;
+        padding: 10px;
+        background-color: #FFF;
+    }
+    .table_full th{
+
+    }
+
+    body fieldset legend {
+        background-color: #F9F9F9;
+        border: 1px solid #D8D8D8;
+        font-weight: 700;
+        padding: 3px 8px;
+    }
+    .list-dot{ padding-bottom:10px}
+    .list-dot li,.list-dot-othors li{padding:5px 0; border-bottom:1px dotted #c6dde0; font-family:"宋体"; color:#bbb; position:relative;_height:22px}
+    .list-dot li span,.list-dot-othors li span{color:#004499}
+    .list-dot li a.close span,.list-dot-othors li a.close span{display:none}
+    .list-dot li a.close,.list-dot-othors li a.close{ background: url("__ROOT__/statics/images/cross.png") no-repeat left 3px; display:block; width:16px; height:16px;position: absolute;outline:none;right:5px; bottom:5px}
+    .list-dot li a.close:hover,.list-dot-othors li a.close:hover{background-position: left -46px}
+    .list-dot-othors li{float:left;width:24%;overflow:hidden;}
+</style>
+<script type="text/javascript"  src="__ROOT__/statics/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript"  src="__ROOT__/statics/js/ueditor/ueditor.all.min.js"></script>
+
+</head>
+<body>
+    <div class="wrap J_check_wrap">
+        <ul class="nav nav-tabs">
+            <li><a href="{:U('Sdtmain/index')}">学员列表</a></li>
+            <li class="active"><a href="{:U('Sdtmain/edit')}" target="_self">修改学员</a></li>
+        </ul>
+        <form name="myform" id="myform"  action="{:U('Sdtmain/edit_post',array('id'=>$student['id']))}" method="post" class="form-horizontal J_ajaxForms" enctype="multipart/form-data">
+
+        <!--<div class="col-right">-->
+        <!--<-->
+        <!--</div>-->
+        <div class="col-auto">
+        <div class="table_full">
+        <table width="100%" cellpadding="2" cellspacing="2">
+        <tr><td colspan="6"><div class="t_head"><span>基本信息</span></div></td></tr>
+        <tr>
+            <th>填表日期</th>
+            <td>
+                <input type="text" name="post[fill_time]" id="filltime" value="{$student.fill_time}" size="21" class="J_date" >
+            </td>
+            <th>入学日期</th>
+            <td><input type="text"  name="post[start_time]" id="starttime" value="{$student.start_time}" size="21" class="J_date"></td>
+            <td rowspan="11">
+                <div  style="text-align: center;float: left"><input type='hidden' name='post[photo]' id='thumb' value=''>
+                    <a href='javascript:void(0);' onClick="flashupload('thumb_images', '附件上传','thumb',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,1','','','');return false;">
+                        <if condition="empty($student['photo'])">
+                            <img src='__ROOT__/statics/images/icon/upload-pic.png' id='thumb_preview' width='135' height='113' style='cursor:hand' />
+                            <else />
+                            <img src='{$student.photo}' id='thumb_preview' width='135' height='113' style='cursor:hand' />
+                        </if>
+                    </a>
+                    <!--<input type="button" class="btn" onclick="crop_cut_thumb($('#thumb').val());return false;" value="裁减图片"> -->
+                    <br/>
+                    <input type="button"  class="btn" onClick="$('#thumb_preview').attr('src','__ROOT__/statics/images/icon/upload-pic.png');$('#thumb').val('');return false;" value="取消图片">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>姓名</th>
+            <td><input type="text" disabled="disabled"  name="post[name]" id="name"  required value="{$student.name}" style="color:red;" class="input input_hd J_title_color" placeholder="请输入姓名" onKeyUp="strlen_verify(this, 'title_len', 160)" /></td>
+            <th>性别</th>
+            <td>
+                <php>
+                    $check_0 = $student['gender'] == 0?'checked':'';
+                    $check_1 = $student['gender'] == 1?'checked':'';
+                </php>
+                <span class="switch_list cc">
+                    <label><input type="radio" name="post[gender]" id="gender_0" value="0" {$check_0}>女</label>
+                    <label><input type="radio" name="post[gender]" id="gender_1" value="1" {$check_1}>男</label>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th>学历</th>
+            <td>
+                <select style="min-width:200px;" name='post[education]'>
+                    <foreach name="education" item="vo">
+                        <php>
+                            $edu_checked = $student['education'] == $key?"selected":"";
+                        </php>
+                        <option value="{$key}" {$edu_checked}>{$vo}</option>
+                    </foreach>
+                </select>
+            </td>
+            <th>籍贯</th>
+            <td><input type="text"  name="post[home]"  required value="{$student.home}"id="home" class="input input_hd J_title_color"  /></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>星座</th>
+            <td>
+                <select style="min-width:200px;" name='post[constellation]'>
+                    <foreach name="constellation" item="vo">
+                        <php>
+                            $con_checked = $student['constellation'] == $key?"selected":"";
+                        </php>
+                        <option value="{$key}" {$con_checked}>{$vo}</option>
+                    </foreach>
+                </select>
+            </td>
+            <th>属相</th>
+            <td>
+                <select style="min-width:200px;" name='post[zodiac]'>
+                    <foreach name="zodiac" item="vo">
+                        <php>
+                            $zod_checked = $student['zodiac'] == $key?"selected":"";
+                        </php>
+                        <option value="{$key}" {$zod_checked}>{$vo}</option>
+                    </foreach>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>血型</th>
+            <td>
+                <select style="min-width:200px;" name='post[blood]'>
+                    <foreach name="blood" item="vo">
+                        <php>
+                            $bld_checked = $student['blood'] == $key?"selected":"";
+                        </php>
+                        <option value="{$key}" {$bld_checked}>{$vo}</option>
+                    </foreach>
+                </select>
+            </td>
+            <th>出生日期</th>
+            <td>
+                <input type="text" name="post[birthday]" value="{$student.birthday}"  id="birthday" size="21" class="J_date" >
+            </td>
+        </tr>
+
+        <tr>
+            <th>政治面貌</th>
+            <td>
+                <input type="text"  name="post[politics]" value="{$student.politics}" id="politics" class="input input_hd J_title_color"  />
+            </td>
+            <th>户籍类别</th>
+            <td>
+                 <span class="switch_list cc">
+                     <php>
+                         $home_check_0 = $student['home_status'] == 0?'checked':'';
+                         $home_check_1 = $student['home_status'] == 1?'checked':'';
+                     </php>
+                    <label><input type="radio" name="post[home_status]" id="home_status_0" value="0" {$home_check_0}>农村</label>
+                    <label><input type="radio" name="post[home_status]" id="home_status_1" value="1" {$home_check_1}>城市</label>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th>联系电话</th>
+            <td>
+                <input type="text"  name="post[phone]" value="{$student.phone}" id="phone" class="input input_hd J_title_color"  />
+            </td>
+            <th>身份证号码</th>
+            <td>
+                <input type="text" disabled="disabled" name="post[id_card]" id="id_card" value="{$student.id_card}"  class="input input_hd J_title_color"  />
+            </td>
+        </tr>
+        <tr>
+            <th>婚姻状况</th>
+            <td>
+                <select style="min-width:200px;" name='post[marriage]'>
+                    <foreach name="marriage" item="vo">
+                        <php>
+                            $mar_checked = $student['marriage'] == $key?"selected":"";
+                        </php>
+                        <option value="{$key}" {$mar_checked}>{$vo}</option>
+                    </foreach>
+                </select>
+            </td>
+            <th>生育状况</th>
+            <td>
+                <php>
+                    $birth_check_0 = $student['birth_status'] == 0?'checked':'';
+                    $birth_check_1 = $student['birth_status'] == 1?'checked':'';
+                </php>
+                <span class="switch_list cc">
+                    <label><input type="radio" name="post[birth_status]" id="birth_status_0" value="0" {$birth_check_0}>已育</label>
+                    <label><input type="radio" name="post[birth_status]" id="birth_status_1" value="1" {$birth_check_1}>未育</label>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th>传染病史</th>
+            <td>
+                <input type="text"  name="post[medical_history]" value="{$student.medical_history}" id="medical_history" class="input input_hd J_title_color"  />
+            </td>
+            <th>英语能力</th>
+            <td>
+                <select style="min-width:200px;" name='post[english]'>
+                    <foreach name="language" item="vo">
+                        <php>
+                            $en_checked = $student['english'] == $key?"selected":"";
+                        </php>
+                        <option value="{$key}" {$en_checked}>{$vo}</option>
+                    </foreach>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>普通话能力</th>
+            <td>
+                <select style="min-width:200px;" name='post[putonghua]'>
+
+                    <foreach name="language" item="vo">
+                        <php>
+                            $pt_checked = $student['putonghua'] == $key?"selected":"";
+                        </php>
+                        <option value="{$key}" {$pt_checked}>{$vo}</option>
+                    </foreach>
+                </select>
+            </td>
+            <th>上海话能力</th>
+            <td>
+                <select style="min-width:200px;" name='post[shanghaihua]'>
+                    <foreach name="language" item="vo">
+                        <php>
+                            $sh_checked = $student['shanghaihua'] == $key?"selected":"";
+                        </php>
+                        <option value="{$key}" {$sh_checked}>{$vo}</option>
+                    </foreach>
+                </select>
+            </td>
+        </tr>
+        <tr>
+                        <th>学号</th>
+                        <td colspan="3" >
+                            <input type="text" style="width: 720px" name="post[student_id]" id="home_address" value="{$student.student_id}" class="input input_hd J_title_color"  />
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>年龄</th>
+                        <td colspan="3" >
+                            <input type="text" style="width: 720px" name="post[age]" id="home_address" value="{$student.age}" class="input input_hd J_title_color"  />
+                        </td>
+
+                    </tr>
+        <tr>
+            <th>户口所在地地址</th>
+            <td colspan="3" >
+                <input type="text" style="width: 720px" name="post[home_address]" value="{$student.home_address}" id="home_address" class="input input_hd J_title_color"  />
+            </td>
+
+        </tr>
+        <tr>
+            <th>联系地址</th>
+            <td colspan="3" >
+                <input type="text" style="width: 720px" name="post[address]" value="{$student.address}" id="address" class="input input_hd J_title_color"  />
+            </td>
+
+        </tr>
+        <tr>
+            <th>获得证书</th>
+            <td colspan="3">
+                <div style="width:735px;height: 100px;border: 100px;overflow-y:auto;">
+                    <foreach name="certificate" item="vo">
+                        <label>
+                            <php>
+                                $checked = in_array($vo['title'],$sdt_cer)?"checked":"";
+                            </php>
+                            <input type="checkbox"  name="certificate[]" value="{$vo.id}" {$checked}>{$vo.title} </input>
+                        </label>
+                    </foreach>
+                </div>
+            </td>
+        </tr>
+        <tr><td colspan="6"><div class="t_head"><span>紧急联系人</span></div></td></tr>
+        <php>
+            $contact = json_decode($student['em_contact'],true);
+        </php>
+        <tr>
+            <th>姓名</th>
+            <td>
+                <input type="text" name="contact[name]" value="{$contact.name}" id="lxr_name" class="input input_hd J_title_color"  />
+            </td>
+            <th>联系电话</th>
+            <td>
+                <input type="text" name="contact[phone]" value="{$contact.phone}" id="lxr_phone" class="input input_hd J_title_color"  />
+            </td>
+            <th>与紧急联系人关系</th>
+            <td>
+                <input type="text" name="contact[relation]" value="{$contact.relation}" id="lxr_relation" class="input input_hd J_title_color"  />
+            </td>
+        </tr>
+        <tr><td colspan="6"><div class="t_head"><span>家庭成员</span></div></td></tr>
+        <tr>
+            <th>称谓</th><th>姓名</th><th>性别</th><th>年龄</th><th>电话</th><th>职业</th>
+        </tr>
+        <tr>
+            <php>
+                $family = json_decode($student['family'],true);
+                $father = $family['father'];
+                $mother = $family['mother'];
+                $mate = $family['mate'];
+                $child1 = $family['child'][0];
+                $child2 = $family['child'][1];
+            </php>
+            <th>父</th>
+            <td><input type="text"  name="father[name]" value="{$father.name}" id="f_name" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="father[gender]" value="{$father.gender}" id="f_gender" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="father[age]" value="{$father.age}" id="f_age" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="father[phone]" value="{$father.phone}" id="f_phone" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="father[position]" value="{$father.position}" id="f_position" class="input input_hd J_title_color"  /></td>
+        </tr>
+        <tr>
+            <th>母</th>
+            <td><input type="text"  name="mother[name]" value="{$mother.name}" id="m_name" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="mother[gender]" value="{$mother.gender}" id="m_gender" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="mother[age]" value="{$mother.age}" id="m_age" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="mother[phone]" value="{$mother.phone}" id="m_phone" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="mother[position]" value="{$mother.position}" id="m_position" class="input input_hd J_title_color"  /></td>
+        </tr>
+        <tr>
+            <th>配偶</th>
+            <td><input type="text"  name="mate[name]" value="{$mate.name}" id="mt_name" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="mate[gender]" value="{$mate.gender}" id="mt_gender" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="mate[age]" value="{$mate.age}" id="mt_age" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="mate[phone]" value="{$mate.phone}" id="mt_phone" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="mate[position]" value="{$mate.position}" id="mt_position" class="input input_hd J_title_color"  /></td>
+        </tr>
+        <tr>
+            <th>子女1</th>
+            <td><input type="text"  name="child1[name]" value="{$child1.name}" id="c_name" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="child1[gender]" value="{$child1.gender}" id="c_gender" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="child1[age]" value="{$child1.age}" id="c_age" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="child1[phone]" value="{$child1.phone}" id="c_phone" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="child1[position]" value="{$child1.position}" id="c_position" class="input input_hd J_title_color"  /></td>
+        </tr>
+        <tr>
+            <th>子女2</th>
+            <td><input type="text"  name="child2[name]" value="{$child2.name}" id="c2_name" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="child2[gender]" value="{$child2.gender}" id="c2_gender" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="child2[age]" value="{$child2.age}" id="c2_age" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="child2[phone]" value="{$child2.phone}" id="c2_phone" class="input input_hd J_title_color"  /></td>
+            <td><input type="text"  name="child2[position]" value="{$child2.position}" id="c2_position" class="input input_hd J_title_color"  /></td>
+        </tr>
+        <tr><td colspan="6"><div class="t_head"><span>个性化个人介绍</span></div></td></tr>
+        <php>
+            $introduce = json_decode($student['introduce'],true);
+        </php>
+        <tr>
+            <th>个性</th>
+            <td colspan="3" >
+                <input type="text" style="width: 720px" name="introduce[character]" value="{$introduce.character}" id="itr_character" class="input input_hd J_title_color"  />
+            </td>
+        </tr>
+        <tr>
+            <th>特长</th>
+            <td colspan="3" >
+                <input type="text" style="width: 720px" name="introduce[special]" value="{$introduce.special}" id="itr_special" class="input input_hd J_title_color"  />
+            </td>
+        </tr>
+        <tr>
+            <th>缺点不足</th>
+            <td colspan="3" >
+                <input type="text" style="width: 720px" name="introduce[short]" value="{$introduce.short}" id="itr_short" class="input input_hd J_title_color"  />
+            </td>
+        </tr>
+        <tr>
+            <th>其它(个性短语)</th>
+            <td colspan="3" >
+                <input type="text" style="width: 720px" name="introduce[word]" value="{$introduce.word}" id="itr_word" class="input input_hd J_title_color"  />
+            </td>
+        </tr>
+        </table>
+
+
+        <div class="table_full">
+        </div>
+        </div>
+        </div>
+        <div class="form-actions">
+            <button class="btn btn-primary btn_submit J_ajax_submit_btn"type="submit">提交</button>
+            <a class="btn" href="{:U('Sdtmain/index')}">返回</a>
+        </div>
+        </form>
+    </div>
+<script type="text/javascript" src="__ROOT__/statics/js/common.js"></script>
+<script type="text/javascript" src="__ROOT__/statics/js/content_addtop.js"></script>
+    <script type="text/javascript">
+        //    var ue =  new UE.ui.Editor({initialFrameHeight:250});
+        //    ue.render("introduce");
+        $(function () {
+            /////---------------------
+            var form = $('form.J_ajaxForms');
+            Wind.use('validate', 'ajaxForm', 'artDialog', function () {
+                form.validate({
+                    submitHandler: function (forms) {
+                        //if (formloading) return;
+                        $(forms).ajaxSubmit({
+                            url: form.attr('action'), //按钮上是否自定义提交地址(多按钮情况)
+                            dataType: 'json',
+                            beforeSubmit: function (arr, $form, options) {
+                                formloading = true;
+                            },
+                            success: function (data, statusText, xhr, $form) {
+                                formloading = false;
+//                            var a =JSON.stringify(data);
+//                            alert(a);
+                                if (data.status) {
+                                    //alert();
+                                    setCookie("refersh_time", 1);
+                                    //添加成功
+                                    Wind.use("artDialog", function () {
+                                        art.dialog({
+                                            id: "succeed",
+                                            icon: "succeed",
+                                            fixed: true,
+                                            lock: true,
+                                            background: "#CCCCCC",
+                                            opacity: 0,
+                                            content: "修改成功!",
+                                            button: [
+                                                {
+                                                    name: '返回列表页',
+                                                    callback: function () {
+                                                        location = '{:U('Sdtmain/index')}';
+                                                        return true;
+                                                    }
+                                                }
+                                            ]
+                                        });
+                                    });
+                                } else {
+                                    isalert(data.info);
+                                }
+                            }
+                        });
+                    }
+                })
+            })
+        })
+
+    </script>
+</body>
+</html>

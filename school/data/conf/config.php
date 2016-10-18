@@ -1,0 +1,28 @@
+<?php	return array (
+  'SP_DEFAULT_THEME' => 'simplebootx',
+  'DEFAULT_THEME' => 'simplebootx',
+  'SP_ADMIN_STYLE' => 'bluesky',
+  'URL_MODEL' => '2',
+  'URL_HTML_SUFFIX' => '.html',
+  'UCENTER_ENABLED' => 0,
+  'COMMENT_NEED_CHECK' => 0,
+  'COMMENT_TIME_INTERVAL' => 60,
+  'MOBILE_TPL_ENABLED' => 0,
+  'HTML_CACHE_ON' => false,
+  'alipay_config' => 
+  array (
+    'partner' => '2088712557348709',
+    'seller_email' => 'it@mattservice.com',
+    'key' => '27pbq19phnazlue0y9tqbule7037beuh',
+    'sign_type' => 'MD5',
+    'input_charset' => 'utf-8',
+    'cacert' => '/home/wwwroot/default/school/rsa_private_key.pem',
+    'transport' => 'http',
+  ),
+  'phone_code_api' => 'https://api.sms.mob.com',
+  'phone_code_appkey' => '5e2bebe5f488',
+  'AppID' => 'wx29e217b2756f8baa',
+  'AppSecret' => 'fcbdeeb8c9dca3e80210c9bee0c0ed9a',
+  'CHID' => '1261472601',
+  'PAY_KEY' => '01c6d59a3f9024db6336662acg5c8e74',
+);?>

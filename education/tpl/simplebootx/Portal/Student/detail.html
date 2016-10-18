@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>{$name} {$seo_title} {$site_name}</title>
+<meta name="keywords" content="{$seo_keywords}" />
+<meta name="description" content="{$seo_description}">
+<tc_include file="Public:header" />
+</head>
+
+<tc_include file="Public:menu" />
+<div class="banner1"><img src="__TMPL__Public/images/banner1.jpg" width="1002" height="246" /></div>
+<div class="main1">
+  <tc_include file="Public:left" />
+  <div class="m_r">
+    <div class="m_r1">
+      <div class="m_rt"><img src="__TMPL__Public/images/right_t.jpg" width="771" height="38" /></div>
+      <div class="m_rz">
+        <div class="m_rz1"> <span><font color="#333">首页</font>&nbsp;>&nbsp;教师介绍</span>教师介绍</div>
+        
+        <div class="m_rz2"> 
+      <div class="m_rz3"><a href="{:leuu('Portal/student/detail',array('id'=>$info['id']))}"><img src="{$info.img}" width="152" height="184" border="0" /></a></div>
+      
+     <div class="xy">
+     <div class="xy1">学号：<input name="" value="{$info.num}" type="text" class="bd1" /></div>
+     <div class="xy1">籍贯：<input name="" value="{$info.place}" type="text" class="bd1" /></div>
+     </div>
+     
+     <div class="xy">
+     <div class="xy1">年龄：<input name="" value="{$info.age}" type="text" class="bd1" /></div>
+     <div class="xy1">学历：<input name="" value="{$info.education}" type="text" class="bd1" /></div>
+     </div>
+     
+     <div class="xy">
+     <div class="xy2">证书：<input name="" value="{$info.book}" type="text" class="bd2" /></div>
+     </div>
+     
+     <div class="xy">
+     <div class="xy3"><span>工作经历：</span><textarea name="" cols="" rows="" class="bd3">{$info.experience}</textarea></div>
+     </div>
+     
+</div>
+        
+      </div>
+      <div class="m_rb"> <img src="__TMPL__Public/images/right_b.jpg" width="771" height="38" /></div>
+    </div>
+  </div>
+</div>
+<tc_include file="Public:foot" />

@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* 你自己的样式 */
+
+
+/**** 分页样式 ****/
+.pagebar{
+	text-align:center;
+	margin-top:10px;
+	overflow:hidden;
+	line-height:30px;
+}
+.pagebar .num{
+	border:1px solid #ddd;
+	padding:3px 9px;
+	background:#eee;
+	margin-right:3px;
+	text-decoration:none;
+}
+.pagebar a:hover{
+	background:#DD514C;
+	color:#fff;
+	border:1px solid #DD514C;
+}
+.pagebar .current{
+	border:none;
+	padding:3px 8px;
+	margin-right:3px;
+}
+.pagebar .prev{
+	border:1px solid #ddd;
+	padding:3px 9px;
+	background:#eee;
+	margin-right:3px;
+	text-decoration:none;
+}
+.pagebar .next{
+	border:1px solid #ddd;
+	padding:3px 9px;
+	background:#eee;
+	margin-right:3px;
+	text-decoration:none;
+}
+.pagebar .first,.pagebar .end{
+	border:1px solid #ddd;
+	padding:3px 9px;
+	background:#eee;
+	margin-right:3px;
+	text-decoration:none;
+}
+/**** 分页样式结束 ****/
+
+
+
+.form-table{background:#f6f6f6;}
+
+.form-table tr th{border:1px solid #ddd; padding:10px; width:200px; background:#f2f2f2;}
+.form-table tr td{border:1px solid #eee; padding:10px;}
+.form-table tr td .l-input{border:1px solid #ccc; padding:5px; width:60%;}
+.form-table tr td .m-input{border:1px solid #ccc; padding:5px; width:40%;}
+.form-table tr td .s-input{border:1px solid #ccc; padding:5px; width:20%;}
+.form-table tr td .select{border:1px solid #ccc; width:auto; padding:3px;}
+.form-table tr td .tip{color:#888; margin-left:10px; font-style:italic;}
+.form-table tr td .simple-textarea{border:1px solid #ccc; padding:5px; width:60%;}
+
+
+
+
+
+

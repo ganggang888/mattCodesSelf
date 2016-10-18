@@ -1,0 +1,69 @@
+<admintpl file="header"/>
+<style type="text/css">
+.col-auto { overflow: auto; _zoom: 1;_float: left;}
+.col-right { float: right; width: 210px; overflow: hidden; margin-left: 6px; }
+.table th, .table td {vertical-align: middle;}
+.picList li{margin-bottom: 5px;}
+</style>
+</head>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+  <ul class="nav nav-tabs">
+     <li><a href="{:U('Wchats/index')}">所有回复</a></li>
+     <li class="active"><a href="javascript:;"  target="_self">添加回复规则</a></li>
+  </ul>
+  <form name="myform" id="myform" action="{:u('Wchats/add_post')}" method="post" class="form-horizontal J_ajaxForms" enctype="multipart/form-data">
+  
+  <div class="col-auto">
+    <div class="table_full">
+      <table class="table table-bordered">
+            <tr>
+              <th width="80">分类</th>
+              <td>
+				<select name="type">
+                <foreach name="term" item="vo">
+                <option value="{$vo.id}">{$vo.name}</option>
+                </foreach>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th width="80">触发关键词</th>
+              <td>
+              	<input type="text" name="keyword" />
+              </td>
+            </tr>
+            <tr>
+              <th width="80">文本消息</th>
+              <td><textarea name='text' id='description'  required style='width:98%;height:50px;' placeholder='请填写文本消息'></textarea></td>
+            </tr>
+            
+            <tr>
+              <th width="80">相册图集 </th>
+              <td>
+				<fieldset class="blue pad-10">
+		        <legend>图片列表</legend>
+		        <ul id="photos" class="picList unstyled"></ul>
+				</fieldset>
+				<a href="javascript:;" style="margin: 5px 0;" onClick="javascript:flashupload('albums_images', '图片上传','photos',change_imagess,'10,gif|jpg|jpeg|png|bmp,0','','','')" class="btn">选择图片 </a>
+			  </td>
+            </tr>
+                        
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <input type="hidden" name="add_time" value="{:date('Y-m-d H:i:s')}">
+  <div class="form-actions">
+        <button class="btn btn-primary btn_submit J_ajax_submit_btn">提交</button>
+        <a class="btn" href="{:U('AdminPost/index')}">返回</a>
+  </div>
+ </form>
+</div>
+<script type="text/javascript" src="__ROOT__/statics/js/common.js"></script>
+<script type="text/javascript" src="__ROOT__/statics/js/content_addtop.js"></script>
+</body>
+</html>
+<style>
+#image6247 .input{ width:400px!important}
+</style>

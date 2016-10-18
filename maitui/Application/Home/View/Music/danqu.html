@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>胎教音乐</title>
+
+    <include file="Public:ui" />
+
+    <style>
+
+
+        .music-nav{background: #BDAD96;overflow: hidden; padding: 30px 0; margin-top: -20px;}
+        .music-nav div{width: 50%; float: left; text-align: center; }
+        .music-nav div a{display: inline-block;color: #fff; padding:0 30px; line-height:30px;  border-radius: 15px;}
+        .music-nav div a.curr{border:1px solid #fff;}
+        .music-list{padding: 20px;}
+
+        .wailian iframe{display: block; margin: 20px auto;}
+
+    </style>
+<!-- mattservice.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?0f1613d9e02019a4ea5f6ff5f5926759";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body style="background: #f5f5f5;">
+<include file="Public:pc-nav" />
+<div class="container wrapper" style="background: #fff">
+
+
+    <img src="__PUBLIC__/Home/images/music-top.jpg" width="100%" >
+
+    <!--这里是小导航！-->
+    <div class="music-nav">
+        <div>
+            <a href="/home/music/">胎教音乐</a>
+        </div>
+        <div>
+            <a href="/home/music/danqu.html" class="curr">简·单曲</a>
+        </div>
+    </div>
+
+    <div class="music-list">
+        <div class="form-group" style="width: 220px; margin: auto;">
+            <select class="form-control">
+                <option value="">请选择</option>
+                <option value="">See You Again</option>
+                <option value="">See You Again</option>
+                <option value="">See You Again</option>
+                <option value="">See You Again</option>
+                <option value="">See You Again</option>
+            </select>
+
+        </div>
+
+        <!--
+        下面是网易外链播放器
+        选择歌曲的名字跳转到不同的外链播放就好啦！！！
+        -->
+        <div class="wailian">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="http://music.163.com/outchain/player?type=1&id=3319532&auto=1&height=90"></iframe>        </div>
+        </div>
+
+
+
+
+
+    <br /><br />
+
+    <include file="Public:main-nav" />
+    <a href="/">
+        <img src="__PUBLIC__/Home/images/logo.png" width="300" style="display: block; margin: 20px auto;" alt="...">
+    </a>
+</div>
+
+<include file="Public:footer" />
+
+</body>
+</html>

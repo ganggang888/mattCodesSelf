@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$site_seo_title} {$site_name}</title>
+<meta name="keywords" content="{$site_seo_keywords}" />
+<meta name="description" content="{$site_seo_description}">
+<meta name="author" content="ganggang">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<!--<link rel="stylesheet" href="__TMPL__Public/css/register.css" />-->
+<!--公司引用的base，公司专门用的-->
+<link rel="stylesheet" href="__TMPL__Public/css/base.css" />
+<link rel="stylesheet" href="__TMPL__Public/css/index.css" />
+<!--公司引用的base，公司专门用的-->
+<link rel="stylesheet" href="__TMPL__Public/css/base.css" />
+<script type="text/javascript" src="__TMPL__Public/js/jquery.js" ></script>
+<script type="text/javascript" src="__TMPL__Public/js/public.js" ></script>
+<script type="text/javascript" src="__TMPL__Public/js/jquery.SuperSlide.js" ></script>
+<!--滑动轮播开始-->
+<script type="text/javascript" src="__TMPL__Public/js/swipe.min.js" ></script>
+<script type="text/javascript" src="__TMPL__Public/js/swipe.js"></script>
+</head>
+
+<body>
+<div class="overall">
+  <div class="above">
+    <div class="Logo"><a><img src="__TMPL__Public/images/matt.png" width="100%" ></a></div>
+    <div class="Logo1"> <img src="__TMPL__Public/images/head_1.png" style="float: left;width: 70%;" /> </div>
+    <a href="{:U('User/login/index')}" style="position: relative;border-radius:5px 5px ;color:#F7AB00;
+               left: 80%;top: -55px;background: #27B410;font-size: 15px;">登录</a></br>
+    <a href="{:U('User/register/index')}"  style="position: relative;
+               left: 80%;top: -45px;background:#27B410;
+               color:#F7AB00;
+               font-size: 15px;border-radius:5px 5px ;">注册</a> </div>
+  <div class="middle"> 
+    <!--图片轮播一大块--> 
+    <!--效果html开始-->
+    <div class="mBan2">
+      <div id="slideBox" class="slideBox">
+        <div class="hd">
+          <ul>
+            <li></li>
+            <li></li>
+            <li>
+          </ul>
+        </div>
+        <php>
+        $home_slides=sp_getslide("index");
+        </php>
+        <div class="bd">
+          <ul>
+          <foreach name="home_slides" item="vo">
+          <li><a href="{$vo.slide_url}" ><img src="{:sp_get_asset_upload_path($vo['slide_pic'])}" /></a></li>
+          </foreach>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script language="javascript">
+                             jQuery(".slideBox").slide({mainCell:".bd ul",effect:"fold",autoPlay:true,trigger:"click"});
+                        </script> 
+    
+    <!--效果html结束--> 
+    
+    <!--滑动轮播 -
+<div class="addWrap">
+  <div class="swipe" id="mySwipe">
+    <div class="swipe-wrap">
+      <div><a href="javascript:;"><img class="img-responsive" src="HD/images/1.jpg"/></a></div>
+      <div><a href="javascript:;"><img class="img-responsive" src="HD/images/2.jpg"/></a></div>
+      <div><a href="javascript:;"><img class="img-responsive" src="HD/images/3.jpg"/></a></div>
+    </div>
+  </div>
+  <ul id="position">
+    <li class="cur"></li>
+    <li class=""></li>
+    <li class=""></li>
+  </ul>
+</div>
+
+<script src="HD/js/swipe.js"></script> 
+<script type="text/javascript"> 
+var bullets = document.getElementById('position').getElementsByTagName('li');
+var banner = Swipe(document.getElementById('mySwipe'), {
+	auto: 2000,
+	continuous: true,
+	disableScroll:false,
+	callback: function(pos) {
+		var i = bullets.length;
+		while (i--) {
+		  bullets[i].className = ' ';
+		}
+		bullets[pos].className = 'cur';
+	}
+});
+</script>
+<!--轮播下一个--> 
+    
+    <!-- 滑动轮播结束--> 
+    <!--描述：轮播结束-->
+    <div class="zi">
+      <p>为什么选择麦忒？</p>
+      <p>因为我们有：</p>
+    </div>
+    <div class="md_02">
+      <p style="padding: 10px;font-size: 1.7em;color: #FFFFFF;height: 95px;">最专业的团队</p>
+      <p style="padding: 10px 30px;font-size: 1.4em;color: #FFFFFF;float: right;font-weight: bold;"><a href="#">详情点击</a></p>
+    </div>
+    <div class="md_03">
+      <p style="padding: 10px;font-size: 1.7em;color: #FFFFFF;height: 95px;">最齐全的设备</p>
+      <p style="padding: 10px 30px;font-size: 1.4em;color: #FFFFFF;float: right;font-weight: bold;"><a href="#">详情点击</a></p>
+    </div>
+    <div class="md_04">
+      <p style="padding: 10px;font-size: 1.7em;color: #FFFFFF;height: 95px;">最科学合理的课程</p>
+      <p style="padding: 10px 30px;font-size: 1.4em;color: #FFFFFF;float: right;font-weight: bold;"><a href="#">详情点击</a></p>
+    </div>
+    <div class="md_05">
+      <div class="top">
+        <div class="tt" style="background: #f7ab00;float: left;margin-right: 10px;"><a href="{:leuu('portal/list/classInfo')}">课程介绍</a></div>
+        <div class="tt" style="background: #00a73d;float: left;"><a href="{:leuu('portal/index/inquiry')}">考试查询</a></div>
+        <div class="tt" style="background: #abcd04; float: right;"><a href="#">专家团队</a></div>
+      </div>
+      <div class="btm">
+        <div class="tt" style="background: #f7ab00;float: left;margin-right: 10px;float: left;margin-top: 10px;"><a href="#">最新活动</a></div>
+        <div class="tt" style="background: #00a73d;float: left;margin-top: 10px;margin-right: 10px;"><a href="#">证书介绍</a></div>
+        <div class="tt" style="background: #abcd04;float: right;margin-top: 10px;"><a href="#">关于我们</a></div>
+      </div>
+    </div>
+    <div class="md_04">
+      <p style="font-size: 1.5em;color: #FFFFFF;height: 95px;text-align: center;padding-top: 7px;letter-spacing: 2px;">本期优秀学员介绍</p>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="Img"> <a href="#">尾部未定稿</a></div>
+  </div>
+</div>
+</body>
+</html>

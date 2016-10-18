@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>{$post_title} {$site_name} {$post_title}</title>
+    <tc_include file="Public:css" />
+    <style>
+		.demo-nav.fixed.fixed-top{z-index:8;background:#fff;width:100%;padding:0;border-bottom:solid 3px #0a8;-webkit-box-shadow:0 3px 6px rgba(0, 0, 0, .175);box-shadow:0 3px 6px rgba(0, 0, 0, .175);}
+    </style>
+	</head>
+	<body>
+ <tc_include file="Public:header" />
+<tc_include file="Public:nav" />
+			<br/><br/>
+			<br/><br/>
+
+			<div class="contatop key line   ">
+				<div class="xm6 ">
+				{$post_content}
+				</div>
+				
+			<div class="table-responsive xm3  float-right">
+                   <table class="table1">
+                   <tr class="text-main"><td><a href="{:leuu('portal/page/index',array('id'=>20))}" class="text-main">张萌雨</a></td></tr><php>
+        $termInfo = termInfo(4);
+        </php>
+        <foreach name="termInfo" item="vo">
+        <tr>
+          <td><a <if condition="$vo[term_id] eq $term_id">class="text-main"</if> href="{:leuu('portal/list/index',array('id'=>$vo['term_id']))}">{$vo.name}</a></td>
+        </tr>
+        </foreach>
+                   </table>
+           </div>
+           <tc_include file="Public:foot" />
+			</div>
+            
+        </div>
+			<!--尾巴结束-->
+	</body>
+</html>

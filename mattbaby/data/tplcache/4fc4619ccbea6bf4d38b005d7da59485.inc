@@ -1,0 +1,1 @@
+<div class="diyx3"> <a href="[field:typelink /]"><img src="[field:typeimg /]" >[field:content /]</a> </div>

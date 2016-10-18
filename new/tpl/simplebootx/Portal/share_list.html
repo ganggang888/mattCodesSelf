@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>{$name} {$seo_title} {$site_name}</title>
+    <link rel="stylesheet" href="css/pintuer.css">
+    <tc_include file="Public:css" />
+    <style>
+		.demo-nav.fixed.fixed-top{z-index:8;background:#fff;width:100%;padding:0;border-bottom:solid 3px #0a8;-webkit-box-shadow:0 3px 6px rgba(0, 0, 0, .175);box-shadow:0 3px 6px rgba(0, 0, 0, .175);}
+    </style>
+	</head>
+	<body>
+<tc_include file="Public:header" />
+<tc_include file="Public:nav" />
+			<br/><br/>
+			<br/><br/>
+			<div class="contatop textkey line   ">
+				<div class="xm6 ">
+                <php>
+					$lists = sp_sql_posts_paged("cid:$cat_id;order:post_date DESC;",10);
+				</php>
+                <volist name="lists['posts']" id="vo">
+                <if condition="$key neq 0"><br/><br/><br/></if>
+                <php>
+					$smeta=json_decode($vo['smeta'], true);
+				</php>
+                <a href="{:leuu('portal/article/index',array('id'=>$vo['tid']))}"><h1 <if condition="$key eq 0">class="text-main"</if>>{$vo.post_title}</h1></a>
+                <span class="text-big text-gray ">{$vo.post_keywords}</span>
+					<br/>
+					<br/>
+                    <if condition="!empty($smeta['thumb'])">
+                    <span class="xm0"><img src="{:sp_get_asset_upload_path($smeta['thumb'])}" width="100%"></span>
+				<br/>
+				<br/>
+                    </if>
+                    <php>
+                $content = strip_tags($vo['post_content']);
+                </php>
+                <if condition="strlen($content) gt 200">
+                <p>{:mb_substr($content,0,200,'utf-8')}...</p>
+                <else />
+                {$content}
+                </if>
+                </volist>
+                {$lists['page']}
+				</div>
+				
+			
+				<php>
+                $resultInfo = termInfo(6);
+                </php>
+			<div class="table-responsive xm3  float-right">
+                   <table class="table1">
+                   <foreach name="resultInfo" item="vo">
+                   <tr><td><a href="{:leuu('portal/list/index',array('id'=>$vo['term_id']))}" <if condition="$term_id eq $vo['term_id']">class="text-main"</if>><h3>{$vo.name}</h3></a></td></tr>
+                   </foreach>
+                   </table>
+           </div>
+           <tc_include file="Public:foot" />
+			</div>
+
+	</body>
+</html>

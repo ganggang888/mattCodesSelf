@@ -1,0 +1,113 @@
+<include file="public:admin_top" />
+<body>
+	<nav class="breadcrumb">
+		<i class="iconfont">&#xf012b;</i>
+		首页
+		<span class="c-gray en">&gt;</span>
+		系统管理
+		<span class="c-gray en">&gt;</span>
+		调查列表
+		<a class="btn btn-success radius r mr-20" style="line-height: 1.6em; margin-top: 3px" href="javascript:location.replace(location.href);" title="刷新">
+			<i class="icon-refresh"></i> 刷 新
+		</a>
+	</nav>
+	<div class="pd-20">
+		<div class="text-c" style="display:none;">
+			<span class="select-box" style="width: 175px">
+				<select name="cid" class="select">
+					<option value=''>-- 请选择所属分类 --</option>
+					<volist name="categoryTR" id="vo">
+					<option value="{$vo.id}">{$vo.count|nums2blank} {$vo.catename}</option>
+					</volist>
+				</select>
+			</span>
+
+			<input type="text" name="" id="" placeholder="文章标题" style="width: 250px" class="input-text">
+			<button name="" id="" class="btn btn-success" type="submit">
+				<i class="icon-search"></i>
+				搜索
+			</button>
+		</div>
+		<div class="cl pd-5 bg-1 bk-gray mt-20" style="border-bottom: none;">
+			<span class="l">
+
+
+			</span>
+			<span class="r">
+				共有数据：
+				<strong>{$total}</strong>
+				条
+			</span>
+		</div>
+		<table class="table table-border table-bordered table-bg table-hover table-sort">
+			<thead>
+				<tr class="text-c">
+
+					<th>从哪里知道麦忒</th>
+					<th>设计分</th>
+					<th>内容分</th>
+					<th>你希望麦忒告诉你加入怎样的内容</th>
+					<th>对于产品有什么要说</th>
+					<th>有什么想要对麦忒吐槽一下的</th>
+					<th>联系方式：QQ、微信都可以</th>
+					<th>填写时间</th>
+					<th width="40">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<volist name="diaocha" id="vo">
+				<tr class="text-c">
+
+					<td>{$vo.que1}</td>
+					<td>{$vo.que2}</td>
+					<td>{$vo.que3}</td>
+					<td>{$vo.que4}</td>
+					<td>{$vo.que5}</td>
+					<td>{$vo.que6}</td>
+					<td>{$vo.que7}</td>
+					<td>{$vo.create_time|to_date='Y-m-d'}</td>
+
+
+					<td class="f-14 article-manage">
+						<neq name="vo.cid" value="2">
+						<a class="ml-10" href="javascript:delarticle({$vo.id});" title="删除">
+							<i class="icon-trash"></i>
+						</a>
+						</neq>
+					</td>
+				</tr>
+				</volist>
+			</tbody>
+		</table>
+		<div class="pagebar">{$page}</div>
+	</div>
+	<script type="text/javascript" src="__H-UI__/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/layer1.9/layer.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/laypage/laypage.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.doc.js"></script>
+	
+	
+	<script type="text/javascript">
+		function delarticle(id)
+		{
+			$.ajax({
+			    type: "POST",
+			    url: "__URL__/diaocha_del",
+			    data: "id="+id,
+			    success: function(msg){
+			    	layer.msg('删除成功！',{icon: 1});
+			    	setTimeout('location.reload()',1000); 
+			    }
+			});
+		}
+		
+
+	</script>
+	
+	
+</body>
+</html>

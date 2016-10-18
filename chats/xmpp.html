@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>麦忒专家</title>
+		<meta name="renderer" content="webkit">
+		<script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript"  
+src="strophejs/strophe.min.js"></script>
+		<script type="text/javascript" 
+src="pingstream.js"></script>
+	</head>
+	<body>
+	  <div id='login' style='text-align: left'>
+		<form name='cred'>
+		  <label for='jid'>JID:</label>
+		  <input type='text' id='jid' value="lhc@xmpp.mattservice.com" /><br/>
+		  <label for='pass'>Password:</label>
+		  <input type='password' id='pass' value="123456" /><br/>
+		  <input type='button' id='connect' value='connect' />
+		</form>
+	  </div>
+	  <hr />
+	  <div style="text-align: left">
+		  <label for='tojid'>tojid</label>
+		  <input type='text' id='tojid' value="oxy@xmpp.mattservice.com" /><br/>
+		  <label for='msg'>msg:</label>
+		  <textarea id="msg">Hello world!!!i am oxy.</textarea>
+		  <br/>
+		  <input type='button' id='replay' value='replay' />
+	  </div>
+	  <hr />
+	  <div id='log'></div>
+	</body>
+</html>

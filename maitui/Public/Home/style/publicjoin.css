@@ -1,0 +1,79 @@
+body{font-family: '微软雅黑' font-size: 14px; margin-top: 50px;}
+ul,ol{list-style: none;}
+img{max-width: 100%;}
+
+.main-nav{margin-top: 20px;}
+
+
+.wrapper {
+    margin-right: auto;
+    margin-left: auto;
+ margin-top: 50px;
+
+}
+.wrapper .inner{ background: #fff; padding: 15px;}
+
+@media (max-width: 768px) {
+ .wrapper{ padding: 0; overflow: hidden;}
+
+
+}
+@media (min-width: 992px) {
+    .main-nav div{padding: 15px;  opacity:0.8;filter:alpha(opacity=80);}
+    .main-nav div a{display: block;padding: 10px; }
+    .main-nav div a:hover{background: rgba(255, 255, 255, 0.54);}
+}
+@media (min-width: 1200px) {
+
+
+}
+
+
+
+
+/**** 分页样式 ****/
+.pagebar{
+    text-align:center;
+    margin-top:10px;
+    overflow:hidden;
+    line-height:30px;
+}
+.pagebar .num{
+    border:1px solid #ddd;
+    padding:3px 9px;
+    background:#eee;
+    margin-right:3px;
+    text-decoration:none;
+}
+.pagebar a:hover{
+    background:#DD514C;
+    color:#fff;
+    border:1px solid #DD514C;
+}
+.pagebar .current{
+    border:none;
+    padding:3px 8px;
+    margin-right:3px;
+}
+.pagebar .prev{
+    border:1px solid #ddd;
+    padding:3px 9px;
+    background:#eee;
+    margin-right:3px;
+    text-decoration:none;
+}
+.pagebar .next{
+    border:1px solid #ddd;
+    padding:3px 9px;
+    background:#eee;
+    margin-right:3px;
+    text-decoration:none;
+}
+.pagebar .first,.pagebar .end{
+    border:1px solid #ddd;
+    padding:3px 9px;
+    background:#eee;
+    margin-right:3px;
+    text-decoration:none;
+}
+/**** 分页样式结束 ****/

@@ -1,0 +1,166 @@
+<admintpl file="header" />
+<style>
+    .t_head{
+        text-align: center;
+        background-color: #dbe5e7;
+        font-size: 20px;
+        height: 40px;
+        float: inherit;
+        margin: 0 0 0px;
+        line-height: 40px;
+    }
+    fieldset{
+
+        margin:0px auto
+    }
+    p{
+        font-size: 20px;
+        margin: 0 0 0px;
+    }
+</style>
+</head>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:U('Sdtmain/index')}">学员列表</a></li>
+        <li class="active"><a href="#" target="_self">在校课程表现</a></li>
+    </ul>
+    <div class="common-form">
+        <form method="post" class="form-horizontal J_ajaxForms" action="{:U('Sdtmain/result_edit_post',array('result_id'=>$result['id']))}">
+            <div class="search_type cc mb10">
+                <div class="well form-search">
+					<span class="mr20">
+						<p>{$student.name}->{$info.name}</p>
+					</span>
+                </div>
+            </div>
+
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label">选择课程:</label>
+                    <div class="controls">
+                        <label style="padding-top: 5px">{$parent_info.name}->{$info.name}</label>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">上课照片:</label>
+                    <div  class="controls">
+                        <foreach name="result.class_photo" item="vo">
+                            <img src="{$vo}" title="双击查看" width="200px" style="padding-left: 5px" ondblclick="image_priview(this.src);"/>
+                        </foreach>
+                    </div>
+                    <div class="controls">
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="button" onclick="flashupload('thumb_images', '重新上传','class',change_images,'10,jpg|jpeg|gif|png|bmp,0','','&max_count=5','');return false;" value="重新上传"/>
+                                </td>
+                                <td>
+                                    <ul name='post[class_photo]'  id='class' />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="control-group">
+                    <label class="control-label">作品展示:</label>
+                    <div  class="controls">
+                        <foreach name="result.works_photo" item="vo">
+                            <img src="{$vo}" title="双击查看" width="200px" style="padding-left: 5px" ondblclick="image_priview(this.src);"/>
+                        </foreach>
+                    </div>
+                    <div  class="controls">
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="button" onclick="flashupload('thumb_images', '重新上传','works',change_images,'10,jpg|jpeg|gif|png|bmp,0','','&max_count=5','');return false;" value="重新上传"/>
+                                </td>
+                                <td>
+                                    <ul name='post[works_photo]'  id='works' />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">学习成绩:</label>
+                    <div class="controls">
+                        <input type="text" value="{$result.score}" name="post[score]" id="score"  class="input input_hd J_title_color"  />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">老师评价:</label>
+                    <div class="controls">
+                        <textarea name='post[teacher_result]' id='teacher_result' style='width:60%;height:100px;'>{$result.teacher_result}</textarea>
+                    </div>
+                </div>
+
+            </fieldset>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn_submit J_ajax_submit_btn">提交</button>
+                <a class="btn" href="{:U('Sdtmain/result_index',array('id'=>$student['id']))}">返回</a>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="__ROOT__/statics/js/common.js"></script>
+<script type="text/javascript" src="__ROOT__/statics/js/content_addtop.js"></script>
+<script type="text/javascript">
+    $(function () {
+        /////---------------------
+        var form = $('form.J_ajaxForms');
+        Wind.use('validate', 'ajaxForm', 'artDialog', function () {
+            form.validate({
+                submitHandler: function (forms) {
+                    //if (formloading) return;
+                    $(forms).ajaxSubmit({
+                        url: form.attr('action'), //按钮上是否自定义提交地址(多按钮情况)
+                        dataType: 'json',
+                        beforeSubmit: function (arr, $form, options) {
+                            formloading = true;
+                        },
+                        success: function (data, statusText, xhr, $form) {
+                            formloading = false;
+//                            var a =JSON.stringify(data);
+//                            alert(a);
+                            if (data.status) {
+                                //alert();
+                                setCookie("refersh_time", 1);
+                                //添加成功
+                                Wind.use("artDialog", function () {
+                                    art.dialog({
+                                        id: "succeed",
+                                        icon: "succeed",
+                                        fixed: true,
+                                        lock: true,
+                                        background: "#CCCCCC",
+                                        opacity: 0,
+                                        content: "修改成功!",
+                                        button: [
+                                            {
+                                                name: '返回列表页',
+                                                callback: function () {
+                                                    location = "{:U('Sdtmain/result_index',array('id'=>$student['id']))}";
+                                                    return true;
+                                                }
+                                            }
+                                        ]
+                                    });
+                                });
+                            } else {
+                                isalert(data.info);
+                            }
+                        }
+                    });
+                }
+            })
+        })
+    })
+
+
+</script>
+</body>
+
+
+</html>

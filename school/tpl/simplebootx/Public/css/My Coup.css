@@ -1,0 +1,197 @@
+
+.roundedOne {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin: 20px auto;
+  background: #FFFFFF;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+
+}
+.roundedOne label {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  background: -moz-linear-gradient(top, #F9A51A 0%, #F9A51A 100%);
+  background: -webkit-linear-gradient(top, #F9A51A 0%, #F9A51A 100%);
+  background: linear-gradient(to bottom, #F9A51A 0%, #F9A51A 100%);
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px white;
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px white;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px white;
+}
+.roundedOne label:after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background: #E7E7E7;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+
+}
+.roundedOne label:hover::after {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  opacity: 0.3;
+}
+.roundedOne input[type=checkbox] {
+  visibility: hidden;
+}
+.roundedOne input[type=checkbox]:checked + label:after {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+
+
+    @media only screen and (max-height: 530px) and (min-height: 440px) {
+.My{
+       background-color: #00a67e;
+    height: 120px;
+    color: #FFFFFF;
+    }
+    .My1{
+    height: 120px;
+    color: #FFFFFF;
+        background-color:#8bc53f ;
+    }
+
+    .My2{
+    color: #FFFFFF;
+    height: 160px;
+    }
+    .MySapn{
+    margin-left: -10%;
+    }
+    .Myp1{
+    margin-top: -92px;
+    margin-left: 18%;
+    }
+    .Myp{
+    margin-top:12px;
+    margin-left: 32%;
+    }
+    .pone{
+	width: 94%;height: 40px;background-color: #C00000;
+            	display: block;margin: 0 auto;
+            	border-radius:15px 15px ;text-align: center;line-height: 40px;
+            	color: #F0FFFF;
+            	margin-top: 60px;
+}
+
+    }
+    @media only screen and (max-height: 599px) and (min-height: 531px) {
+    .My{
+       background-color: #00a67e;
+    height: 126px;
+    color: #FFFFFF;
+    }
+    .My1{
+    height: 126px;
+    color: #FFFFFF;
+        background-color:#8bc53f ;
+    }
+    .My2{
+    color: #FFFFFF;
+    height: 190px;
+    }
+    .MySapn{
+    margin-left: -10%;
+    }
+    .Myp1{
+    margin-top: -92px;
+    margin-left: 18%;
+    }
+    .Myp{
+    margin-top:12px;
+    margin-left: 32%;
+    }
+        .pone{
+	width: 94%;height: 40px;background-color: #C00000;
+            	display: block;margin: 0 auto;
+            	border-radius:15px 15px ;text-align: center;line-height: 40px;
+            	color: #F0FFFF;
+            	margin-top: 60px;
+}
+    } 
+    @media only screen and (max-height: 680px) and (min-height: 600px) {
+    	.My{
+       background-color: #00a67e;
+    height: 146px;
+    color: #FFFFFF;
+    }
+    .My1{
+    height: 146px;
+    color: #FFFFFF;
+        background-color:#8bc53f ;
+    }
+    .My2{
+    color: #FFFFFF;  
+    height: 180px;
+    }
+    .MySapn{
+    margin-left: -10%;
+    }
+    .Myp1{
+    margin-top: -108px;
+    margin-left: 20%;
+    }
+    .Myp{
+    margin-top:12px;
+    margin-left: 32%;
+    }
+        .pone{
+	width: 94%;height: 40px;background-color: #C00000;
+            	display: block;margin: 0 auto;
+            	border-radius:15px 15px ;text-align: center;line-height: 40px;
+            	color: #F0FFFF;
+            	margin-top: 120px;
+}
+
+    }
+    @media only screen and (max-height: 736px) and (min-height: 681px) {
+    	.My{
+       background-color: #00a67e;
+    height: 166px;
+    color: #FFFFFF;
+    }
+    .My1{
+    height: 166px;
+    color: #FFFFFF;
+        background-color:#8bc53f ;
+    }
+    .My2{
+    color: #FFFFFF;
+    height: 256px;
+    }
+    .MySapn{
+    margin-left: -10%;
+    }
+    .Myp1{
+    margin-top: -108px;
+    margin-left: 20%;
+    }
+    .Myp{
+    margin-top:12px;
+    margin-left: 32%;
+    }
+            .pone{
+	width: 94%;height: 40px;background-color: #C00000;
+            	display: block;margin: 0 auto;
+            	border-radius:15px 15px ;text-align: center;line-height: 40px;
+            	color: #F0FFFF;
+            	margin-top: 60px;
+}
+
+    }

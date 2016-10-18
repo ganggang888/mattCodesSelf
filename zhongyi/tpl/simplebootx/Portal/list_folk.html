@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{$name} {$seo_title} {$site_name}</title>
+<tc_include file="Public:css"/>
+</head>
+<body class="jifa">
+<div class="limiter">
+	<tc_include file="Public:header"/>
+	<!--面包开始-->
+	<div class="bread">
+		<div class="fl">
+			<h3>{$name}</h3>
+			<p>{$description}</p>
+		</div>
+		<div class="fr">
+			<a href="{$Tink.const.WEB_PATH}">首页</a>><if condition="!empty($grand)">
+                {$grand.name} > {$p_term.name} > <a href="index.php?g=portal&m=list&a=index&id={$now_term.term_id}">{$now_term.name}</a>
+                <elseif condition="!empty($p_term)" />
+                {$p_term.name} ><a href="index.php?g=portal&m=list&a=index&id={$now_term.term_id}" > {$now_term.name}</a>
+                <else />
+                <a href="index.php?g=portal&m=list&a=index&id={$now_term.term_id}"> {$now_term.name}</a>
+                </if>
+		</div>
+	</div>
+	<!--面包结束-->
+
+	<!--主体开始-->
+	<div class="main main-jf clearfix">
+		<div class="left">
+			<php>
+					$lists = sp_sql_posts_paged($_GET['time'],"cid:$cat_id;order:post_date DESC;",10);
+				</php>
+                <foreach name="lists['posts']" item="vo">
+                <php>
+             		$smeta=json_decode($vo['smeta'], true);
+             	</php>
+                <dl class="dl">
+				<a href="{:leuu('article/index',array('id'=>$vo['tid']))}">
+                <if condition="!empty($smeta['thumb'])">
+					<dt>
+						<img src="{:sp_get_asset_upload_path($smeta['thumb'])}" width="140" height="140" alt="">
+					</dt>
+                    </if>
+				<dd>
+                <if condition="$term_id eq 7">
+                <h5>{$vo.post_title}<span class="fr">门诊时间：{$vo.start}-{$vo.close}</span></h5>
+                <else />
+                <h5>{$vo.post_title}<span class="fr">发布时间：{$vo.post_modified}</span></h5>
+                </if>
+					<p>
+						<php>
+                            if (strlen(strip_tags($vo['post_content'])) <= 101) {
+                            	echo strip_tags($vo['post_content']);
+                            } else {
+                            echo mb_substr(strip_tags($vo['post_content']),0,101,'utf-8')."...";
+                            }
+                            </php>
+					</p>
+				</dd>
+				</a>
+			</dl>
+                </foreach>
+			<div class="center">
+				<span class="page">
+					{$lists['page']}
+				</span>
+			</div>			
+		</div>
+		<tc_include file="Public:right"/>
+	</div>
+	<!--主体结束-->
+<tc_include file="Public:foot"/>
+</body>
+</html>

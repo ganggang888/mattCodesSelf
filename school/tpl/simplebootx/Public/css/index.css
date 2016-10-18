@@ -1,0 +1,243 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+.overall {
+	width: 100%;
+	background: #ffeaba;
+	font-size:14px;
+
+}
+.above {
+	width: 100%;
+}
+.above img{
+	width: 100%;
+}
+.dengl{
+	width: 100%;
+	margin-top: -40px;
+	position: absolute;
+	z-index: 999999;
+	color: #FFFFFF;
+	line-height: 26px;
+}
+.dengl a{
+	float:left;
+	display: block;
+	width:30%;
+	margin-left: 8%;
+	margin-top: 8px;
+		text-align: center;
+	background-color:#27b310;
+	border-radius:20px 20px ;
+		color: #FFFFFF;
+}
+/*响应式，针对iPhone各个型号的高度*/
+
+
+/*轮播特效*/
+.middle {
+	width: 100%;
+	margin: auto;
+}
+.middle p{
+	padding: 5px;font-size: 1.6em;color: #FFFFFF;height: 95px;
+}
+.middle span{
+	padding: 58px 20px;font-size: 1.2em;color: #FFFFFF;float: right;font-weight: bold;
+}
+.md_01{
+	height: 240px;
+	background:#57B1E6;
+}  
+/*轮播开始*/
+.addWrap{ position:relative; width:100%;background:#fff;margin:0; padding:0;}
+.addWrap .swipe{overflow: hidden;}
+.addWrap .swipe-wrap{overflow:hidden;position:relative; }
+.addWrap .swipe-wrap > div {float: left;width: 100%;position:relative; }
+
+#position{ position:absolute; bottom:0; right:0;  margin:0;  opacity: 0.4; width:100%; filter: alpha(opacity=50);text-align:center;}
+#position li{width:10px;height:10px;margin:0 2px;display:inline-block;-webkit-border-radius:5px;border-radius:5px;background-color:#F5F5F5;}
+#position li.cur{background-color:#FF0000;}
+.img-responsive { display: block; max-width: 100%;  height: auto;}
+
+
+
+/*轮播结束*/
+
+.md_03{
+	width: 96%;
+	margin: auto;
+	margin-top: 10px;
+}
+.md_03 img{
+	width: 100%;
+	   border-radius: 7px 7px;
+}
+.md_04{
+	width: 96%;
+	margin: auto;
+	height:190px;
+	background: #8bc53f;
+	border-radius: 7px;
+	margin-top:10px ;
+}
+.md_04 a{
+	color: #FFFFFF;
+}
+
+   	@media only screen and (max-height: 530px) and (min-height: 440px) {
+   	.Student dl{
+   		width: 30%;
+   		color: #FFFFFF;
+   		background-color: #f9a51a;
+   		float: left;
+   		margin: 10px 0px 0px 2.6%;
+        border-radius:10px 10px ;
+        height: 80px;
+        line-height: 60px;
+        text-align: center;
+   	}
+   	.Student img {
+   		width: 45%;
+   	}
+   	.Student dd{
+   		margin-top: -25px;
+   	}
+   	.md_05{
+	width: 100%;
+	margin: auto;
+	height: 180px;
+	font-size: 12px;
+
+}
+
+}
+@media only screen and (max-height: 599px) and (min-height: 531px) {
+.Student dl{
+   		width: 30%;
+   		text-align: center;
+   		color: #FFFFFF;
+   		background-color: #f9a51a;
+   		float: left;
+   		margin: 10px 0px 0px 2.6%;
+        border-radius:10px 10px ;
+        height: 80px;
+         line-height: 60px;
+   	}
+   	.Student img {
+   		width: 45%;
+   	}
+   	.Student dd{
+   		margin-top: -25px;
+   	}
+   	.md_05{
+	width: 100%;
+	margin: auto;
+	height: 180px;
+	font-size: 12px;
+
+}
+
+} 
+@media only screen and (max-height: 680px) and (min-height: 600px) {
+.Student dl{
+   		width: 30%;
+   		text-align: center;
+   		color: #FFFFFF;
+   		background-color: #f9a51a;
+   		float: left;
+   		margin: 10px 0px 0px 2.6%;
+        border-radius:10px 10px ;
+        height: 100px;
+         line-height: 80px;
+   	}
+   	.Student img {
+   		width: 40%;
+
+   	}
+   	.Student img {
+   		width: 45%;
+   	}
+   	.Student dd{
+   		margin-top: -34px;
+   	}
+   	.md_05{
+	width: 100%;
+	margin: auto;
+	height: 220px;
+	font-size: 12px;
+
+}
+
+}
+@media only screen and (max-height: 736px) and (min-height: 681px) {
+.Student dl{
+   		width: 30%;
+   		text-align: center;
+   		color: #FFFFFF;
+   		background-color: #f9a51a;
+   		float: left;
+   		margin: 10px 0px 0px 2.6%;
+        border-radius:10px 10px ;
+        height: 100px;
+        line-height: 80px;
+   	}
+   	.Student img {
+   		width: 40%;
+
+   	}
+   	.Student img {
+   		width: 45%;
+   	}
+   	.Student dd{
+   		margin-top: -30px;
+   	}
+   	.md_05{
+	width: 100%;
+	margin: auto;
+	height: 220px;
+	font-size: 12px;
+
+}
+}
+   	
+   	.md_06{
+	width: 96%;
+	margin: auto;
+	height:40px;
+	border-radius:10px 10px ;
+	margin-top: 10px;
+	background: #00a67e;
+	text-align: center;
+	font-size: 20px;
+	color: #FFFFFF;
+	line-height: 40px;
+}
+.md_04 a{
+	color: #FFFFFF;
+}
+.footer{
+	width: 100%;
+	margin:0 auto;
+		height: 174px;
+}
+.footer ul{
+	margin-top: 12px;
+}
+.footer ul li{
+margin-top: 8px;
+	color:#8bc53f ;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+}
+.footer ul li a{
+
+	color:#8bc53f ;
+	font-size: 15px;
+
+}
+

@@ -1,0 +1,71 @@
+<include file="public:admin_top" />
+
+<body>
+
+	<div style="padding:20px; text-align:left;">
+			<input type="hidden" id='id' value="{$question[0]['id']}" />
+			<h2 style="font-size:18px;">问题：</h2>
+			<textarea id='question' style='width:100%; height:100px; border:1px solid #ddd;'>{$question[0]['question']}</textarea>
+			<h2 style="font-size:18px;">答案：</h2>
+			<textarea id='answer' style='width:100%; height:100px; border:1px solid #ddd;'>{$question[0]['answer']}</textarea><br />
+			<h2 style="font-size:18px;">排序：</h2>
+			<input class="input-text" style="width: 200px" type="text" id="flpx" value="{$question[0]['zsort']}" /><br /><br />
+			<button type="button" class="btn btn-success" id="tjfl">
+				<i class="icon-edit"></i> 修改
+			</button>
+	</div>
+	<script type="text/javascript" src="__H-UI__/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/layer1.9/layer.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.doc.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/glenn.js"></script>
+
+
+	<script type="text/javascript">
+		$(function(){
+			
+			//添加分类
+			$("#tjfl").bind('click',function(){
+				
+				var question = $("#question").val();
+				var answer   = $("#answer").val();
+				var flpx     = $("#flpx").val();
+				var id       = $("#id").val();
+
+				if(question==''){
+					layer.msg('问题不能为空！',{icon: 2});
+					$("#question").focus();
+					return false;
+				}
+				if(answer==''){
+					layer.msg('答案不能为空！',{icon: 2});
+					$("#answer").focus();
+					return false;
+				}
+				if(flpx==''){
+					layer.msg('排序不能为空！',{icon: 3});
+					$("#flpx").focus();
+					return false;
+				}
+				
+				$.ajax({
+				    type: "POST",
+				    url: "__URL__/save_question_edit",
+				    data: "id="+id+"&answer="+answer+"&question="+question+"&zsort="+flpx,
+				    success: function(msg){
+				    	
+				    	layer.msg('修改问答成功！',{icon: 1});
+                        $("#tjfl").unbind( "click" );   //防止双击重复提交
+			    		setTimeout('parent.location.reload()',1000); 
+				    }
+				});
+			});
+			//添加分类结束
+			
+		});
+		
+	</script>
+	
+</body>
+</html>

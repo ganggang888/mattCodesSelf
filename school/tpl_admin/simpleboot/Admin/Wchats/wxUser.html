@@ -1,0 +1,46 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="javascript:;">微信用户</a></li>
+  </ul>
+  <form class="J_ajaxForm" action="" method="post">
+    <table class="table table-hover table-bordered table-list">
+      <thead>
+        <tr>
+          <th width="50">id</th>
+          <th>昵称</th>
+          <th>性别</th>
+          <th>头像</th>
+          <th>地址</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <foreach name="result" item="vo">
+      <php>
+      $info = json_decode($vo['content'],true);
+      </php>
+        <tr>
+          <td>{$vo.id}</td>
+          <td><a href="" target="_blank"> <span>{$info.nickname}</span></a></td>
+          <td>
+          <if condition="$info[sex] eq 1">男
+          <else />
+          女
+          </if>
+          </td>
+          <td><img src="{$info.headimgurl}" width="100" /></td>
+          <td>{$info.country}{$info.province}{$info.city}</td>
+          <td><a href="{:U('Wchats/getRed',array('id'=>$vo[id]))}">发红包</a></td>
+        </tr>
+      </foreach>
+      <tfoot>
+      </tfoot>
+    </table>
+    <div class="pagination">{$page}</div>
+  </form>
+</div>
+<script src="__ROOT__/statics/js/common.js"></script>
+</body>
+</html>

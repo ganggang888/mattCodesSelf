@@ -1,0 +1,44 @@
+<!--开始-->
+
+<php>
+$allNav = theNav();
+</php>
+<a onclick="tor()" id="tor">
+<div class="drawer-toggle drawer-hamberger"> <span></span></div>
+</a> <a onclick="one()"><span class="indexspan" id="one"></span></a>
+<div class="indexUL" id="indexUL">
+  <ul>
+  <foreach name="allNav" item="vo">
+  <php>
+  if ($vo['href'] == 'home') {
+  	$url = '/';
+  } else {
+  	$href = unserialize($vo[href]);
+    if ($href) {
+        $url = "/".$href['action']."?id=".$href['param']['id'];
+    } else {
+    	$url = $vo['href'];
+    }
+  }
+  
+  </php>
+  <a href="{$url}" style="color:#FFF">
+    <li> {$vo.label} </li>
+    </a>
+  </foreach>
+  </ul>
+</div>
+<!--结束--> 
+
+<script>
+             function one(){/*这是那二个XX*ONE是XXtorSHIｎａｇｅ*/
+                 document.getElementById("indexUL").style.display='none';
+                 document.getElementById("one").style.display='none';
+                 document.getElementById("tor").style.display='block';
+                 }
+    	         function tor(){
+                 document.getElementById("indexUL").style.display='block';
+                 document.getElementById("tor").style.display='none';
+                 document.getElementById("one").style.display='block';
+                 }
+             </script>

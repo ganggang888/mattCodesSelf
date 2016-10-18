@@ -1,0 +1,70 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+	<div class="wrap J_check_wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:;">宝宝每日信息</a></li>
+			<li><a href="{:U('Vaccine/addBabyDay')}">添加信息</a></li>
+		</ul>
+
+		<form class="well form-search">
+			<div class="search_type cc mb10">
+				<div class="mb10">
+					<span class="mr20">
+						内容： 
+						<input type="text" name="name" id="name" style="width: 200px;" value="{$name}" placeholder="请输入名称..."> --
+						天数：
+						<input type="text" name="day" id="day" style="width:150px" value="{$day}" placeholder="请输入需要查询的天数" />
+						<a href="javascript:;" onClick="todo()" class="btn btn-primary">搜索</a>
+					</span>
+					<script>
+					function todo() {
+						var name = $("#name").val();
+						var day = $("#day").val();
+						window.location.href='index.php?g=Admin&m=Vaccine&a=getBabyInfo&name='+name+'&day='+day;
+					}
+					</script>
+				</div>
+			</div>
+		</form>
+		<form class="form-horizontal J_ajaxForm" action="" method="post">
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th width="100">ID</th>
+						<th>对应天数</th>
+                        <th>详细信息</th>
+                        <th>身高</th>
+                        <th>体重</th>
+                        <th width="120">操作</th>
+					</tr>
+				</thead>
+				<foreach name="result" item="vo">
+				<tr>
+					<td>{$vo.id}</td>
+					<td>{$vo.day}</td>
+                    <td>{$vo.info}</td>
+                    <td>{$vo.height}</td>
+                    <td>{$vo.weight}</td>
+                    <td>
+						<a href="{:U('Vaccine/editBabyDay',array('id'=>$vo['id']))}">修改</a>|
+						<a href="{:U('Vaccine/deleteBabyInfo',array('id'=>$vo['id']))}" class="J_ajax_del">删除</a>
+	
+					</td>
+				</tr>
+				</foreach>
+			</table>
+		</form>
+        <div class="pagination">{$page}</div>
+	</div>
+	<script src="__ROOT__/statics/js/common.js"></script>
+	<script>
+		$(function() {
+
+			$("#navcid_select").change(function() {
+				$("#mainform").submit();
+			});
+
+		});
+	</script>
+</body>
+</html>

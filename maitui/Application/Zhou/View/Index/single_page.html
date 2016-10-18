@@ -1,0 +1,48 @@
+<include file="public:admin_top" />
+
+<body>
+
+	<nav class="breadcrumb">
+		<i class="iconfont">&#xf012b;</i> 首页 <span class="c-gray en">&gt;</span>
+		模块管理 <span class="c-gray en">&gt;</span> 页面管理 
+		<a class="btn btn-success radius r mr-20" style="line-height: 1.6em; margin-top: 3px" href="javascript:location.replace(location.href);" title="刷新">
+			<i class="icon-refresh"></i> 刷 新
+		</a>
+	</nav>
+	<div class="pd-20 text-c">
+		<div class="article-class-list cl mt-20">
+			<table class="table table-border table-bordered table-hover table-bg">
+				<thead>
+					<tr class="text-c">
+						<th width='100'>ID</th>
+						<th style='text-align:left;'>页面名称</th>
+						<th width="70">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<volist name="singlepage" id="vo">
+					<tr class="text-c" >
+						<td>{$vo.id}</td>
+						<td style='text-align:left;'>{$vo.name}</td>
+						<td class="f-14">
+							<a title="编辑" href="{:U("Index/show_singlepage_edit?id=$vo[id]")}" 
+								style="text-decoration: none">
+								<i class="icon-edit"></i>
+							</a> 
+						</td>
+					</tr>
+					</volist>
+			
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript" src="__H-UI__/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/layer1.9/layer.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.doc.js"></script>
+	
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!--底部开始-->
+<php>$links=sp_getlinks();</php>
+	<div class="footer">
+		<div class="frd-line"><span></span></div>
+		<div class="frd-img">
+        <foreach name="links" item="vo">
+        <if condition="!empty($vo['link_image'])">
+        <a href="{$vo.link_url}" target="{$vo.link_target}"><img src="{$vo.link_image}" alt="{$vo.link_name}"></a>
+        </if>
+        </foreach>
+		</div>
+		<div class="frd-txt">
+        <foreach name="links" item="vo">
+        <if condition="empty($vo['link_image'])">
+        <a href="{$vo.link_url}" target="{$vo.link_target}">{$vo.link_name}</a>
+        </if>
+        </foreach>
+		</div>
+		<div class="copyright">
+			<p>
+				Copyrights 2012-2015 All Rights Reserved. 上海民间中医特色诊疗技术评价中心 版权所有 
+			</p>
+			<p>
+				地址：上海市浦东新区张衡路528号 
+			</p>
+			<p>
+				<span>沪ICP备13046115号</span>  
+			</p>
+			
+		</div>
+	</div>
+	<!--底部结束-->
+</div>
+
+<!--边块开始-->
+<div class="fixed-pad">
+	<ul>
+		<li><a href="{:leuu('portal/page/index',array('id'=>18))}"><i>我有</i><i>线索</i></a></li>
+		<li><a href="{:leuu('portal/page/index',array('id'=>16))}"><i class="icon"></i><i>我有一技</i></a></li>
+		<li class="special"><a href="{:leuu('portal/list/index',array('id'=>38))}"><i>下载</i><i>中心</i></a></li>
+		<li class="special"><a href="{:leuu('portal/page/index',array('id'=>24))}"><i>联系</i><i>我们</i></a></li>
+	</ul>
+</div>
+<!--边块结束-->
+<style>
+	
+	#think_page_trace_open{ display:none!important;}
+</style>

@@ -1,0 +1,124 @@
+<include file="public:admin_top" />
+
+<body>
+
+	<nav class="breadcrumb">
+		<i class="iconfont">&#xf012b;</i> 首页 <span class="c-gray en">&gt;</span>
+		模块管理 <span class="c-gray en">&gt;</span> 友情链接 
+		<a class="btn btn-success radius r mr-20" style="line-height: 1.6em; margin-top: 3px" href="javascript:location.replace(location.href);" title="刷新">
+			<i class="icon-refresh"></i> 刷 新
+		</a>
+	</nav>
+	<div class="pd-20 text-c">
+		<form class="Huiform" id='form-user-add' method="post">
+	
+			<input class="input-text" style="width: 250px" type="text" placeholder="友情链接名称" id="friname" />
+			<input class="input-text" style="width: 250px" type="text" placeholder="链接URL" id="friurl" />
+			<input class="input-text" style="width: 100px" type="text" placeholder="排序" id="fripx" />
+			<button type="button" class="btn btn-success" id="tjfl">
+				<i class="icon-plus"></i> 添加
+			</button>
+		</form>
+		<div class="article-class-list cl mt-20">
+			<table class="table table-border table-bordered table-hover table-bg">
+				<thead>
+					<tr class="text-c">
+				
+						<th width="180">排序</th>
+						<th>友情链接名称</th>
+						<th>链接地址</th>
+						<th width="70">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<volist name="friendlink" id="vo">
+					<tr class="text-c" >
+						<td>{$vo.zsort}</td>
+						<td>{$vo.name}</td>
+						<td>{$vo.url}</td>
+						<td class="f-14">
+							<a title="编辑" href="javascript:;" 
+								onclick=open_iframe_div('400px','275px','修改友情链接','{:U("Index/show_friendlink_edit?id=$vo[id]")}') 
+								style="text-decoration: none">
+								<i class="icon-edit"></i>
+							</a> 
+							<a title="删除" href="javascript:;"
+								onclick="delcate({$vo.id})" class="ml-5"
+								style="text-decoration: none">
+								<i class="icon-trash"></i>
+							</a>
+						</td>
+					</tr>
+					</volist>
+			
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript" src="__H-UI__/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/layer1.9/layer.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.doc.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/glenn.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			
+			//添加分类
+			$("#tjfl").bind('click',function(){
+				
+				var friname = $("#friname").val();
+				var friurl  = $("#friurl").val();
+				var fripx   = $("#fripx").val();
+
+				if(friname==''){
+					layer.msg('链接名称不能为空！',{icon: 2});
+					$("#friname").focus();
+					return false;
+				}
+				if(friurl==''){
+					layer.msg('链接地址不能为空！',{icon: 2});
+					$("#friurl").focus();
+					return false;
+				}
+				if(fripx==''){
+					layer.msg('链接排序不能为空！',{icon: 2});
+					$("#fripx").focus();
+					return false;
+				}
+				
+				$.ajax({
+				    type: "POST",
+				    url: "__URL__/save_friendlink_add",
+				    data: "name="+friname+"&url="+friurl+"&zsort="+fripx,
+				    success: function(msg){
+				    	layer.msg('添加友情链接成功！',{icon: 1});
+                        $("#tjfl").unbind( "click" );   //防止双击重复提交
+			    		setTimeout('location.reload()',2000); 
+				    }
+				});
+			});
+
+		});
+		
+		function delcate(id){
+			if(confirm('你确定要删除该链接？')){
+				$.ajax({
+				    type: "POST",
+				    url: "__URL__/friendlink_del",
+				    data: "id="+id,
+				    success: function(msg){
+			    		layer.msg('删除友情链接成功！',{icon: 1});
+			    		setTimeout('location.reload()',1000); 
+				    }
+				});
+			}
+		}
+		
+	</script>
+
+	
+</body>
+</html>

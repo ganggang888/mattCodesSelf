@@ -1,0 +1,83 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+	<div class="wrap J_check_wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:;">孕期列表</a></li>
+		</ul>
+
+		<form class="well form-search">
+			<div class="search_type cc mb10">
+				<div class="mb10">
+					<span class="mr20">
+						
+						周数：
+						<select name="week" id="week">
+						<option value="0">所有</option>
+							<php>
+								for($i=1;$i<=40;$i++) {
+							</php>
+							<option value="{$i}" <if condition="$week eq $i">selected="selected"</if>>第{$i}周</option>
+							<php>
+								}
+							</php>
+						</select>
+						<a href="javascript:;" onClick="todo()" class="btn btn-primary">搜索</a>
+					</span>
+					<script>
+					function todo() {
+						var week = $("#week").val();
+						window.location.href='index.php?g=Admin&m=Pregnancy&a=index&week='+week;
+					}
+					</script>
+				</div>
+			</div>
+		</form>
+		<form class="form-horizontal J_ajaxForm" action="" method="post">
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>周数</th>
+                        <th>宝宝身高</th>
+                        <th>宝宝体重</th>
+                        <th>本周信息</th>
+                        <th>准妈妈变化</th>
+                        <th>每日任务</th>
+						<th>时间</th>
+						<th >操作</th>
+					</tr>
+				</thead>
+				<foreach name="result" item="vo">
+				<tr>
+					<td>{$vo.id}</td>
+					<td>{$vo.week}</td>
+                    <td>{$vo.height}</td>
+                    <td>{$vo.weight}</td>
+                    <th>{$vo.baby_message}</th>
+                    <td>{$vo.mother_info}</td>
+                    <td>{$vo.taskall}</td>
+					<td>
+					{$vo.add_time}
+					</td>
+					<td>
+						<a href="{:U('Pregnancy/edit',array('id'=>$vo['id']))}">修改</a>
+	
+					</td>
+				</tr>
+				</foreach>
+			</table>
+		</form>
+        <div class="pagination">{$page}</div>
+	</div>
+	<script src="__ROOT__/statics/js/common.js"></script>
+	<script>
+		$(function() {
+
+			$("#navcid_select").change(function() {
+				$("#mainform").submit();
+			});
+
+		});
+	</script>
+</body>
+</html>

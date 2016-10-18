@@ -1,0 +1,167 @@
+<include file="public:admin_top" />
+
+<body>
+
+	<nav class="breadcrumb">
+		<i class="iconfont">&#xf012b;</i> 首页 <span class="c-gray en">&gt;</span>
+		文章管理 <span class="c-gray en">&gt;</span> 文章分类 
+		<a class="btn btn-success radius r mr-20" style="line-height: 1.6em; margin-top: 3px" href="javascript:location.replace(location.href);" title="刷新">
+			<i class="icon-refresh"></i> 刷 新
+		</a>
+	</nav>
+	<div class="pd-20 text-c">
+		<form class="Huiform" id='form-user-add' method="post">
+			上级栏目：
+			<span class="select-box" style="width: 200px"> 
+				<select class="select" id="flpid">
+					<option value=''>-- 请选择所属分类 --</option>
+					<option value='0'>顶级分类</option>
+		    		<volist name="categoryTR" id="vo">
+		    		<option value="{$vo.id}">
+		    			{$vo.count|nums2blank}
+		    			{$vo.catename}
+		   			</option>
+		    		</volist>
+				</select>
+			</span>
+	
+			<input class="input-text" style="width: 250px" type="text" placeholder="输入分类名称" id="flmc" />
+			<input class="input-text" style="width: 100px" type="text" placeholder="输入分类排序" id="flpx" />
+			<button type="button" class="btn btn-success" id="tjfl">
+				<i class="icon-plus"></i> 添加
+			</button>
+		</form>
+		<div class="article-class-list cl mt-20">
+			<table class="table table-border table-bordered table-hover table-bg">
+				<thead>
+					<tr class="text-c">
+				
+						<th width="180" style="text-align:left;">分类排序</th>
+						<th style="text-align:left;">分类名称</th>
+						<th width="70">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<volist name="categoryTR" id="vo">
+					<tr class="text-c 
+						 <eq name="vo.count" value="0">firstCateTr</eq>  
+						 <eq name="vo.count" value="1">secondCateTr</eq>
+						 <eq name="vo.count" value="2">thirdCateTr</eq>
+						 <eq name="vo.count" value="3">fourthCateTr</eq>
+						 <eq name="vo.count" value="4">fifthCateTr</eq>
+					" >
+						<td style="text-align:left;
+			        	    <eq name="vo.count" value="0">font-weight:bold;color:#e00;font-size:14px;</eq>
+			                <eq name="vo.count" value="1">color:#000;font-size:13px;</eq>
+			                <eq name="vo.count" value="2">color:#888;font-size:13px;</eq>
+			                <eq name="vo.count" value="3">color:#888;font-size:13px; font-style:italic;</eq>
+			                <eq name="vo.count" value="4">color:#888;font-size:13px;</eq>
+			                ">
+			        		<span>
+			                    <eq name="vo.count" value="1">　　</eq>
+			                    <eq name="vo.count" value="2">　　　　</eq>
+			                    <eq name="vo.count" value="3">　　　　　　</eq>
+			                    <eq name="vo.count" value="4">　　　　　　　　　</eq>
+			                    {$vo.catesort}
+			                </span>
+			        	</td>
+						
+						<td class="text-l" style="padding-left:{$vo['count']*30+7}px;">
+							<span style="
+				                    <eq name="vo.count" value="0">font-weight:bold;color:#e00;font-size:14px;</eq>
+				                    <eq name="vo.count" value="1">color:#000;font-size:13px;</eq>
+				                    <eq name="vo.count" value="2">color:#888;font-size:13px;</eq>
+				                    <eq name="vo.count" value="3">color:#888;font-size:13px; font-style:italic;</eq>
+				                    <eq name="vo.count" value="4">color:#888;font-size:13px;</eq>
+				        		">
+				        		
+				        		
+				        		{$vo.catename}</span>
+						</td>
+						
+						<td class="f-14">
+							<a title="编辑" href="javascript:;" 
+								onclick=open_iframe_div('400px','275px','分类编辑','{:U("Index/show_article_category_edit?id=$vo[id]")}') 
+								style="text-decoration: none">
+								<i class="icon-edit"></i>
+							</a> 
+							
+						</td>
+					</tr>
+					</volist>
+			
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript" src="__H-UI__/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/layer1.9/layer.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.doc.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/glenn.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			
+			//添加分类
+			$("#tjfl").bind('click',function(){
+				
+				var pid = $("#flpid").val();
+				var flmc = $("#flmc").val();
+				var flpx = $("#flpx").val();
+
+				if(pid==''){
+					layer.msg('请选择所属分类！',{icon: 8});
+					$("#flpid").focus();
+					return false;
+				}
+				if(flmc==''){
+					layer.msg('分类名称不能为空！',{icon: 3});
+					$("#flmc").focus();
+					return false;
+				}
+				if(flpx==''){
+					layer.msg('分类排序不能为空！',{icon: 3});
+					$("#flpx").focus();
+					return false;
+				}
+				
+				$.ajax({
+				    type: "POST",
+				    url: "__URL__/save_article_category_add",
+				    data: "pid="+pid+"&catename="+flmc+"&catesort="+flpx,
+				    success: function(msg){
+				    	layer.msg('添加文章分类成功！',{icon: 1});
+                        $("#tjfl").unbind( "click" );   //防止双击重复提交
+			    		setTimeout('location.reload()',2000); 
+				    }
+				});
+			});
+
+		});
+		
+		function delcate(id){
+			if(confirm('你确定要删除该分类？')){
+				$.ajax({
+				    type: "POST",
+				    url: "__URL__/article_category_del",
+				    data: "id="+id,
+				    success: function(msg){
+				    	if(msg=='1'){
+				    		layer.msg('该分类下面包含子分类，请先删除子分类！',{icon: 2});
+				    	}else{
+				    		layer.msg('删除文章分类成功！',{icon: 1});
+				    		setTimeout('location.reload()',1000); 
+				    	}
+				    }
+				});
+			}
+		}
+		
+	</script>
+
+	
+</body>
+</html>

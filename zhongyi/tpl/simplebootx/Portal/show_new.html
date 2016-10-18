@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{$post_title} {$site_name}</title>
+<tc_include file="Public:css"/>
+</head>
+<body class="camp-det">
+<div class="limiter">
+<tc_include file="Public:header"/>
+	<!--面包开始-->
+	<div class="bread">
+		<div class="fl">
+			<h3>{:getTermName($term_id)}详情</h3>
+			<p>{$post_keywords}</p>
+		</div>
+		<div class="fr">
+			<a href="{$Think.const.WEB_PATH}">首页</a>><if condition="!empty($grand)">
+                {$grand.name} > {$p_term.name} > <a href="index.php?g=portal&m=list&a=index&id={$now_term.term_id}">{$now_term.name}</a>
+                <elseif condition="!empty($p_term)" />
+                {$p_term.name} ><a href="index.php?g=portal&m=list&a=index&id={$now_term.term_id}" > {$now_term.name}</a>
+                <else />
+                <a href="index.php?g=portal&m=list&a=index&id={$now_term.term_id}"> {$now_term.name}</a>
+                </if>
+		</div>
+	</div>
+	<!--面包结束-->
+
+	<!--主体开始-->
+	<div class="main clearfix">
+		<div class="left">
+			<div>
+            <php>
+            $imgs = json_decode($smeta,true);
+            </php>
+            <if condition="!empty($imgs['thumb'])"><img src="{:sp_get_asset_upload_path($imgs['thumb'])}" alt="{$post_title}"></if>
+				
+			</div>
+			<div class="mark center">
+				<strong class="high">{$post_title}</strong>
+				<span class="fr">
+					<i class="eye hover"></i>阅读量 {$post_hits}
+				</span>
+			</div>
+			<div class="center mt10">
+				发布日期：{$post_modified}
+			</div>
+			<div class="user-info">
+				{$post_content}
+			</div>	
+
+<div class="page-guid">
+            <if condition="!empty($prev)">
+			
+                    <a href="{:U('article/index',array('id'=>$prev['tid']))}" class="mr15">上一篇：{$prev['post_title']}</a>
+					</if>
+					<if condition="!empty($next)">
+					<a href="{:U('article/index',array('id'=>$next['tid']))}" class="mr15">下一篇：{$next['post_title']}</a>
+					</if>
+				
+				
+			</div>
+						
+		</div>
+		<div class="right">
+        <link rel="stylesheet" media="screen" href="__TMPL__Public/css/bootstrap.css" /><link rel="stylesheet" media="screen" href="__TMPL__Public/css/common.css" />
+<link rel="stylesheet" media="screen" href="__TMPL__Public/css/bootstrap-extends.css" />
+
+    <link rel="stylesheet" media="screen" href="__TMPL__Public/css/web.css" />
+<link rel="stylesheet" media="screen" href="__TMPL__Public/css/graceful.css" />
+<link rel="stylesheet" media="screen" href="__TMPL__Public/css/member.css" />
+    <link rel="stylesheet" media="screen" href="__TMPL__Public/css/hack.css" />
+    <link rel="stylesheet" media="screen" href="__TMPL__Public/css/phone.css" />
+
+			<div class="col-md-4">
+<div class="row rili">
+    <div class="cat">
+        <div class="data-wrapper quickbuy-overlay" style="border: none;">
+<div class="month-tl clear">
+    <div class="month-l">
+        <p class="m-t1">活动月历</p>
+        <p class="m-t2">{:date("F",time())}</p>
+    </div>
+    <div class="month-r">
+         {:date("m",time())}月
+    </div>
+</div>
+
+<div class="calendar-box J_calendar_box">
+<div class="ticket-calendar-bounding-box" id="calendar-760" style="position: relative; width: 312px;">
+<div class="calendar-container">
+<div class="content-box">
+<div class="date-box">
+<div class="inner" style="width: 312px;">
+<table>
+<thead>
+<tr>
+    <th class="weekend">
+        星期日
+    </th>
+    <th class="">
+        星期一
+    </th>
+    <th class="">
+        星期二
+    </th>
+    <th class="">
+        星期三
+    </th>
+    <th class="">
+        星期四
+    </th>
+    <th class="">
+        星期五
+    </th>
+    <th>
+        星期六
+    </th>
+</tr>
+</thead>
+<php>
+$todo = getData($term_id);
+</php>
+<tbody>
+{$todo.html}
+</tbody>
+</table>
+<div class="date-tip clear">
+    <div class="date-sport">
+        <i></i>
+        有活动
+    </div>
+    <div class="date-now">
+        <i></i>
+        今天
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+			
+				
+			
+		</div>
+	</div>
+	<!--主体结束-->
+<tc_include file="Public:foot"/>
+</body>
+</html>

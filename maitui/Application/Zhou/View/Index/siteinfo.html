@@ -1,0 +1,129 @@
+<include file="public:admin_top" />
+<body>
+	<nav class="breadcrumb">
+		<i class="iconfont">&#xf012b;</i>
+		首页
+		<span class="c-gray en">&gt;</span>
+		系统管理
+		<span class="c-gray en">&gt;</span>
+		站点信息
+		<a class="btn btn-success radius r mr-20" style="line-height: 1.6em; margin-top: 3px" href="javascript:location.replace(location.href);" title="刷新">
+			<i class="icon-refresh"></i> 刷 新
+		</a>
+	</nav>
+	<div class="pd-20">
+		<form action="{:U('Index/save_siteinfo')}" method='post'>
+		<table class='form-table'>
+			<tr>
+				<th>公司名称</th>
+				<td><input type='text' name='cnname' class='s-input' value="{$site[0]['cnname']}"  /></td>
+			</tr>
+			<tr>
+				<th>手机</th>
+				<td><input type='text' name='mobile' class='s-input' value="{$site[0]['mobile']}"  /></td>
+			</tr>
+			<tr>
+				<th>电话</th>
+				<td><input type='text' name='tel' class='s-input' value="{$site[0]['tel']}"  /></td>
+			</tr>
+			<tr>
+				<th>400电话</th>
+				<td><input type='text' name='tel400' class='s-input' value="{$site[0]['tel400']}"  /></td>
+			</tr>
+			<tr>
+				<th>在线客服QQ</th>
+				<td><input type='text' name='qq' class='l-input' value="{$site[0]['qq']}"  /><span class='tip'>多个客服QQ用英文逗号 “ , ” 隔开</span></td>
+			</tr>
+			<tr>
+				<th>QQ</th>
+				<td><input type='text' name='micromsg' class='s-input' value="{$site[0]['micromsg']}"  /></td>
+			</tr>
+			<tr>
+				<th>邮箱</th>
+				<td><input type='text' name='email' class='s-input' value="{$site[0]['email']}"  /></td>
+			</tr>
+			<tr>
+				<th>地址</th>
+				<td><input type='text' name='address' class='m-input' value="{$site[0]['address']}"  /></td>
+			</tr>
+
+			<tr>
+				<th>传真</th>
+				<td><input type='text' name='fax' class='s-input' value="{$site[0]['fax']}"  /></td>
+			</tr>
+			<tr>
+				<th>首页SEO标题</th>
+				<td><input type='text' name='company' class='m-input' value="{$site[0]['company']}" /></td>
+			</tr>
+			<tr>
+				<th>SEO关键词</th>
+				<td>
+					<input type='text' name="seo_key" class='l-input' value="{$site[0]['seo_key']}"  />
+					<span class='tip'>关键词用英文逗号 “ , ” 隔开</span>
+				</td>
+			</tr>
+			<tr>
+				<th>SEO描述</th>
+				<td>
+					<textarea class='simple-textarea' name="seo_description">{$site[0]['seo_description']}</textarea>
+				</td>
+			</tr>
+			<!-- 
+			<tr>
+				<th>统计代码</th>
+				<td><textarea class='simple-textarea' name="tongji">{$site[0]['tongji']}</textarea></td>
+			</tr>
+ 			
+			<tr>
+				<th>首页客服中心</th>
+				<td>
+					<textarea id='editor' name="kefu" type="text/plain" style="width:400px; height:400px;">{$site[0]['kefu']}</textarea>
+				</td>
+			</tr>
+			-->
+			<tr>
+				<th>官方网站</th>
+				<td><input type='text' name='zuobiao' class='l-input' value="{$site[0]['zuobiao']}"  /></td>
+			</tr>
+			<tr>
+				<th>&nbsp;</th>
+				<td>
+					<input type='hidden' name='id' value="{$site[0]['id']}" />
+					<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;确 定&nbsp;&nbsp;">
+				</td>
+			</tr>	
+		</table>
+		</form>
+	</div>
+	<script type="text/javascript" src="__H-UI__/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/layer1.9/layer.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.doc.js"></script>
+	
+    <!-- 编辑器 -->
+	<script type="text/javascript" charset="utf-8" src="__UED__/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__UED__/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="__UED__/lang/zh-cn/zh-cn.js"></script>
+    
+  
+
+       <script type="text/javascript">
+        UE.getEditor('editor',{
+            //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
+            toolbars:[['Source','forecolor','fontsize', 'Undo', 'Redo','Bold','test']],
+            //关闭字数统计
+            wordCount:false,
+            //关闭elementPath
+            elementPathEnabled:false,
+            //默认的编辑区域高度
+            initialFrameHeight:300,
+            //更多其他参数，请参考ueditor.config.js中的配置项
+            serverUrl: '/server/ueditor/controller.php'
+        })
+    </script>
+    
+   
+</body>
+</html>

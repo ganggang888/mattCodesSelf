@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link type="text/css" rel="stylesheet" href="/templets/qyskin/css/style.css">
+<script type="text/javascript" src="/templets/qyskin/js/jquery.js"></script>
+<script type="text/javascript" src="/templets/qyskin/js/TouchSlide.js"></script>
+<script type="text/javascript" src="/templets/qyskin/js/main.js"></script>
+</head>
+<body>
+<div class="wp">
+	{dede:include filename="head.htm"/}
+  <div class="box bj_4">
+  	<div class="box_bt"><span> <img src="/templets/qyskin/images/bt_{dede:type}[field:ID /]{/dede:type}.png"></span></div>
+    <div class="box_n">
+
+      
+      
+<div class="dm"> 
+
+    <ul class="doc-picxun9">
+    
+        {dede:list pagesize='10'  titlelen=80} 
+      <li><a href="[field:arcurl/]">
+        <div class="doc-pic"><img src="[field:picname/]" alt="[field:fulltitle/]"></div>
+        <div class="doc-ms"><span class="doc-bt">[field:title/]</span>[field:description function='cn_substr(@me,130)'/]...
+        <p>[field:pubdate function="MyDate('Y-m-d',@me)"/] </p>
+        </div>
+        
+        
+        </a></li>
+ 	{/dede:list}
+
+    </ul>
+    <!--样式结束--> 
+  </div>      
+      
+      
+      
+    </div>
+    <div class="dede_pages"><ul>{dede:pagelist listitem="index,end,pre,next,pageno" listsize="5"/}</ul></div>
+  </div>
+ {dede:include filename="footer.htm"/}
+</div>
+{dede:include filename="bottom.htm"/}
+</body>
+</html>

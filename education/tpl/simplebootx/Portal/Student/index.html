@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>{$name} {$seo_title} {$site_name}</title>
+<meta name="keywords" content="{$seo_keywords}" />
+<meta name="description" content="{$seo_description}">
+<tc_include file="Public:header" />
+</head>
+
+<tc_include file="Public:menu" />
+<div class="banner1"><img src="__TMPL__Public/images/banner1.jpg" width="1002" height="246" /></div>
+<div class="main1">
+  <tc_include file="Public:left" />
+  <div class="m_r">
+    <div class="m_r1">
+      <div class="m_rt"><img src="__TMPL__Public/images/right_t.jpg" width="771" height="38" /></div>
+      <div class="m_rz">
+<div class="m_rz1">
+<span><font color="#333">首页</font>&nbsp;>&nbsp;学员风采</span>学员风采</div>
+
+
+
+<div class="xycx">
+<div class="xycx1"><div class="xycx1_1"><input type="text" name="title" class="cd2" value="学号" /></div><div class="xycx1_2"><select name="dengji" class="cd3">
+  <option>学历</option>
+  <option value="1">初中</option>
+  <option value="2">高中</option>
+  <option value="3">大学本科</option>
+
+</select></div></div>
+<div class="clear"></div>
+
+<div class="xycx2"><div class="xycx1_1"><input type="text" class="cd2" name="xuehao" value="学籍号" /></div><div class="xycx1_2"><select name="province" class="cd3">
+<option value=>籍贯</option> 
+<option value=广东>广东</option> 
+<option value=北京>北京</option> 
+<option value=湖南>湖南</option> 
+<option value=福建>福建</option> 
+<option value=上海>上海</option> 
+<option value=安徽>安徽</option> 
+<option value=广西>广西</option> 
+<option value=贵州>贵州</option> 
+<option value=海南>海南</option> 
+<option value=河北>河北</option>
+<option value=黑龙江>黑龙江</option> 
+<option value=河南>河南</option> 
+<option value=香港>香港</option> 
+<option value=湖北>湖北</option> 
+<option value=重庆>重庆</option> 
+<option value=江苏>江苏</option> 
+<option value=江西>江西</option> 
+<option value=吉林>吉林</option> 
+<option value=辽宁>辽宁</option> 
+<option value=澳门>澳门</option>
+<option value=内蒙古>内蒙古</option> 
+<option value=宁夏>宁夏</option> 
+<option value=青海>青海</option> 
+<option value=山东>山东</option> 
+ <option value=甘肃>甘肃</option> 
+<option value=山西>山西</option> 
+<option value=陕西>陕西</option> 
+<option value=四川>四川</option> 
+<option value=台湾>台湾</option> 
+<option value=天津>天津</option>  
+<option value=新疆>新疆</option> 
+<option value=西藏>西藏</option> 
+<option value=云南>云南</option> 
+<option value=浙江>浙江</option>
+</select></div></div>
+
+<div class="clear"></div>
+<div class="xycx2"><div class="xycx1_3"><select name="nianling" class="cd4" id="nianling">
+  <option value="0">年龄段</option>
+  <option>20及以下</option>
+  <option>21-25</option>
+  <option>26-30</option>
+  <option>31-35</option>
+  <option>36-40</option>
+  <option>41-45</option>
+  <option>46-50</option>
+  <option>51及以上</option>
+</select></div><div class="xycx1_2"><select name="zhengshu" class="cd3">
+  <option>证书拥有情况</option>
+  <option value="1">幼儿家庭成长导师证</option>
+  <option value="2">母婴护理资格证</option>
+  <option value="3">初级育婴师资格证</option>
+  <option value="4">中级育婴师资格证</option>
+</select></div></div>
+
+<div class="clear"></div>
+<div class="xycx2"><div class="xycx1_3"><select name="" class="cd4">
+  <option>年龄段</option>
+  <option>20及以下</option>
+  <option>21-25</option>
+  <option>26-30</option>
+  <option>31-35</option>
+  <option>36-40</option>
+  <option>41-45</option>
+  <option>46-50</option>
+  <option>51及以上</option>
+</select></div>
+
+</div>
+<div class="clear"></div>
+
+<div class="xycz"><input type="image" name="ImgBtn" id="ImgBtn" src="__TMPL__Public/images/xyca.jpg" style="border-width:0px;" /> </div>
+</div>
+
+
+<foreach name="rows" item="vo">
+<div class="m_rz2"> 
+      <div class="m_rz3"><a href="{:leuu('Portal/student/detail',array('id'=>$vo['id']))}"><img src="{$vo.img}" width="152" height="184" border="0" /></a></div>
+      
+     <div class="xy">
+     <div class="xy1">学号：<input name="" value="{$vo.num}" type="text" class="bd1" /></div>
+     <div class="xy1">籍贯：<input name="" value="{$vo.place}" type="text" class="bd1" /></div>
+     </div>
+     
+     <div class="xy">
+     <div class="xy1">年龄：<input name="" value="{$vo.age}" type="text" class="bd1" /></div>
+     <div class="xy1">学历：<input name="" value="{$vo.education}" type="text" class="bd1" /></div>
+     </div>
+     
+     <div class="xy">
+     <div class="xy2">证书：<input name="" value="{$vo.book}" type="text" class="bd2" /></div>
+     </div>
+     
+     <div class="xy">
+     <div class="xy3"><span>工作经历：</span><textarea name="" cols="" rows="" class="bd3">{$vo.experience}</textarea></div>
+     </div>
+     
+</div>    
+	</foreach>     
+	     
+	      
+	     
+    
+	     
+	     
+	      
+	     
+    
+	     
+	     
+	      
+	     
+    
+	     
+	     
+	      
+      
+
+
+<div class="shu2">
+
+<div class="ppage">{$page}</div>
+
+
+</div>
+
+
+
+
+
+</div>
+      <div class="m_rb"> <img src="__TMPL__Public/images/right_b.jpg" width="771" height="38" /></div>
+    </div>
+  </div>
+</div>
+<tc_include file="Public:foot" />

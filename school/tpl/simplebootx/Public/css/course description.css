@@ -1,0 +1,81 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+ .accordion {
+ 	width: 92%;
+ 	margin: 0 auto;
+ }
+.accordion .link {
+	background-color: #f9a51a;
+	display: block;
+	color: #F0FFFF;
+	font-size: 19px;
+	position: relative;
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	border-radius:40px 40px ;
+	margin-top: 40px;
+}
+.link{
+	width: 100%;
+	 	height: 42px;
+      line-height: 42px;
+       	text-align: center;     
+}
+.link img{
+	max-width:56px;
+margin-top:-7.5px;
+display: block;
+z-index: 500000;
+float: left;
+position: absolute;
+}
+
+.submenu{
+	width: 91%;
+	margin: 0 auto;
+}
+ .submenu {
+ 	display: none;
+ 	background: #FFFFFF;
+ 			border-radius:0px  0px 20px 20px ;
+ }
+.submenu li{
+	padding:20px;
+}
+/*响应式，针对iPhone各个型号的高度
+
+    	@media only screen and (max-height: 530px) and (min-height: 440px) {
+
+         		.link img{
+	height: 56px;
+		margin-top: -8px;
+         	}
+
+
+}
+@media only screen and (max-height: 599px) and (min-height: 531px) {
+
+	.link img{
+         		height: 54px;
+		margin-top: -6px;
+         	}
+ }
+@media only screen and (max-height: 680px) and (min-height: 600px) {
+
+	       .link img{
+       height: 56px;
+		margin-top: -6px;
+         	}
+
+}
+
+@media only screen and (max-height: 736px) and (min-height: 681px) {
+	.link img{
+		height: 60px;
+		margin-top: -8px;
+	} 
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+        <div class="div1">层1</div>
+        <div class="div2">层2</div>
+ 
+ <style type="text/css">
+        .div1{
+    background-color:#FF0000;
+    width:2000px;
+    height:2000px;
+    }
+
+    .div2{
+    background-color:#33FF66;
+    width:100px;
+    height:100px;
+    position:fixed;
+    left:50px;
+    top:50px;
+    }
+    </style>
+<script>
+
+    $(document).ready(function () {
+
+        $(window).scroll(function () {
+
+            var scrollTop = $(document).scrollTop(); //htm文档滚动对象距离顶部位置
+            //alert(scrollTop);
+
+            var AdminUserStateDiv = $("#AdminUserStateDiv");
+            //AdminUserStateDiv.css("top", scrollTop + "px");
+            AdminUserStateDiv.animate({ "top": scrollTop + "px" }, 0);  //层伴随滚动条滚动，时时改变层对顶部的距离
+            //$("#scrollUl").animate({ "marginLeft": scrollposition + "px" }, 10);
+
+        })
+    });
+
+</script>
+	
+	</body>
+</html>

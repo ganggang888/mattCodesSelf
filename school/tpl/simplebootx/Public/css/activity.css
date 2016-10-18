@@ -1,0 +1,47 @@
+.display{
+		background-color: #f9a51a;
+ 	width: 100%;
+ 	text-align: center;
+ 	color:#FFFFFF ;
+ 	margin-top: 2px;
+ 	border-radius:8px 8px ;
+}
+.display span{
+	height: 50px;
+	line-height: 45px;
+}
+.display p{
+	margin: 20px auto 20px;
+	width: 94%;
+
+}
+ .attend{
+ 	margin-top: 45px;
+	display: block;
+	height: 36px;
+	width: 32%;
+	font-size: 18px;
+	line-height: 36px;
+	border-radius: 15px 15px;
+	background-color: #00a67e;
+	margin: 0 auto;
+}
+
+.activity{
+	background-color: #f9a51a;
+ 	height: 182px;
+ 	width: 100%;
+ 	margin-top: 8px;
+ 	line-height: 182px;
+ 	text-align: center;
+ 	color:#8bc53f ;
+ 	 	border-radius:8px 8px ;
+}
+.activity img{
+	width: 6%;
+	display: block;
+	margin-top: -20px;
+	margin-left: 90%;
+}
+
+

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{$post_title} {$site_name}</title>
+<tc_include file="Public:css"/>
+</head>
+<body class="jifa yanjiusuo">
+<div class="limiter">
+<tc_include file="Public:header"/>
+	<!--面包开始-->
+	<div class="bread">
+		<div class="fl">
+			<h3>{$post_title}</h3>
+			<p>{$post_keywords}</p>
+		</div>
+		<div class="fr">
+			<a href="{$Think.const.WEB_PATH}">首页</a>><a>{:getTermName($term_id)}详情</a>
+		</div>
+	</div>
+	<!--面包结束-->
+
+	<!--主体开始-->
+	<div class="main clearfix">
+		<div class="left">
+			<!--<div class="pics piclist">
+				<ul>
+					<li><a href="#">
+						<img src="upload/yan1.jpg" alt="">
+					</a></li>
+					<li><a href="#">
+						<img src="upload/yan1.jpg" alt="">
+					</a></li>
+					<li><a href="#">
+						<img src="upload/yan1.jpg" alt="">
+					</a></li>
+				</ul>
+				<span class="prev gray"></span>
+				<span class="next"></span>
+			</div>-->
+			<div class="mark clearfix">
+				<span class="hred">{$post_title}</span>
+				<span class="fr">
+					<i class="eye"></i>阅读量 {$post_hits}&nbsp;&nbsp;添加时间：{$post_modified}
+				</span>
+			</div>
+			<div class="user-info">
+				{$post_content}
+			</div>	
+			<div class="page-guid">
+            <if condition="!empty($prev)">
+			
+                    <a href="{:U('article/index',array('id'=>$prev['tid']))}" class="mr15">上一篇：{$prev['post_title']}</a>
+					</if>
+					<if condition="!empty($next)">
+					<a href="{:U('article/index',array('id'=>$next['tid']))}" class="mr15">下一篇：{$next['post_title']}</a>
+					</if>
+				
+				
+			</div>
+		</div>
+		<tc_include file="Public:right"/>
+	</div>
+	<!--主体结束-->
+<tc_include file="Public:foot"/>
+
+<script>
+$(function(){
+	$(".pics").slide();
+})
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+a:3:{s:23:"portal/index/return_url";a:1:{i:0;a:2:{s:5:"query";a:0:{}s:3:"url";s:10:"return_url";}}s:23:"portal/index/notify_url";a:1:{i:0;a:2:{s:5:"query";a:0:{}s:3:"url";s:10:"notify_url";}}s:15:"api/wchat/index";a:1:{i:0;a:2:{s:5:"query";a:0:{}s:3:"url";s:4:"chat";}}}

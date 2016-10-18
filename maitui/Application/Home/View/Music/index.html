@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>胎教音乐</title>
+
+    <include file="Public:ui" />
+
+    <style>
+        .carousel-inner .item img{width: 100%;}
+        .carousel-indicators{bottom: 0;margin-left: auto;  right: 0; width: 100px; position: absolute;  }
+        .carousel-indicators li{background: #fff; border:none;}
+        .carousel-indicators li.active{background:#BDAD96 }
+        .carousel-caption{background: rgba(0, 0, 0, 0.49);color: #fff;font-weight: bold; padding:10px;bottom: 0; text-align: left; width: 100%;left: 0;}
+
+
+        .music-nav{background: #BDAD96;overflow: hidden; padding: 20px 0; margin-top: -20px; }
+        .music-nav div{width: 50%; float: left; text-align: center; }
+        .music-nav div a{display: inline-block;color: #fff; padding:0 30px; line-height:30px;  border-radius: 15px;}
+        .music-nav div a.curr{border:1px solid #fff;}
+        .music-wenz{margin: 30px 0; border-top: 1px solid #ccc; padding: 15px; color: #666; }
+        .music-wenz b{display: block; color: #ea4c8d;}
+        .list-group a{color: #999;}
+
+    </style>
+<!-- mattservice.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?0f1613d9e02019a4ea5f6ff5f5926759";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body style="background: #f5f5f5;">
+    <include file="Public:pc-nav" />
+    <div class="container wrapper" style="background: #fff">
+
+
+        <div class="alert alert-success" role="alert" style="margin-top:15px;">
+            <a href="/mamashouce" style="display:inline-block; width:33%; text-align:center;font-size:130%; text-decoration:none;">孕期</a> 
+			<a href="/baobeichengzhang" style="display:inline-block; width:33%; text-align:center; font-size:130%; text-decoration:none;">宝贝成长</a>  
+			<a href="/music" style="display:inline-block; width:30%; text-align:center;  color:#f00; font-size:130%; text-decoration:none;">胎教音乐</a> 
+        </div>
+
+        <!--这里是小导航！-->
+     
+        <div class="visible-lg" style="height: 30px;"></div>
+        <div class="row" style="margin: 0;">
+            <!--轮播图-->
+            <div id="carousel-example-generic"  class="carousel slide col-lg-7" style="padding: 0; margin: 0;" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators" >
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="5"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="__PUBLIC__/Home/images/m-banner1.jpg" alt="...">
+                        <div class="carousel-caption">
+                           睡前催眠-QQ音乐歌单
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="__PUBLIC__/Home/images/m-banner2.jpg" alt="...">
+                        <div class="carousel-caption">
+                            睡前催眠-QQ音乐歌单
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="__PUBLIC__/Home/images/m-banner3.jpg" alt="...">
+                        <div class="carousel-caption">
+                            睡前催眠-QQ音乐歌单
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="__PUBLIC__/Home/images/m-banner4.jpg" alt="...">
+                        <div class="carousel-caption">
+                            睡前催眠-QQ音乐歌单
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="__PUBLIC__/Home/images/m-banner5.jpg" alt="...">
+                        <div class="carousel-caption">
+                            睡前催眠-QQ音乐歌单
+                        </div>
+                    </div>
+					<div class="item">
+                        <img src="__PUBLIC__/Home/images/m-banner6.jpg" alt="...">
+                        <div class="carousel-caption">
+                            睡前催眠-QQ音乐歌单
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visible-xs" style="height: 30px;"></div>
+            <!--轮播结束！-->
+            <div class="col-lg-5">
+                <div class="list-group" style="position:relative; margin-top:-10px;">
+					<!--
+                    <a  href="javascript:;" class="list-group-item">
+                        <span class="glyphicon glyphicon-th-list"></span> 播放列表
+                    </a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-play-circle"></span> Dapibus ac facilisis in</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-play-circle"></span> Morbi leo risus</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-play-circle"></span> Porta ac consectetur ac</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-play-circle"></span> Vestibulum at eros</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-play-circle"></span> Dapibus ac facilisis in</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-play-circle"></span> Morbi leo risus</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-play-circle"></span> Porta ac consectetur ac</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-play-circle"></span> Vestibulum at eros</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-play-circle"></span> Porta ac consectetur ac</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-play-circle"></span> Vestibulum at eros</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-play-circle"></span> Porta ac consectetur ac</a>
+					-->
+					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=450 height=500 src="http://music.163.com/outchain/player?type=1&id=512600&auto=1&height=430"></iframe>
+                </div>
+
+            </div>
+        </div>
+            <!--这里是一篇文章-->
+            <div class="music-wenz">
+                <b>希望准妈妈能花少少时间，了解一下关于胎教音乐的一点点</b>
+                <p>在怀孕23周的时候，腹中小宝宝会听到来来自外面的声音，这时候适宜播放一些胎教，让妈妈与小宝宝一起听，妈妈也需要保持心情愉悦，快乐的妈妈诞生出快乐的宝宝。</p>
+
+                <b>为什么要听胎教音乐</b>
+                <p>胎教的目的是通过外界刺激，促使胎宝宝接受更多的优良信息，让胎宝宝发育得更好、更聪明、更健康。只要是对胎儿有益的事情大都可以归入胎教的范畴。大到环境改善、情绪调节，小到听音乐、散步、和宝宝说悄悄话等都是胎教的内容。</p>
+
+                <p>音乐胎教是当下非常流行的胎教方式，是通过对胎儿施以适当的乐声刺激，促使其神经元轴突，树突及突触的发育，为优化后天的智力及发展音乐天赋奠定基础。音乐胎教并非单一针对胎儿直接进行音乐的刺激而是通过对母体的传达给胎儿。</p>
+
+                <b>该听多久？</b>
+                <p>从孕23周起，每次5~30分钟，孕6个月后，每次30~60分钟，每天1~3次，可选择在饭后或睡前，收听时间可按个人情况而定。音箱摆放在1米外，扬声器对着腹部，音频建议保持在2000赫兹以下，分贝在65~75范围内。</p>
+
+                <p>此外，要让胎宝宝反复地聆听，才能造成适当的刺激。等到胎宝宝出生之后听到这些音乐就有熟悉的感觉，能够令初生宝宝有待在母体内的安全感，对于安抚宝宝情绪有相当好的功能。</p>
+
+                <b>需要注意！</b>
+                <p>胎教音乐不要有突然的巨响，因为这样会造成胎宝宝受到惊吓，所以，胎教音乐的戏剧性不要太过强烈，节奏太快的音乐会使胎宝宝紧张，太大的音量也会令胎宝宝不舒服。建议在播放音乐时可以使用连接外部扬声设备以获得更佳的播放效果，音量也不宜过大。</p>
+
+                <b>关于胎教音乐，你知道吗？</b>
+                <p>英国产前心理学会的专家表示，如果孕妇希望胎宝宝将来是一个精神稳定、乐观向上的人，她就应该在宝宝出生前为胎儿唱歌。胎宝宝能感受到妈妈歌声的震动，从而获得感感觉上的满足。准妈妈为胎宝宝唱歌，相当于一种产前免疫，也可为胎宝宝提供重要的记忆印迹。</p>
+
+                <p>在西班牙，以“腹中胎儿的大脑功能会被强化吗?”为中心的课题正在研究中。他们成立了一个西班牙超智儿童协会，孕妇在协会具体指导下，对胎儿播放优美动听的乐曲，增强胎儿的听觉识别能力，改善大脑功能水平，促进其感官发育。</p>
+
+                <p>瑞士的心理学家皮亚杰认为，胎儿在母体内，生理和心理深受环境的影响。胎儿能感受并接受胎教的能力。当胎儿的听觉机能作用于音乐和语言环境，音乐和语言就成胎儿的生理素质，音乐和语言的生理功能得到强化。同时，当胎儿受到音乐和语言环境作用，又引起心理功能的强化，音乐和语言又成为胎儿的心理素质。</p>
+            </div>
+
+
+        <!--这里是小导航！-->
+        <div class="music-nav" style="margin: 20px 0; display:none;">
+            <div>
+                <a href="/home/music/"  class="curr">胎教音乐</a>
+            </div>
+            <div>
+                <a href="/home/music/danqu.html">简·单曲</a>
+            </div>
+        </div>
+
+
+
+        <include file="Public:main-nav" />
+        <a href="/">
+            <img src="__PUBLIC__/Home/images/logo.png" width="300" style="display: block; margin: 20px auto;" alt="...">
+        </a>
+    </div>
+
+    <include file="Public:footer" />
+
+</body>
+</html>

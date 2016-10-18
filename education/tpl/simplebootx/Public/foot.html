@@ -1,0 +1,25 @@
+  <div class="clear"></div>
+  <div class="bottom_z">
+  <div class="bottom">
+    <div class="logo1"><img src="__TMPL__Public/images/logo1.jpg" width="77" height="39" /></div>
+    <div class="bottom_n"><a href="{:leuu('portal/page/index',array('id'=>12))}">联系我们</a> |<a href="#">官网微博</a> <span>上海麦忒育婴职业技术培训学校 保留所有权利&nbsp;沪ICP备09045106号-2</span> </div>
+    <div class="bottom_tel">021-51022333</div>
+    <br />
+    <div class="youqing">项目导航：&nbsp;<a href="http://www.matteducation.com">上海月嫂培训</a>&nbsp;&nbsp;<a href="http://www.matteducation.com">上海月嫂培训班</a>&nbsp;&nbsp;<a href="http://www.matteducation.com" >上海育婴师培训</a>&nbsp;&nbsp;<a href="http://www.matteducation.com" >上海育婴师培训班</a>&nbsp;&nbsp;<a href="http://www.matteducation.com" >上海培训育婴师</a>&nbsp;&nbsp;<a href="http://www.matteducation.com" >上海培训月嫂</a></div>
+    <php>$links=sp_getlinks();</php>
+    <div class="youqing ">友情链接： 
+    <foreach name="links" item="vo">
+    <a href="{$vo.link_url}" target="{$vo.link_target}">{$vo.link_name}</a>
+    &nbsp;</foreach>
+    </div>
+  </div>
+  </div>
+  <!--<table width='120' cellpadding='8' cellspacing='3' style="position:fixed; display:; top: 300px; left: 5px;">
+    <tr>
+      <td align='center'  style='LETTER-SPACING: 0.2em;'><a href="MattschoolQR.jpg"><img src="http://www.matteducation.com/MattschoolQR.jpg" border="0" width ="129px" height="129px"></a><br>
+        <font color='green'> 微信扫一扫</font></td>
+    </tr>
+  </table>-->
+  {$site_tongji}
+</body>
+</html>

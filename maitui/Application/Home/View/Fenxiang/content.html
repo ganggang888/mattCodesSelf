@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>客户分享</title>
+
+    <include file="Public:ui" />
+    <style>
+        .con-box{background: #fff;margin: 0 auto 50px; padding: 15px;}
+        .con-box h3{margin: 10px 0; }
+        .con-box .news-info{color: #999; border-bottom: 1px solid #ccc;padding-bottom: 5px;}
+        .con-box .news-info em{font-style: normal; margin-right: 20px;}
+        .con-box .con-body{margin-top: 20px; word-break: break-all}
+        .con-box .con-body img{max-width: 100% !important;height: auto !important; width: auto\9; }
+    </style>
+<!-- mattservice.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?0f1613d9e02019a4ea5f6ff5f5926759";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body style="background: #f5f5f5">
+    <include file="Public:pc-nav" />
+
+    <div class="container wrapper" style="background: #fff;">
+        <div class="alert alert-success" role="alert" style="margin:15px;">
+            <h3 style="margin: 0;">客户分享 <small style="color: #aaa;">SHARE</small></h3>
+        </div>
+
+
+        <div class="con-box">
+            <h3>{$content[0]['title']}</h3>
+            <div class="news-info">
+
+                <span class="glyphicon glyphicon-user"></span> <em>{$content[0]['author']}</em>
+                <span class="glyphicon glyphicon-time"></span> <em>{$content[0]['modify_time']|to_date='Y-m-d'}</em>
+            </div>
+            <div class="con-body">
+                {$content[0]['content']|to_html}
+            </div>
+        </div>
+
+        <include file="Public:main-nav" />
+        <a href="/">
+            <img src="__PUBLIC__/Home/images/logo.png" width="300" style="display: block; margin: 20px auto;" alt="...">
+        </a>
+    </div>
+    <include file="Public:footer" />
+</body>
+</html>

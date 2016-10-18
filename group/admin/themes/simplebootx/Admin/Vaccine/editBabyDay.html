@@ -1,0 +1,54 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+	<div class="wrap jj">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('Vaccine/getBabyInfo')}">宝宝每日信息</a></li>
+			<li class="active"><a>修改信息</a></li>
+		</ul>
+		<div class="common-form">
+			<form method="post" class="form-horizontal J_ajaxForm" action="">
+				<fieldset>
+					<div class="control-group">
+						<label class="control-label">天数:</label>
+						<div class="controls">
+							<input type="text" class="input" name="day" value="{$info.day}">
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    
+                    <div class="control-group">
+						<label class="control-label">身高:</label>
+						<div class="controls">
+							<input type="text" class="input" name="height" value="{$info.height}">
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    
+                    <div class="control-group">
+						<label class="control-label">体重:</label>
+						<div class="controls">
+							<input type="text" class="input" name="weight" value="{$info.weight}">
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    <input type="hidden" value="{$info.id}" name="id">
+                  <div class="control-group">
+						<label class="control-label">内容:</label>
+						<div class="controls">
+							<textarea rows="6" name="info">{$info.info}</textarea>
+							<span class="must_red">*</span>
+						</div>
+					</div>
+				</fieldset>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary btn_submit J_ajax_submit_btn">修改</button>
+					<a class="btn" href="__URL__">返回</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="__ROOT__/statics/js/common.js"></script>
+    <script type="text/javascript" src="__ROOT__/statics/js/content_addtop.js"></script>
+
+</body>
+</html>

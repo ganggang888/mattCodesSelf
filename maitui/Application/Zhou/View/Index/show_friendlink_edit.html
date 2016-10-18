@@ -1,0 +1,68 @@
+<include file="public:admin_top" />
+
+<body>
+
+	<div style="padding:20px; text-align:center;">
+			<input type="hidden" id="id" value="{$link[0][id]}" />
+			<input class="input-text" style="width: 200px" value="{$link[0][name]}" type="text" placeholder="友情链接名称" id="mc" /><br /><br />
+			<input class="input-text" style="width: 200px" value="{$link[0][url]}" type="text" placeholder="链接网址" id="url" /><br /><br />
+			<input class="input-text" style="width: 200px" value="{$link[0][zsort]}" type="text" placeholder="排序" id="px" /><br /><br />
+			<button type="button" class="btn btn-success" id="tjfl">
+				<i class="icon-edit"></i> 修改
+			</button>
+	</div>
+	<script type="text/javascript" src="__H-UI__/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/layer1.9/layer.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.doc.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/glenn.js"></script>
+
+
+	<script type="text/javascript">
+		$(function(){
+			
+			//添加分类
+			$("#tjfl").bind('click',function(){
+				
+				var mc  = $("#mc").val();
+				var url = $("#url").val();
+				var px  = $("#px").val();
+				var id  = $("#id").val();
+
+				if(mc==''){
+					layer.msg('链接名称不能为空',{icon: 2});
+					$("#mc").focus();
+					return false;
+				}
+				if(url==''){
+					layer.msg('链接地址不能为空！',{icon: 2});
+					$("#url").focus();
+					return false;
+				}
+				if(px==''){
+					layer.msg('排序不能为空！',{icon: 2});
+					$("#px").focus();
+					return false;
+				}
+				
+				$.ajax({
+				    type: "POST",
+				    url: "__URL__/save_friendlink_edit",
+				    data: "id="+id+"&name="+mc+"&url="+url+"&zsort="+px,
+				    success: function(msg){
+				    	
+				    	layer.msg('修改友情链接成功！',{icon: 1});
+                        $("#tjfl").unbind( "click" );   //防止双击重复提交
+			    		setTimeout('parent.location.reload()',1000); 
+				    }
+				});
+			});
+			//添加分类结束
+			
+		});
+		
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,1 @@
+根目录下的：data/conf/db.php修改对应参数

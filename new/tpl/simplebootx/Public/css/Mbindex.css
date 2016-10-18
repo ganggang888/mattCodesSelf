@@ -1,0 +1,222 @@
+@charset "utf-8";
+
+* {
+    margin:0;
+    padding:0;
+    list-style-type:none
+}
+
+a,img {
+    border:0
+}
+.text-key h1{
+	font-size: 30px;
+	margin-bottom:10px
+}
+
+/* 幻灯开始*/
+#imgshow_mask {
+    width:100%;
+    position:absolute;
+    z-index:1;
+    height:27px
+}
+
+#imgshow_mask {
+    _background:none;
+}
+
+#imageShow {
+    clear:both;
+}
+
+#imageShow .imagebg {
+    height:1400px;
+    overflow:hidden;
+    position:relative
+}
+
+#imageShow .imagebg li {
+    height:1400px;
+    overflow:hidden;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    display:block;
+    filter:alpha(opacity=0);
+    opacity:0
+}
+
+#imageShow .imagebg li a.bannerbg_main {
+    width:100%;
+    position:absolute;
+    top:0;
+    right:0;
+    height:1400px;
+    display:block
+}
+/*上面小轮播*/
+.scrollbg {
+	
+    height:146px;
+}
+
+.scroll {
+    margin:0 auto;
+    width:98%;
+    height:146px;
+    position:relative
+}
+
+.s_pre,.s_next {
+    display:block;
+    width:62px;
+    z-index: 10;
+    height:146px;
+    position:absolute
+}
+
+a.s_pre {
+    background:url(../images/arrow_l.png);
+    top:1px;
+    left:0
+}
+
+a.s_pre:hover {
+    background:url(../images/arrow_l_on.png)
+}
+
+a.s_next {
+    background:url(../images/arrow_r.png);
+    top:1px;
+    right:0
+}
+
+a.s_next:hover {
+    background:url(../images/arrow_r_on.png)
+}
+/*重要修改*/
+.outScroll_pic {
+    height:146px;
+    margin: 0 auto;
+    overflow:hidden;
+    position:relative;
+    width:92%;
+    top:2px;
+    
+}
+
+.outScroll_pic .scroll_pic {
+    position:absolute
+}
+
+.scroll_pic {
+    margin:0 auto;
+    width:40000px;
+    height:146px
+}
+
+.scroll_pic li {
+    float:left;
+    float:left;
+    height:140px;
+    width:195px;
+    margin:0px 19px;
+    _margin:5px 14px 5px 4px;
+    cursor:pointer;
+
+}
+
+.scroll_pic li img {
+    filter:alpha(opacity=50);
+    -moz-opacity:.5;
+    opacity:.5
+}
+
+.scroll_pic li:hover img,.scroll_pic li:hover {
+    filter:alpha(opacity=100);
+    -moz-opacity:1;
+    opacity:1
+}
+
+.scroll_pic li.currently img {
+    filter:alpha(opacity=100)!important;
+    -moz-opacity:1!important;
+    opacity:1!important
+}
+
+.scroll .current {
+    width:144px;
+    height:145px;
+    position:absolute;
+    top:5px;
+    left:0
+}
+/**轮播*/
+           		 #slide {
+  	width: 1000px;
+   height: 900px;
+   margin: auto;
+   position: relative;
+   overflow: hidden;
+  }
+  #slide ul {
+   position: absolute;
+   height: 1330px;
+   width: 11930px;
+  }
+  #slide ul li {
+   width: 1000px;
+   margin: auto;
+   height: 1330px;
+   overflow: hidden;
+   float: left;
+  }
+  #slide .ico {
+   width: 1000px;
+   margin: auto;
+   height: 20px;
+   overflow: hidden;
+   text-align: center;
+   color: #FF6600;
+   position: absolute;
+   left: 0px;
+   bottom: 10px;
+   z-index: 1;
+  }
+  #slide .ico a {
+   display: inline-block;
+   width: 40px;
+   height:20px;
+   background: url(out.png) no-repeat 0px 0px;
+  }
+  #slide .ico .active {
+   background: url(out1.png) no-repeat 0px 0px;
+  }
+  #btnLeft {
+
+   height: 400px;
+   left: 0px;
+   top: 0px;
+   background: url() no-repeat 0px 0px;
+   position: absolute;
+   z-index: 2;
+  }
+  #btnLeft :hover {
+   background: url() no-repeat 0px 0px;
+  }
+  #btnRight {
+
+   height: 400px;
+   right: 0px;
+   top: 0px;
+   background: url() no-repeat 0px 0px;
+   position: absolute;
+   z-index: 2;
+  }
+  #btnRight :hover {
+   background: url() no-repeat 0px 0px;
+  }  
+
+

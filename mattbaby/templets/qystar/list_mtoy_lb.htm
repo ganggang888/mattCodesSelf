@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link type="text/css" rel="stylesheet" href="/templets/qyskin/css/style.css">
+<script type="text/javascript" src="/templets/qyskin/js/jquery.js"></script>
+<script type="text/javascript" src="/templets/qyskin/js/TouchSlide.js"></script>
+<script type="text/javascript" src="/templets/qyskin/js/main.js"></script>
+</head>
+<body>
+<div class="wp"> {dede:include filename="head2.htm"/}
+  <div class="ov">
+    <video src="{dede:field.typeimg /}" width="100%" controls preload autoplay></video>
+  </div>
+  <div class="box">
+    <div class="box_n">
+      <div class="dm">
+        <ul class="doc-diy1">
+          <li><a href="{dede:type typeid=23}[field:typelink /]{/dede:type}"><img src="/templets/qyskin/images/tu1.png"><span>视觉处理系列</span></a></li>
+          <li><a href="{dede:type typeid=22}[field:typelink /]{/dede:type}"><img src="/templets/qyskin/images/tu2.png"><span>大肢体系列</span></a></li>
+          <li><a href="{dede:type typeid=25}[field:typelink /]{/dede:type}"><img src="/templets/qyskin/images/tu3.png"><span>手眼协调系列</span></a></li>
+          <li><a href="{dede:type typeid=24}[field:typelink /]{/dede:type}"><img src="/templets/qyskin/images/tu4.png"><span>视觉系列</span></a></li>
+          <li><a href="{dede:type typeid=27}[field:typelink /]{/dede:type}"><img src="/templets/qyskin/images/tu5.png"><span>抓握系列</span></a></li>
+          <li><a href="{dede:type typeid=26}[field:typelink /]{/dede:type}"><img src="/templets/qyskin/images/tu6.png"><span>听觉系列</span></a></li>
+        </ul>
+        <!--样式结束--> 
+      </div>
+        <div class="box_n">
+    	<ul class="twxun1">
+        {dede:list pagesize='10'  titlelen=80}   
+      	<li><a href="[field:arcurl/]"><img src="[field:picname/]"><span>[field:title/]</span><p>[field:description function='cn_substr(@me,150)'/]...</p>
+        <p>[field:pubdate function="MyDate('Y-m-d',@me)"/] </p></a></li>
+      	{/dede:list}
+      </ul>
+    </div>
+    <div class="dede_pages"><ul>{dede:pagelist listitem="index,end,pre,next,pageno" listsize="5"/}</ul></div>
+
+<div class="mylista" style="line-height:28px;">
+<center>
+<img alt="" src="/templets/qyskin/images/traing.jpg" />
+</center>
+<p style="font-size:16px; font-weight:bold;">带操作系统的0-1岁孩子的教玩具</p>
+
+<center>
+	<a href="/plus/view.php?aid=111"><img alt="" src="/uploads/allimg/151210/1-15121020045Q25.jpg" /></a><br/>
+</center>
+<center>
+<img alt="" src="/templets/qyskin/images/mattlogo.png" />
+</center>
+<p style="font-size:16px; font-weight:bold;">教具秘籍教你和宝宝一起快乐成长</p>
+<p>麦麦育儿机器人提供宝宝0-3岁每日成长的互动游戏，让你轻松带着宝宝一起在玩乐中成长</p>
+
+</div>
+
+
+      <div class="dm" style="padding-top:20px;">
+        <ul class="doc-diy2">
+          <li><a href="{dede:global.cfg_down/}"><img src="/templets/qyskin/images/p1.jpg"><span class="orange">下载麦麦育儿机器人
+            体验麦忒教玩具</span></a></li>
+          <li><a href="{dede:global.cfg_buy/}"><img src="/templets/qyskin/images/p2.jpg"><span class="green">点击购买</span></a></li>
+          <li><a href="tel:{dede:global.cfg_tel/}"><img src="/templets/qyskin/images/p3.jpg"><span class="orange">热线咨询{dede:global.cfg_tel/}</span></a></li>
+        </ul>
+        <!--样式结束--> 
+      </div>
+    </div>
+  </div>
+</div>
+{dede:include filename="bottom.htm"/}
+</body>
+</html>

@@ -1,0 +1,578 @@
+.x20,.x40,.x60,.x80 {
+    position:relative;
+    min-height:1px
+}
+
+.line-big .x20,.line-big .x40,.line-big .x60,.line-big .x80,.line-big .xl20,.line-big .xl40,.line-big .xl60,.line-big .xl80,.line-big .xs20,.line-big .xs40,.line-big .xs60,.line-big .xs80,.line-big .xm20,.line-big .xm40,.line-big .xm60,.line-big .xm80,.line-big .xb20,.line-big .xb40,.line-big .xb60,.line-big .xb80 {
+    float:left;
+    position:relative;
+    min-height:1px;
+    padding-right:10px;
+    padding-left:10px
+}
+
+.line-middle .x20,.line-middle .x40,.line-middle .x60,.line-middle .x80,.line-middle .xl20,.line-middle .xl40,.line-middle .xl60,.line-middle .xl80,.line-middle .xs20,.line-middle .xs40,.line-middle .xs60,.line-middle .xs80,.line-middle .xm20,.line-middle .xm40,.line-middle .xm60,.line-middle .xm80,.line-middle .xb20,.line-middle .xb40,.line-middle .xb60,.line-middle .xb80 {
+    float:left;
+    position:relative;
+    min-height:1px;
+    padding-right:5px;
+    padding-left:5px
+}
+
+.line-small .x20,.line-small .x40,.line-small .x60,.line-small .x80,.line-small .xl20,.line-small .xl40,.line-small .xl60,.line-small .xl80,.line-small .xs20,.line-small .xs40,.line-small .xs60,.line-small .xs80,.line-small .xm20,.line-small .xm40,.line-small .xm60,.line-small .xm80,.line-small .xb20,.line-small .xb40,.line-small .xb60,.line-small .xb80 {
+    float:left;
+    position:relative;
+    min-height:1px;
+    padding-right:2px;
+    padding-left:2px
+}
+
+.x20 {
+    width:20%
+}
+
+.x40 {
+    width:40%
+}
+
+.x60 {
+    width:60%
+}
+
+.x80 {
+    width:80%
+}
+
+.x20-left {
+    left:20%
+}
+
+.x40-left {
+    left:40%
+}
+
+.x60-left {
+    left:60%
+}
+
+.x80-left {
+    left:80%
+}
+
+.x20-right {
+    right:20%
+}
+
+.x40-right {
+    right:40%
+}
+
+.x60-right {
+    right:60%
+}
+
+.x80-right {
+    right:80%
+}
+
+.x20-move {
+    margin-left:20%
+}
+
+.x40-move {
+    margin-left:40%
+}
+
+.x60-move {
+    margin-left:60%
+}
+
+.x80-move {
+    margin-left:80%
+}
+
+@media (min-width:300px) {
+.xl20 {
+    width:20%
+}
+
+.xl40 {
+    width:40%
+}
+
+.xl60 {
+    width:60%
+}
+
+.xl80 {
+    width:80%
+}
+
+.xl20-left {
+    left:20%
+}
+
+.xl40-left {
+    left:40%
+}
+
+.xl60-left {
+    left:60%
+}
+
+.xl80-left {
+    left:80%
+}
+
+.xl20-right {
+    right:20%
+}
+
+.xl40-right {
+    right:40%
+}
+
+.xl60-right {
+    right:60%
+}
+
+.xl80-right {
+    right:80%
+}
+
+.xl20-move {
+    margin-left:20%
+}
+
+.xl40-move {
+    margin-left:40%
+}
+
+.xl60-move {
+    margin-left:60%
+}
+
+.xl80-move {
+    margin-left:80%
+}
+}
+
+@media (min-width:760px) {
+.xs20 {
+    width:20%
+}
+
+.xs40 {
+    width:40%
+}
+
+.xs60 {
+    width:60%
+}
+
+.xs80 {
+    width:80%
+}
+
+.xs20-left {
+    left:20%
+}
+
+.xs40-left {
+    left:40%
+}
+
+.xs60-left {
+    left:60%
+}
+
+.xs80-left {
+    left:80%
+}
+
+.xs20-right {
+    right:20%
+}
+
+.xs40-right {
+    right:40%
+}
+
+.xs60-right {
+    right:60%
+}
+
+.xs80-right {
+    right:80%
+}
+
+.xs20-move {
+    margin-left:20%
+}
+
+.xs40-move {
+    margin-left:40%
+}
+
+.xs60-move {
+    margin-left:60%
+}
+
+.xs80-move {
+    margin-left:80%
+}
+}
+
+@media (min-width:1000px) {
+.xm20 {
+    width:20%
+}
+
+.xm40 {
+    width:40%
+}
+
+.xm60 {
+    width:60%
+}
+
+.xm80 {
+    width:80%
+}
+
+.xm20-left {
+    left:20%
+}
+
+.xm40-left {
+    left:40%
+}
+
+.xm60-left {
+    left:60%
+}
+
+.xm80-left {
+    left:80%
+}
+
+.xm20-right {
+    right:20%
+}
+
+.xm40-right {
+    right:40%
+}
+
+.xm60-right {
+    right:60%
+}
+
+.xm80-right {
+    right:80%
+}
+
+.xm20-move {
+    margin-left:20%
+}
+
+.xm40-move {
+    margin-left:40%
+}
+
+.xm60-move {
+    margin-left:60%
+}
+
+.xm80-move {
+    margin-left:80%
+}
+}
+
+@media (min-width:1200px) {
+.xb20 {
+    width:20%
+}
+
+.xb40 {
+    width:40%
+}
+
+.xb60 {
+    width:60%
+}
+
+.xb80 {
+    width:80%
+}
+
+.xb20-left {
+    left:20%
+}
+
+.xb40-left {
+    left:40%
+}
+
+.xb60-left {
+    left:60%
+}
+
+.xb80-left {
+    left:80%
+}
+
+.xb20-right {
+    right:20%
+}
+
+.xb40-right {
+    right:40%
+}
+
+.xb60-right {
+    right:60%
+}
+
+.xb80-right {
+    right:80%
+}
+
+.xb20-move {
+    margin-left:20%
+}
+
+.xb40-move {
+    margin-left:40%
+}
+
+.xb60-move {
+    margin-left:60%
+}
+
+.xb80-move {
+    margin-left:80%
+}
+}
+
+.nav .drop-menu:empty {
+    display:none
+}
+
+.nav .drop-menu {
+    border-radius:0 0 4px 4px;
+    min-width:120px
+}
+
+@media (min-width:760px) {
+.nav .drop-menu li a {
+    text-align:center;
+    padding:7px 20px
+}
+}
+
+@media (min-width:760px) {
+.naver {
+    font-size:16px
+}
+
+.naver ul {
+    font-size:14px
+}
+}
+
+.naver .active a {
+    color:#fc5741
+}
+
+.naver .active ul a {
+    color:#333
+}
+
+.naver .active ul a:hover {
+    color:#fc5741
+}
+
+form .form-group:last-child {
+    padding-bottom:0
+}
+
+.captcha {
+    position:absolute;
+    right:0;
+    top:0;
+    padding:8px 0;
+    width:80px;
+    height:32px;
+    margin:1px;
+    border-left:solid 1px #ddd;
+    text-align:center;
+    line-height:32px;
+    border-radius:0 4px 4px 0;
+    cursor:pointer
+}
+
+.listicon {
+    padding:8%;
+    text-align:center;
+    background:#f5f5f5
+}
+
+.listicon span {
+    display:block;
+    font-size:50px
+}
+
+.listicon strong {
+    display:block;
+    margin-bottom:10px
+}
+
+.listicon:hover {
+    background:#fc5741;
+    color:#fff
+}
+
+.listicon:hover a {
+    color:#fff
+}
+
+.footer {
+    background:#3e3e3e;
+    border-top:solid 5px #eee;
+    padding:50px 0
+}
+
+.contact {
+    color:#999;
+    padding:12px 0;
+    font-size:12px;
+    border-top:solid 1px #666;
+    border-bottom:solid 1px #666;
+    margin-top:-1px
+}
+
+.share strong {
+    padding:5px 0;
+    color:#fc5741;
+    display:block;
+    line-height:30px;
+    z-index:999
+}
+
+.share .sharebtn {
+    border-top:solid 1px #666;
+    border-bottom:solid 1px #666;
+    padding:7px 0;
+    height:43px
+}
+
+.copyright {
+    background:#2e2e2e;
+    padding:25px 0;
+    font-size:12px;
+    color:#fc5741
+}
+
+.copyright .pintuer {
+    color:#999;
+    text-align:left
+}
+
+@media (min-width:760px) {
+.footnav .nav .active a {
+    border-bottom:solid 1px #fc5741;
+    background:transparent
+}
+
+.bg-inverse .footnav .nav li a {
+    padding:5px 10px 20px
+}
+
+.bg-inverse .footnav .nav li a:hover {
+    background:transparent;
+    color:#fc5741
+}
+
+.share strong {
+    padding:5px 0 20px
+}
+
+.copyright .pintuer {
+    float:right;
+    text-align:right
+}
+}
+
+.services {
+    position:absolute;
+    width:81px;
+    text-align:center;
+    right:15px;
+    display:none
+}
+
+.qq,.skype {
+    padding:0;
+    list-style:none;
+    text-align:center
+}
+
+.qq li,.skype li {
+    text-align:center;
+    display:inline-block;
+    width:80px;
+    font-size:12px
+}
+
+.bdshare_dialog_box {
+    box-sizing:content-box;
+    -webkit-box-sizing:content-box;
+    -moz-box-sizing:content-box
+}
+
+.submenu .nav-head {
+    font-size:20px;
+    font-weight:400;
+    height:40px
+}
+
+.submenu a {
+    border-width:1px;
+    padding:8px 20px
+}
+
+.jobs ul,.jobs ol {
+    margin-bottom:20px;
+    line-height:22px
+}
+
+.user-right {
+    border-top:solid 3px #ddd;
+    margin-top:50px;
+    padding:50px 0
+}
+
+@media (min-width:760px) {
+.user-right {
+    border-left:solid 3px #ddd;
+    margin-top:0;
+    border-top:0;
+    padding:120px 0
+}
+}
+
+.detail h2,.detail h3 {
+    margin-bottom:.8em
+}
+
+.detail img {
+    max-width:100%;
+    height:auto
+}
+
+@media (max-width:760px) {
+.detail img {
+    display:block
+}
+}

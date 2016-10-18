@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<if condition="empty($url)">
+<form action="" method="post">
+身份证号码：<input type="text" name="idcard" /><br/>
+证件号码：<input type="text" name="zjhm"/><br/>
+验证码<input type="text" name="sj_mima1" /> <img src="http://www.12333sh.gov.cn/wsbs/zypxjd/jnjd/jdcx/Bmblist.jsp" id="pic" /><span onclick="reloadImage();" style="cursor:hand;">刷新</span><br/>
+<input type="submit" />
+</form>
+<script>
+function reloadImage(){    
+	var img = document.getElementById("pic");    
+	img.src = "http://www.12333sh.gov.cn/wsbs/zypxjd/jnjd/jdcx/Bmblist.jsp?dt="+Math.random();
+	//autoFillRandom();
+}
+
+</script>
+<else />
+
+<iframe runat="server" src="{$url}" width="750" height="700" frameborder="no" border="0" marginwidth="0" name="content" id="content" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+<h1 style="position:fixed; top:0px; left:350px;font-size:15px;padding-top:5px">点击<a href="index.php?g=portal&m=index&a=cha">返回</a>重新查询</h1>
+</if>
+</body>
+</html>

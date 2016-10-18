@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+	<meta name="author" content="fisher">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title>麦忒专家在线</title>
+	<style type="text/css">
+body, p {
+	margin: 0px;
+	padding: 0px;
+	font-size: 16px;
+	color: #333;
+	font-family: Arial, Helvetica, sans-serif;
+}
+var {
+	font-style: normal;
+}
+#ltian, .rin {
+	width: 98%;
+	margin:5px auto 0px auto;
+}
+#ltian {
+	border: 1px #ccc solid;
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
+}
+#ct {
+	margin-right: 111px;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+#us {
+	width: 150px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	float: right;
+	border-left: 1px #ccc solid;
+	height: 100%;
+	background-color: #F1F1F1;
+
+}
+
+#us p {
+	padding: 3px 5px;
+	color: #08C;
+	line-height: 20px;
+	height: 20px;
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size:14px;
+}
+#us p:hover, #us p:active, #us p.ck {
+	background-color: #069;
+	color: #FFF;
+}
+
+#us p.my:hover, #us p.my:active, #us p.my {
+	color: #333;
+	background-color: transparent;
+}
+
+#userchoose{
+
+		background-color:#069;
+	   
+		font-weight:bold;
+		color:greenyellow !important;
+
+}
+
+button {
+	float: right;
+	width: 100px;
+	height: 79px;
+	font-size:small;
+}
+#upimg {
+	width: 100%;
+	height: 100%;
+	padding: 2px;
+	line-height: 20px;
+	outline: none;
+	border: solid 1px #CCC;
+	cursor:pointer;
+}
+.rin p {
+	margin-right: 300px;
+}
+.rin span {
+	float: right;
+	padding: 6px 5px 0px 5px;
+	position: relative;
+}
+.rin span img {
+	margin: 0px 3px;
+	cursor: pointer;
+			height: 80px;
+			width: 80px;
+		}
+.rin span form {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	overflow: hidden;
+	opacity: 0;
+	top: 5px;
+	right: 5px;
+}
+
+#ct p {
+	padding: 5px;
+	line-height: 20px;
+}
+#ct a {
+	color: #069;
+	cursor: pointer;
+}
+.admin1 {
+	color: #C00 !important;
+}
+#ct span {
+	color: #999;
+	margin-right: 10px;
+}
+.c2 {
+	color: #999;
+}
+.c3 {
+	background-color: #DBE9EC;
+	padding: 5px;
+}
+#ems {
+	position: absolute;
+	z-index: 5;
+	display: none;
+	top: 0px;
+	left: 0px;
+	max-width: 230px;
+	background-color: #F1F1F1;
+	border: solid 1px #CCC;
+	padding: 5px;
+}
+#ems img {
+	width: 44px;
+	height: 44px;
+	border: solid 1px #FFF;
+	cursor: pointer;
+}
+#ems img:hover, #ems img:active {
+	border-color: #A4B7E3;
+}
+#ems a {
+	color: #069;
+	border-radius: 2px;
+	display: inline-block;
+	margin: 2px 5px;
+	padding: 1px 8px;
+	text-decoration: none;
+	background-color: #D5DFFD;
+}
+#ems a:hover, #ems a:active, #ems a.ck {
+	color: #FFF;
+	background-color: #069;
+}
+.tc {
+	text-align: center;
+	margin-top: 5px;
+}
+
+.redspan{
+	color:red;
+	font-weight:bold;
+	
+
+}
+
+</style>
+	</head>
+<script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="strophejs/strophe.min.js"></script>
+		<script type="text/javascript" src="pingstream.js"></script>
+		<script src='jquery.base64.js'></script>
+
+	<body>
+		 <div id='login' style='text-align: left'>
+		<form name='cred'>
+		  <label for='jid'>专家识别号:</label>
+		  <input type='text' id='jid' value="lhc@xmpp.mattservice.com" style="width:200px;"/><br/>
+		  <label for='pass' >密码:</label>
+		  <input type='password' id='pass' value="123456"   /><br/>
+		  <input type='button' id='connect' value='开始连接'  />
+		</form>
+	  </div>
+			  <hr />
+	  <div id='log'></div>
+
+<div id="ltian" style="height: 450px;">
+	  <div id="us" class="jb">
+	<span style="float:right" class="mattself">0</span><p class="mattuserphone" id="userchoose">连接状态调试信息</p>
+
+
+  </div>
+  <div id="ct" class="allmessage">
+  <!--<p class="mattself" style="display:none"><span>[05-04 10:12:29]</span><a>王三</a>对你说：<var class="admin0">测试1</var></p>-->
+  </div>
+
+
+	  
+</div>
+<div class="rin">
+	  <button style="margin-top:10px;" id="sd" onclick="sendbutton();">发送(回车)</button>
+	  <span style="margin-top:10px;"><img src="images/t.png" title="录音" id="imgbq"><img src="images/e.png" title="上传图片"><form style="width:80px;height:80px"><input type="file" title="上传图片" id="upimg"></form></span>
+	  <p>
+	  <textarea id="nrong" style="width:100%; height:100px;font-size:x-large;" placeholder="请麦忒专家输入回复内容..." wrap="hard"></textarea>
+  </p>
+	</div>
+<div id="ems" style="top: 461px; left: 1231px;">
+	  <p><img src="images/0.gif"><img src="images/1.gif"><img src="images/2.gif"><img src="images/3.gif"><img src="images/4.gif"><img src="images/5.gif"><img src="images/6.gif"><img src="images/7.gif"><img src="images/8.gif"><img src="images/9.gif"><img src="images/10.gif"><img src="images/11.gif"><img src="images/12.gif"><img src="images/13.gif"><img src="images/14.gif"><img src="images/15.gif"><img src="images/16.gif"><img src="images/17.gif"><img src="images/18.gif"><img src="images/19.gif"></p>
+	  <p class="tc"><a href="javascript:;" class="ck">1</a><a href="javascript:;">2</a><a href="javascript:;">3</a><a href="javascript:;">4</a></p>
+	</div>
+
+<script src="images/a.js" type="text/javascript"></script>
+<script>
+	$(function () {
+
+		$(".mattuserphone").click(function () {
+
+			$('#ct').children('p').attr("style", "display:none");
+
+			$('#us').children('p').removeAttr('id');
+			$(this).attr("id", "userchoose");
+			
+			var p_html = $(this).html();
+
+			choose = p_html;
+
+			
+
+
+			if (p_html == "连接状态调试信息") {
+				p_html = "mattself";
+			}
+
+			$('#ct').children("." + p_html).attr("style", "display:normal");
+			$('#us').children("." + p_html).removeClass("redspan");
+
+			scrollbottom();
+
+		});
+	})
+
+
+	function sendbutton() {
+		var sendtoidphone = $('#userchoose').html();
+		var sendtoid = sendtoidphone + "@xmpp.mattservice.com";
+		var sendfromid=$('#jid').val();
+		var sendcontent = $('#nrong').val();
+
+
+
+		if ($('#userchoose').html() == "连接状态调试信息") {
+
+			alert("用户无效，请选择正确的用户手机号码！");
+
+
+		}
+
+		else {
+			sendMsg(sendtoidphone,sendtoid,sendfromid,'你好吗？','text');
+		}
+
+		
+		
+		
+		$('#nrong').val("");
+
+
+	}
+	
+
+	A.$('nrong').onkeydown = function (e) {
+		var e = e || event;
+		if (e.keyCode == 13) {
+			if ($('#nrong').val().trim() == "" || $('#nrong').val()==null) {
+				alert('内容为空！');
+				$('#nrong').val("");
+			}
+
+			else {
+				A.$('sd').onclick();
+				var whichphone = $('#userchoose').html();
+				$('.' + whichphone).removeClass("redspan");
+			}
+		}
+
+		
+
+
+	}
+	A.$('nrong').onkeyup= function (e) {
+		var e = e || event;
+		if (e.keyCode == 13) {
+			$('#nrong').val("");
+		}
+	}
+
+
+
+</script>
+</body>
+</html>

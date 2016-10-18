@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>{$name} {$seo_title} {$site_name}</title>
+<meta name="keywords" content="{$seo_keywords}" />
+<meta name="description" content="{$seo_description}">
+<tc_include file="Public:header" />
+</head>
+
+<tc_include file="Public:menu" />
+<div class="banner1"><img src="__TMPL__Public/images/banner1.jpg" width="1002" height="246" /></div>
+<div class="main1">
+  <tc_include file="Public:left" />
+  <div class="m_r">
+    <div class="m_r1">
+      <div class="m_rt"><img src="__TMPL__Public/images/right_t.jpg" width="771" height="38" /></div>
+      <div class="m_rz">
+        <div class="m_rz1"> <span><font color="#333">首页</font>&nbsp;>&nbsp;教师介绍</span>教师介绍</div>
+        
+        <foreach name="rows" item="vo">
+        <div class="m_rz2">
+          <div class="m_rz3"><a href="{:leuu('Portal/teacher/detail',array('id'=>$vo['id']))}"><img src="{$vo.img}" width="152" height="184" border="0" /></a></div>
+          <div class="m_rz4">
+            <div class="m_rz5"> <span>姓名：</span>
+              <input type="text" class="bd" value="{$vo.name}" />
+            </div>
+          </div>
+          <div class="m_rz4">
+            <div class="m_rz5"> <span>教师背景：</span>
+              <input type="text" class="bd" value="{$vo.background}" />
+            </div>
+          </div>
+          <div class="m_rz4">
+            <div class="m_rz5"> <span>荣誉：</span>
+              <input type="text" class="bd" value="{$vo.honour}" />
+            </div>
+          </div>
+          <div class="m_rz4">
+            <div class="m_rz5"> <span>曾经任职：</span>
+              <input type="text" class="bd" value="{$vo.had_do}" />
+            </div>
+          </div>
+          <div class="m_rz4">
+            <div class="m_rz5"> <span>著作：</span>
+              <input type="text" class="bd" value="{$vo.book}" />
+            </div>
+          </div>
+          <div class="m_rz4">
+            <div class="m_rz5"> <span>专业领域：</span>
+              <input type="text" class="bd" value="{$vo.territory}" />
+            </div>
+          </div>
+          <div class="m_rz4">
+            <div class="m_rz5"> <span>专家见解：</span>
+              <input type="text" class="bd" value="{$vo.talk}" />
+            </div>
+          </div>
+        </div>
+        </foreach>
+        <div class="shu2">
+          <div class="ppage">{$page}</div>
+        </div>
+      </div>
+      <div class="m_rb"> <img src="__TMPL__Public/images/right_b.jpg" width="771" height="38" /></div>
+    </div>
+  </div>
+</div>
+<tc_include file="Public:foot" />

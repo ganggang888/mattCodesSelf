@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+		<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="__TMPL__Public/css/Global.css" />
+		<!--公司引用的base，公司专门用的-->
+		<link rel="stylesheet" href="__TMPL__Public/css/base.css" />
+		<base target="_blank">
+		<title>{$post_title} {$site_name}</title>
+		<style type="text/css">
+.middle p {
+	font-size: 18px;
+}
+.footer {
+	width: 96%;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+.footer ul {
+	margin-top: 12px;
+}
+.footer ul li {
+	margin-top: 8px;
+	color: #8bc53f;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+}
+.middle p {
+	text-indent: 2em;
+	line-height: 25px;
+	padding-left: 10px;
+}
+</style>
+		</head>
+		<body class="drawer">
+        <div class="overall">
+          <div class="top"> <a href="javascript:;" onClick="history.go(-1)"><img src="__TMPL__Public/images/arrow_left.png" style="height: 20px; margin-top: 14px;margin-left: 8%;"/></a> <span >{$post_title}</span>
+            <tc_include file="Public:menu" />
+          </div>
+          <div class="middle" style="padding-top:10px"> {$post_content} </div>
+          <tc_include file="Public:bottom" />
+        </div>
+</body>
+</html>

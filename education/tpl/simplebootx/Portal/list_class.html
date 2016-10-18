@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>{$name} {$seo_title} {$site_name}</title>
+<meta name="keywords" content="{$seo_keywords}" />
+<meta name="description" content="{$seo_description}">
+<tc_include file="Public:header" />
+</head>
+
+<tc_include file="Public:menu" />
+<div class="banner1"><img src="__TMPL__Public/images/banner1.jpg" width="1002" height="246" /></div>
+<div class="main1">
+  <tc_include file="Public:left" />
+  <div class="m_r">
+    <div class="m_r1">
+      <div class="m_rt"><img src="__TMPL__Public/images/right_t.jpg" width="771" height="38" /></div>
+      <div class="m_rz">
+        <div class="m_rz1"> <span><font color="#333">首页</font>&nbsp;>&nbsp;{$name}</span>{$name}</div>
+        <div class="activity" style="color:#666; "> &nbsp;&nbsp;&nbsp;&nbsp;上海麦忒育婴职业技术培训学校是由虹口区人力资源和社会保障局批准设立的（办学许可证：<span class="style2">3101094120539</span>）一所新型的、高规格的职业技术培训学校。目前承担的培训项目有：中级育婴师（四级）、初级育婴师（五级）、母婴护理（专项职业能力）、养老护理员（四级）、养老护理员（五级）、家政服务（专项职业能力）。学校有一支专业化的教师队伍，保证培训质量，考证合格率达95%以上。
+          学校设有就业指导办公室，为学员免费提供就业服务，就业率为98%。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;招生要求:   年龄不限，初中文化水平及以上，身体健康，有爱心、耐心、诚心和责任心，会讲普通话。<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;报名电话:  021-51022333     (张老师 ,顾老师) <br>
+          <div style="background:url(__TMPL__Public/images/activity.jpg) repeat; width:672px; height:42px; "> </div>
+        </div>
+        <php> $lists = sp_sql_posts_paged("cid:$cat_id;order:post_date DESC;",10); </php>
+        <volist name="lists['posts']" id="vo">
+          <php> $smeta=json_decode($vo['smeta'], true); </php>
+          <div class="activity">
+            <div class="activity1">
+              <div class="activity2"><a href="{:leuu('Portal/article/index',array('id'=>$vo['tid']))}"><img src="{:sp_get_asset_upload_path($smeta['thumb'])}" class="img-responsive" alt="{$vo.post_title}" width="334" height="165" /></a></div>
+              <div class="activity3">
+                <div class="activity3_t"><a href="{:leuu('Portal/article/index',array('id'=>$vo['tid']))}"><span style ="color:#229991; font-size:13px">{$vo.post_title}</span></a></div>
+                <div  style =" width:301px ; margin-top :10px; color:#2ABEB5;">{$vo.post_keywords}</div>
+                <div  style =" width:301px ; margin-top :5px; color:#229991;">{$vo.post_excerpt}</div>
+                <div class="activity_b"><a href="course.html"><img src="__TMPL__Public/images/an1.jpg" width="131" height="38" /></a><a href="{:leuu('Portal/article/index',array('id'=>$vo['tid']))}"><img src="__TMPL__Public/images/an.jpg" width="131" height="38" /></a></div>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </volist>
+        <div class="shu2">
+          <div class="ppage">{$lists['page']}</div>
+        </div>
+      </div>
+      <div class="m_rb"> <img src="__TMPL__Public/images/right_b.jpg" width="771" height="38" /></div>
+    </div>
+  </div>
+</div>
+<tc_include file="Public:foot" />

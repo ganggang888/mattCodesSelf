@@ -1,0 +1,165 @@
+<include file="public:admin_top" />
+<body>
+	<nav class="breadcrumb">
+		<i class="iconfont">&#xf012b;</i>
+		首页
+		<span class="c-gray en">&gt;</span>
+		产品管理
+		<span class="c-gray en">&gt;</span>
+		添加产品
+		<a class="btn btn-success radius r mr-20" style="line-height: 1.6em; margin-top: 3px" href="javascript:location.replace(location.href);" title="刷新">
+			<i class="icon-refresh"></i> 刷 新
+		</a>
+		<a class="btn btn-primary radius r mr-20" style="line-height: 1.6em; margin-top: 3px" href="javascript:history.back();" title=返回">
+			<i class="icon-circle-arrow-left"></i> 返 回
+		</a>
+	</nav>
+	<div class="pd-20">
+		<form action="{:U('Index/save_product_add')}" method='post'>
+		<table class='form-table'>
+			<tr>
+				<th>产品名称</th>
+				<td><input type='text' name='title' class='l-input' /></td>
+			</tr>
+			<tr>
+				<th>所属分类</th>
+				<td>
+					<select name="cid" class="select">
+						<option value=''>-- 请选择所属分类 --</option>
+						<volist name="categoryTR" id="vo">
+						<option value="{$vo.id}">{$vo.count|nums2blank} {$vo.catename}</option>
+						</volist>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<th>SEO关键词</th>
+				<td>
+					<input type='text' name="seo_key" class='l-input' />
+					<span class='tip'>关键词用英文逗号 “ , ” 隔开</span>
+				</td>
+			</tr>
+			<tr>
+				<th>SEO描述</th>
+				<td>
+					<textarea class='simple-textarea' name="seo_description"></textarea>
+				</td>
+			</tr>
+
+			<tr>
+				<th>图片</th>
+				<td>
+					<input type="hidden" name="image" id="imghidden" />
+					<input id="file_upload" name="file_upload" type="file" multiple="true">
+					<div id='imgbox'></div>
+				</td>
+			</tr>	
+
+			<tr>
+				<th>是否推荐</th>
+				<td>
+					<input type='radio' name="is_tuijian" value='1' />是 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type='radio' name="is_tuijian" value='0' checked />否
+				</td>
+			</tr>
+			<tr>
+				<th>产品详情</th>
+				<td>
+					<script id='editor' name="content" type="text/plain" style="width:800px; height:500px;"></script>
+				</td>
+			</tr>
+
+	
+			
+			<tr>
+				<th>显示顺序</th>
+				<td><input type='text' class='s-input' name="psort" /></td>
+			</tr>
+			<tr>
+				<th>&nbsp;</th>
+				<td>
+					<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;确 定&nbsp;&nbsp;">
+				</td>
+			</tr>	
+		</table>
+		</form>
+	</div>
+	<script type="text/javascript" src="__H-UI__/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/layer1.9/layer.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.doc.js"></script>
+	
+	<!-- 编辑器 -->
+	<script type="text/javascript" charset="utf-8" src="__UED__/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__UED__/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="__UED__/lang/zh-cn/zh-cn.js"></script>
+    
+    <!-- 上传组件 -->
+    <script src="__PUBLIC__/Uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Uploadify/uploadify.css">
+    
+    <script type="text/javascript">
+    	var ue = UE.getEditor('editor');
+		var ue2 = UE.getEditor('editor2');
+    </script>
+    
+    <!-- 上传组件 -->
+    <script type="text/javascript">
+		
+
+    	<?php $timestamp = time();?>
+		$(function() {
+			//上传图片
+			var inputimgval = '';
+			$('#file_upload').uploadify({
+				'formData'       : {
+					'timestamp'   : '<?php echo $timestamp;?>',
+					'token'       : '<?php echo md5('unique_salt' . $timestamp);?>',
+					'upload_path' : '/Public/Upload/Uploadify/product'	
+				},
+				'swf'            : '__PUBLIC__/Uploadify/uploadify.swf',
+				'uploader'       : '__PUBLIC__/Uploadify/uploadify.php',
+				'buttonText'     : "选择图片",
+				'multi'          : true ,
+				'fileSizeLimit'  : '2000KB',
+				'fileTypeExts'   : '*.gif; *.jpg; *.png; *.jpeg',
+				'onUploadSuccess':function(file,data,response){
+                    $("#imgbox").append("<img src='__PUBLIC__/Upload/Uploadify/product/"+data+"' style='width:120px; height:80px; border:1px solid #ccc; padding:2px;' />");
+					inputimgval += ','+data;
+					$('#imghidden').attr('value',inputimgval);
+                },
+
+			});
+
+			//上传说明书
+			$('#file_upload2').uploadify({
+				'formData'       : {
+					'timestamp'   : '<?php echo $timestamp;?>',
+					'token'       : '<?php echo md5('unique_salt' . $timestamp);?>',
+					'upload_path' : '/Public/Upload/Uploadify/product'
+				},
+				'swf'            : '__PUBLIC__/Uploadify/uploadify.swf',
+				'uploader'       : '__PUBLIC__/Uploadify/uploadify.php',
+				'buttonText'     : "选择文件",
+				'multi'          : true ,
+				'fileSizeLimit'  : '2000KB',
+				'fileTypeExts'   : '*.zip; *.rar; *.doc; *.pdf',
+				'onUploadSuccess':function(file,data,response){
+					$('#fujianhidden').attr('value',data);
+				},
+
+			});
+
+		});
+
+
+
+		
+
+		
+	</script>
+</body>
+</html>

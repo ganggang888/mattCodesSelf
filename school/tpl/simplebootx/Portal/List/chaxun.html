@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <script type="text/javascript" src="__TMPL__Public/js/jquery-1.8.2.min.js" ></script>
+		<link rel="stylesheet" href="__TMPL__Public/css/Global.css" />
+		<link rel="stylesheet" href="__TMPL__Public/css/base.css" /><link rel="stylesheet" href="css/index.css" />
+		<title>诚信查询系统</title>
+
+	</head>
+	<body>
+		<div class="overall">
+			<div class="top">			
+				<a href="javascript:;" onClick="history.go(-1)"><img src="__TMPL__Public/images/arrow_left.png"/></a>
+				<span style="margin-left: -8%;">{$info.name}-{$info.student_id}</span>
+			</div>
+			<div class="middle">
+				<br/>
+				<br/>
+	<div>
+		<a style="display: block;margin-left:33% ;width: 33%;">
+			<img src="{$info.photo}" style="border-radius:50% 50% ; width: 100%;">
+				<a>
+		
+	</div>
+	<br/>
+	<br/>
+	<style type="text/css">
+		 .div CXCX{
+				   	float: left;
+				   }
+				   .CXCX{
+				   	width: 38%;
+				   	color: #666666;
+				   	font-size: 16px;
+			
+				   }
+				      .CXCX1{
+				   	width: 62%;
+				   	  	
+				   }
+				   	.CXCX li{
+				   		list-style: none;
+				   		text-align:right;
+				   		margin-top: 10px;
+				   	}
+				   	.CXCX1 li{
+				   			color: #666666;
+				   	font-size: 16px;
+				   		margin-left: 4%;
+				   		list-style: none;
+				   		text-align:left;	
+				   		margin-top: 10px;		   		
+		 }
+		 
+		 
+		 
+		 .div Pen{
+				   	float: left;
+				   }
+				   .Pen{
+				   	width: 38%;
+				   	font-size: 16px;
+				   	color: #F9A51A;
+				   }
+				      .Pen1{
+				   	width: 62%;
+				   		   	color: #F9A51A;
+				   }
+				   	.Pen li{
+				   		list-style: none;
+				   		text-align:right;
+				   		margin-top: 10px;
+				   	}
+				   	.Pen1 li{
+	   	color: #F9A51A;
+				   	font-size: 16px;
+				   		margin-left: 40%;
+				   		list-style: none;
+				   		text-align:left;	
+				   		margin-top: 10px;		   		
+		 }
+	</style>
+<p><img src="__TMPL__Public/images/Fen1.png" width="100%"></p>
+	  <div class="div" style="height: 200px;">
+				   <ul class="CXCX">
+				     	<li>姓名&nbsp;&nbsp;:</li>
+				   		<li>年龄&nbsp;&nbsp;:</li>
+                        <php>
+                        $should = array(0=>'未填',1=>'小学',2=>'初中',3=>'高中(中专)',4=>'专科',5=>'本科');
+                        </php>
+				   		<li>学历&nbsp;&nbsp;:</li>
+                        <php>
+                        $certificate = json_decode($info['certificate'],true);
+                        </php>
+				   		<li style="height: 70px;	">证书&nbsp;&nbsp;:
+                        
+                        </li>
+				   		<li>工作经历&nbsp;&nbsp;:</li>
+				   </ul>
+				   <ul class="CXCX1">
+				     	<li >{$info.name}</li>
+				     	<li>{$info.age}</li>
+				   		<li>{$should[$info['education']]}</li>
+				   		<li>
+				   			<foreach name="certificate" item="vo">
+                        {$vo}<br/>
+                        </foreach>
+				   		</li>
+				   		<li>
+                        <php>
+                        $student_work = D('student_work');
+                        $rows = $student_work->where(array('student_id'=>$info['id']))->select();
+                        </php>
+                        <foreach name="rows" item="vo">
+                        {$vo.work_address}<br/>{$vo.from_time}&nbsp;至&nbsp;{$vo.to_time}<br/><br/>
+                        </foreach>
+                        </li>
+				   </ul>			   
+                </div>		   			   
+<p><img src="__TMPL__Public/images/Fen2.png" width="100%"></p>
+
+ <div class="div" style=" line-height:25px; font-size:16px; text-align:center">
+			<foreach name="result" item="vo">
+            <li style="list-style:none" style="margin:0">
+            {$vo.name}:<br/><if condition="empty($vo['general_result'])">无</if>{$vo.general_result}<br/><br/>
+            </li>
+            </foreach>
+                </div>		   
+<!--<p><img src="__TMPL__Public/images/Fen3.png" width="100%"></p>-->
+	<div></div>
+	<div></div>
+       </div>
+          <!--<div class="md_06">
+                 <a>工号：001A<a>
+        </div>-->
+				<div class="bottom">
+				 <ul>
+                   <li>联系电话</li>
+                 <li><a>400-998-2033</a></li>               	
+                 </ul>
+			</div>
+		</div>
+	</body>
+</html>

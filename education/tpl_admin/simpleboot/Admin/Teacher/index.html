@@ -1,0 +1,110 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+	<div class="wrap J_check_wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:;">所有教师</a></li>
+			<li><a href="{:U('Teacher/add')}" target="_self">添加教师</a></li>
+		</ul>
+		
+		<form class="J_ajaxForm" action="" method="post">
+			
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+					<tr>
+					  <th width="50">id</th>
+					  <th>姓名</th>
+						<th>教师背景</th>
+					  <th>荣誉</th>
+						<th>曾经任职</th>
+						<th>著作</th>
+						<th>专业领域</th>
+						<th>专家见解</th>
+                        <th>添加时间</th>
+					  <th width="60">操作</th>
+					</tr>
+				</thead>
+				<foreach name="rows" item="vo">
+				<tr>
+					<td>{$vo.id}</td>
+					<td>{$vo.name}</td>
+					<td>{$vo.background}</td>
+					<td>{$vo.honour}</td>
+					<td>{$vo.had_do}</td>
+					<td>{$vo.book}</td>
+					<td>{$vo.territory}</td>
+					<td>{$vo.talk}</td>
+                    <th>{$vo.add_time}</th>
+					<td>
+						<a href="{:U('Teacher/edit',array('id'=>$vo['id']))}">修改</a> | 
+						<a href="{:U('Teacher/delete',array('id'=>$vo['id']))}" class="J_ajax_del">删除</a></td>
+				</tr>
+				</foreach>
+				<tfoot>
+					<tr>
+					  <th>id</th>
+					  <th>姓名</th>
+					  <th>教师背景</th>
+					  <th>荣誉</th>
+					  <th>曾经任职</th>
+					  <th>著作</th>
+					  <th>专业领域</th>
+					  <th>专家见解</th>
+                      <th>添加时间</th>
+						<th width="60">操作</th>
+					</tr>
+				</tfoot>
+			</table>
+			
+			<div class="pagination">{$page}</div>
+
+	  </form>
+	</div>
+	<script src="__ROOT__/statics/js/common.js"></script>
+	<script>
+		function refersh_window() {
+			var refersh_time = getCookie('refersh_time');
+			if (refersh_time == 1) {
+				window.location = "{:U('AdminPost/index',$formget)}";
+			}
+		}
+		setInterval(function() {
+			refersh_window();
+		}, 2000);
+		$(function() {
+			setCookie("refersh_time", 0);
+			Wind.use('ajaxForm', 'artDialog', 'iframeTools', function() {
+				//批量移动
+				$('.J_articles_move').click(
+						function(e) {
+							var str = 0;
+							var id = tag = '';
+							$("input[name='ids[]']").each(function() {
+								if ($(this).attr('checked')) {
+									str = 1;
+									id += tag + $(this).val();
+									tag = ',';
+								}
+							});
+							if (str == 0) {
+								art.dialog.through({
+									id : 'error',
+									icon : 'error',
+									content : '您没有勾选信息，无法进行操作！',
+									cancelVal : '关闭',
+									cancel : true
+								});
+								return false;
+							}
+							var $this = $(this);
+							art.dialog.open(
+									"__ROOT__/index.php?g=portal&m=AdminPost&a=move&ids="
+											+ id, {
+										title : "批量移动",
+										width : "80%"
+									});
+						});
+			});
+		});
+	</script>
+</body>
+</html>

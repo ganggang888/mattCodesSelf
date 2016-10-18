@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{$post_title} {$site_name}</title>
+<tc_include file="Public:css"/>
+</head>
+<body class="xianji">
+<div class="limiter">
+	<tc_include file="Public:header"/>
+
+	<!--面包开始-->
+	<div class="bread">
+		<div class="fl">
+			<h3>{$post_title}</h3>
+			<p>{$post_keywords}</p>
+		</div>
+		<div class="fr">
+			<a href="{$Think.const.WEB_PATH}">首页</a>>我要献计><a>{$post_title}</a>
+		</div>
+	</div>
+	<!--面包结束-->
+
+	<!--主体开始-->
+	<div class="main clearfix">
+		<ul class="tab">
+			<li class="now"><a href="javascript:;">我有一技</a></li>
+			<li><a href="{:leuu('portal/page/index',array('id'=>18))}">我有线索</a></li>
+		</ul>
+		<form class="edit">
+			<div class="con">
+				<table>
+					<colgroup> 
+					    <col width="50%"> 
+					    <col width="50%">
+					</colgroup>
+					<tbody>
+						<tr>
+							<td>
+								<label for="">*技法名称：</label>
+								<input type="text" name="name" id="name" placeholder="请输入技法名称">
+							</td>
+							<td>
+								<label for="">*地点：</label>
+								<input type="text" name="address" id="address" placeholder="请输入您的地址">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="">*申请人：</label>
+								<input type="text" name="username" id="username" placeholder="请输入申请人名称">
+							</td>
+							<td>
+								<label for="">*邮箱：</label>
+								<input type="text" name="" id="email" placeholder="请输入您的邮箱">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="">*传承人：</label>
+								<input type="text" id="man" placeholder="请输入传承人">
+							</td>
+							<td>
+								<label for="">*联系电话：</label>
+								<input type="text" id="phone" placeholder="请输入您的联系电话">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<label for="">*技术特点：</label>
+								<textarea placeholder="请输入您的技术特点" id="goods"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+                            <php>
+                            $all = skillInfo();
+                            </php>
+								<label for="">*技术类型：</label>
+                                <foreach name="all" item="vo">
+                                <a href="javascript:;">{$vo.name}</a>
+                                </foreach>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="center mt20 mb15">
+				<a href="javascript:;" style="font-size: 20px;
+font-weight: bold;
+width: 290px;
+height: 52px;display: inline-block;
+background-color: #E19D35;
+color: white;
+border: none;
+padding: 0;
+cursor: pointer; line-height:52px" id="upload" onClick="upload()">同意并上传</a>
+			</div>
+		</form>
+	</div>
+	<!--主体结束-->
+<tc_include file="Public:foot"/>
+<script>
+var term_info;
+    $(function(){
+		$(".xianji td a").click(function()
+		{
+			$(".xianji td a").attr("class",'');
+			$(this).attr("class","good");
+			term_info = $(this).html();
+		}
+		)
+	})
+</script>
+<script>
+function upload()
+{
+	var name = $("#name").val();
+	var address = $("#address").val();
+	var username = $("#username").val();
+	var email = $("#email").val();
+	var man = $("#man").val();
+	var goods = $("#goods").val();
+	var phone = $("#phone").val();
+	if (phone.length != 11) {
+		alert('请输入正确的手机号码');
+		return false;
+	}
+	if (name == '') {
+		alert('请输入技法名称');
+		return false;
+	}
+	if (username == '') {
+		alert('请输入申请人名称');
+		return false;
+	}
+	if (goods == '') {
+		alert('请输入您的技术特点');
+		return false;
+	}
+	if (term_info == '') {
+		alert('请选择技术特点');
+		return false;
+	}
+	var infos = {
+		name:name,
+		address:address,
+		username:username,
+		email:email,
+		man:man,
+		goods:goods,
+		phone:phone,
+		term_info:term_info,
+		is_ajax:1
+	}
+	$.ajax({
+		type:"POST",
+		url:"{$Think.const.WEB_PATH}/index.php?g=portal&m=index&a=xianji",
+		data:infos,
+		success: function(data){
+			if (data.status == 1) {
+				alert("恭喜您上传成功，我们会尽快联系您的");
+			} else {
+				alert(data.info);
+				return false;
+			}
+		}
+	})
+}
+</script>
+</body>
+</html>

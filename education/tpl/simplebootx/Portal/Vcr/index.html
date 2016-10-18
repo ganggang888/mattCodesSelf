@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>{$name} {$seo_title} {$site_name}</title>
+<meta name="keywords" content="{$seo_keywords}" />
+<meta name="description" content="{$seo_description}">
+<tc_include file="Public:header" />
+</head>
+
+<tc_include file="Public:menu" />
+<div class="banner1"><img src="__TMPL__Public/images/banner1.jpg" width="1002" height="246" /></div>
+<div class="main1">
+  <tc_include file="Public:left" />
+  <div class="m_r">
+    <div class="m_r1">
+      <div class="m_rt"><img src="__TMPL__Public/images/right_t.jpg" width="771" height="38" /></div>
+      <div class="m_rz">
+        <div class="m_rz1"> <span><font color="#333">首页</font>&nbsp;>&nbsp;VCR欣赏</span>VCR欣赏</div>
+        <div class="new2">
+          <ul>
+            <foreach name="rows" item="vo">
+            <php>
+            $m=1;
+            </php>
+            <php>
+            if ($m % 2 == 0)
+            {
+            </php>
+            <div style="float:right; width:300px; border:solid 1px #CCC; margin-bottom:70px"><a href="{:leuu('Portal/vcr/detail',array('id'=>$vo['vid']))}" style="width:300px; float:left"><img src="{$vo.img}" width="300" height="200" /></a><a href="{:leuu('Portal/vcr/detail',array('id'=>$vo['vid']))}" style=" position:relative; text-align:center; width:300px; float:left; height:30px; line-height:30px">{$vo.name}</a></div>
+            <php>
+            }else {
+            </php>
+            <div style="float:left; width:300px; border:solid 1px #CCC; margin-bottom:70px"><a href="{:leuu('Portal/vcr/detail',array('id'=>$vo['vid']))}" style="width:300px; float:left"><img src="{$vo.img}" width="300" height="200" /></a><a href="{:leuu('Portal/vcr/detail',array('id'=>$vo['vid']))}" style=" position:relative; text-align:center; width:300px; float:left; height:30px; line-height:30px">{$vo.name}</a></div>
+            <php>
+            }
+            </php>
+            <php>
+            $m++;
+            </php>
+            </foreach>
+          </ul>
+        </div>
+        <div class="shu2">
+          <div class="ppage">{$page}</div>
+        </div>
+      </div>
+      <div class="m_rb"> <img src="__TMPL__Public/images/right_b.jpg" width="771" height="38" /></div>
+    </div>
+  </div>
+</div>
+<tc_include file="Public:foot" />

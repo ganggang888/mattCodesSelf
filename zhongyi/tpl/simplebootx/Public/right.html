@@ -1,0 +1,40 @@
+<div class="right">
+  <div class="box">
+    <php> //$shiping=sp_sql_posts("cid:11;field:post_title,post_keywords,post_excerpt,post_content,tid,smeta,post_modified;order:listorder asc;limit:1;");
+    $shiping = getALLid("视频库",0,1,'post_modified');
+    </php>
+    <div class="tit">
+      <h5>推荐视频</h5>
+      <a href="{:leuu('portal/list/jifa_list',array('name'=>'视频库'))}" class="more">更多>></a> </div>
+    <foreach name="shiping" item="vo">
+      <php> $smeta = json_decode($vo['smeta'],true); </php>
+      <div class="fpic"> <a href="{:leuu('article/index',array('id'=>$vo['tid']))}"> <img src="{:sp_get_asset_upload_path($smeta['thumb'])}" width="264" height="209" alt="{$vo.post_title}"> <span></span> <em class="tips"> 视频名称：{$vo.post_title} </em> </a> </div>
+    </foreach>
+  </div>
+  <div class="box">
+    <div class="tit">
+      <h5>活动预告</h5>
+      <php> 
+      $yugao = getALLid("活动预告",0,1,'post_modified');
+      </php>
+      <a href="{:leuu('portal/list/jifa_list',array('name'=>'活动预告'))}" class="more">更多>></a> </div>
+    <ul class="list">
+      <foreach name="yugao" item="vo">
+        <li><span class="fr">{:date("Y-m-d",strtotime($vo['post_modified']))}</span><a href="{:leuu('portal/list/index',array('id'=>11))}">{:msubstr(strip_tags($vo['post_title']),0,29)}</a></li>
+      </foreach>
+    </ul>
+  </div>
+  <div class="box">
+    <php> 
+    $yugao = getALLid("媒体报道",0,1,'post_modified')
+    </php>
+    <div class="tit">
+      <h5>媒体报道</h5>
+      <foreach name="yugao" item="vo">
+      <a href="{:leuu('portal/list/jifa_list',array('name'=>'媒体报道'))}" class="more">更多>></a> </div>
+    <div class="high"> {$vo['post_title']} <span class="fr">{:date("Y-m-d",strtotime($vo['post_modified']))}</span> </div>
+    <p class="list"> <a href="{:leuu('article/index',array('id'=>$vo['tid']))}">{:msubstr(strip_tags($vo['post_content']),0,33)}</a> </p>
+      </foreach>
+      
+  </div>
+</div>

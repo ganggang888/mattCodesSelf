@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>{$name} {$seo_title} {$site_name}</title>
+<meta name="keywords" content="{$seo_keywords}" />
+<meta name="description" content="{$seo_description}">
+<tc_include file="Public:header" />
+</head>
+
+<tc_include file="Public:menu" />
+<div class="banner1"><img src="__TMPL__Public/images/banner1.jpg" width="1002" height="246" /></div>
+<div class="main1">
+  <tc_include file="Public:left" />
+  <div class="m_r">
+<div class="m_r1">
+<div class="m_rt"><img src="__TMPL__Public/images/right_t.jpg" width="771" height="38" /></div>
+<div class="m_rz">
+<div class="m_rz1">
+<php>
+ $term=sp_get_term($term_id ); //获取分类信息
+</php>
+<span><font color="#333">首页</font>&nbsp;>&nbsp;{$term.name}</span>{$term.name}</div>
+
+
+<div class="mx">
+<span>{$post_title}</span><br />
+{$post_date}
+</div>
+
+
+<div class="zi10">
+{$post_content}
+</div>
+
+
+<div class="my">
+<br />
+<a href="javascript:window.history.back();" style="color:#66C644; ">> 返回</a><br />
+</div>
+
+
+<div class="zi11">
+  
+<!-- JiaThis Button BEGIN -->
+<div id="ckepop" style=" padding-left:20px;">
+	<span class="jiathis_txt">分享到：</span>
+	<a class="jiathis_button_qzone">QQ空间</a>
+	<a class="jiathis_button_tsina">新浪微博</a>
+	<a class="jiathis_button_tqq">腾讯微博</a>
+	<a class="jiathis_button_renren">人人网</a>
+	<a class="jiathis_button_kaixin001">开心网</a>
+	<a class="jiathis_button_douban">豆瓣</a>
+	<a class="jiathis_button_fb">Facebook</a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v2.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+</div>
+<div class="m_rb">  <img src="__TMPL__Public/images/right_b.jpg" width="771" height="38" /></div></div>
+
+</div>
+
+</div>
+</div>
+<tc_include file="Public:foot" />

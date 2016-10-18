@@ -1,0 +1,302 @@
+body{
+	background: #ffeaba;
+}
+#ingde{
+		background-size: 100% 100%;
+		    background-image: url(../img/2.png);   
+}
+.overall{
+width: 100%;
+font-size: 22px;
+font-family:"方正准圆简体";
+}
+/*
+ 高是1920
+ */
+.yj{
+border-radius: 20px 20px ;
+}
+
+.top {
+	height: 48px;
+	background: #8bc53f;
+}
+.top img{
+	height: 20px; margin-top: 14px;margin-left: 8%;
+}
+.top span{
+position:absolute;
+left:42.5%;
+line-height: 48px;
+color:#F0FFFF;
+font-size: 26px;
+font-family:"方正准圆简体";
+font-weight:200;
+}
+.middle{
+	width: 100%;
+}
+		 .div ul{
+				   	float: left;
+				   }
+				   .ul{
+				   	width: 38%;
+				   }
+				      .ul1{
+				   	width: 62%;
+				   }
+				   	.ul li{
+				   		list-style: none;
+				   		text-align:right;
+				   		margin-top: 60px;
+				   	}
+				   	.ul1 li{
+				   		list-style: none;
+				   		text-align:left;	
+				   		margin-top: 60px;		   		
+		 }
+.middle .text{
+	   border-bottom:#baad8b 4px solid;
+	   border-left-width:0px;
+	   border-right-width:0px;
+	   border-top-width:0px;
+	   background:transparent;
+	   height: 25px;
+	   width:60%;
+	   margin-top: -5px;
+	   }
+
+.bottom{
+	width:100% ;
+	height: 80px;
+}
+			.middle p{
+				font-size: 18px;
+			}
+			.footer{
+	width: 96%;
+	margin:0 auto;
+  margin-top: 40px;
+}
+.footer ul{
+	margin-top: 12px;
+}
+.footer ul li{
+margin-top: 8px;
+	color:#8bc53f ;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;}
+	
+.wrapper {
+    margin-top:66px;
+    padding: 1em;
+    color: #FFFFFF;
+}
+/*隐藏于显示开始*/
+.indexspan {
+    			position: absolute;
+top: 15px;
+    margin-left: 47%;
+    display: none;
+}
+.indexspan:before,.indexspan:after {
+    position:absolute;
+    display:block;
+    width:30px;
+    height:4px;
+    cursor:pointer;
+    content:'';
+    background-color:#F0FFFF;
+    border-radius:2px;
+}
+.indexspan:before {
+    top:6px
+}
+.indexspan:after {
+    bottom:-10px
+}
+.indexspan{
+    background-color:transparent
+}
+.indexspan:before {
+    -webkit-transform:rotate(45deg);
+    -ms-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg)
+}
+.indexspan:after {
+    -webkit-transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg)
+}
+
+    .drawer-hamberger span {
+    margin-top:-14px;
+        margin-left: 47%;
+}
+
+.drawer-hamberger span,.drawer-hamberger span:before,.drawer-hamberger span:after {
+    position:absolute;
+    display:block;
+    width:30px;
+    height:4px;
+    cursor:pointer;
+    content:'';
+    background-color:#F0FFFF;
+    border-radius:1px;
+    -webkit-transition:all .4s cubic-bezier(0.19,1,.22,1);
+    -o-transition:all .4s cubic-bezier(0.19,1,.22,1);
+    transition:all .4s cubic-bezier(0.19,1,.22,1)
+}
+
+.drawer-hamberger span:before {
+    top:-10px
+}
+
+.drawer-hamberger span:after {
+    bottom:-10px
+}
+
+.drawer-open .drawer-hamberger span {
+    background-color:transparent
+}
+
+.drawer-open .drawer-hamberger span:before,.drawer-open .drawer-hamberger span:after {
+    top:0
+}
+
+.drawer-open .drawer-hamberger span:before {
+    -webkit-transform:rotate(45deg);
+    -ms-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg)
+}
+
+.drawer-open .drawer-hamberger span:after {
+    -webkit-transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg)
+}
+    
+    	
+    	.indexUL{
+    		width: 100%;   
+    		height: 100%; 		
+    		background-color: #777777;
+    		position: absolute;
+    		z-index:900000;
+    		margin-top: 14px;
+    		display: none;
+    	}
+    	.indexUL ul li{
+    		margin: 10px 20px 0px 20px;
+    			border-bottom:1px solid #CCCCCC;
+    			padding: 15px;
+    	}
+/*隐藏显示结束*/
+
+
+/*响应式，针对iPhone各个型号的高度*/
+@media only screen and (max-height: 530px) and (min-height: 440px) {
+
+
+	#btn{
+		                    display: block;
+				   			margin-left:14% ;
+				   	        background: #f9a51a; font-size: 20px;
+				        	height: 40px;
+				        	width:76%;border-radius:10px 10px ;
+				   	        text-align:center;
+				   	        margin-top: -42px; 
+				   	        border:0px;
+	}
+}
+@media only screen and (max-height: 530px) and (min-height: 440px) {
+
+ #btn{
+	 display: block;
+				   			margin-left:14% ;
+				   	        background: #f9a51a; font-size: 20px;
+				        	height: 40px;
+				        	width:76%;border-radius:10px 10px ;
+				   	        text-align:center;
+				   	        margin-top: -34px; 
+				   	        border:0px;
+	}
+}
+@media only screen and (max-height: 599px) and (min-height: 531px) {
+
+ #btn{
+	 display: block;
+				   			margin-left:14% ;
+				   	        background: #f9a51a; font-size: 20px;
+				        	height: 40px;
+				        	width:76%;border-radius:10px 10px ;
+				   	        text-align:center;
+				   	        margin-top: -34px; 
+				   	        border:0px;
+	}
+} 
+@media only screen and (max-height: 680px) and (min-height: 600px) {
+ #btn{
+	 display: block;
+				   			margin-left:14% ;
+				   	        background: #f9a51a; font-size: 20px;
+				        	height: 40px;
+				        	width:76%;border-radius:10px 10px ;
+				   	        text-align:center;
+				   	        margin-top: -34px; 
+				   	        border:0px;
+	}
+}
+@media only screen and (max-height: 736px) and (min-height: 681px) {
+
+ #btn{
+	 display: block;
+				   			margin-left:14% ;
+				   	        background: #f9a51a; font-size: 20px;
+				        	height: 40px;
+				        	width:76%;border-radius:10px 10px ;
+				   	        text-align:center;
+				   	        margin-top: -34px; 
+				   	        border:0px;
+	}
+
+}
+.bottom{
+	width: 96%;
+	margin:0 auto;
+		height: 174px;
+}
+.bottom ul{
+	margin-top: 60px;
+}
+.bottom ul li{
+margin-top: 8px;
+	color:#8bc53f ;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+}
+.bottom ul li a{
+
+	color:#8bc53f ;
+	font-size: 15px;
+	text-align: center;
+}
+
+@media only screen and (max-height: 530px) and (min-height: 440px) {
+
+}
+@media only screen and (max-height: 599px) and (min-height: 531px) {
+
+} 
+@media only screen and (max-height: 680px) and (min-height: 600px) {
+
+}
+@media only screen and (max-height: 736px) and (min-height: 681px) {
+
+}

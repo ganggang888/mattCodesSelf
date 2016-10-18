@@ -1,0 +1,140 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed">
+	<div class="wrap J_check_wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:;">所有订单</a></li>
+		</ul>
+		<form class="well form-search">
+			<div class="search_type cc mb10">
+				<div class="mb10">
+					<span class="mr20">
+						手机号：
+						<input type="text" id="phone" value="{$phone}">
+						&nbsp;&nbsp;订单号：<input type="text" id="numbers" value="{$number}"><a href="javascript:;" onClick="todo()" class="btn btn-primary">搜索</a>&nbsp;&nbsp;
+					</span>
+					<script>
+					function todo() {
+						var phone = $("#phone").val();
+						var numbers = $("#numbers").val();
+						window.location.href='/index.php?g=Admin&m=Subject&a=order&menuid=183&phone='+phone+'&number='+numbers;
+					}
+					</script>
+				</div>
+			</div>
+		</form>
+		<form class="J_ajaxForm" action="" method="post">
+			
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>订单名称</th>
+                        <th>用户名</th>
+						<th>订单号</th>
+						<th>价格</th>
+						<th>支付方式</th>
+						<th>支付状态</th>
+						<th>订单信息</th>
+						<th>下单时间</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				
+				<foreach name="result" item="vo">
+				<tr>
+					<td>{$vo.id}</td>
+					<td>{$vo.order_name}</td>
+                    <th>
+                    <php>
+                    $user = getUsername($vo['uid']);
+                    echo $user['user_login'];
+                    </php>
+                    </th>
+					<td>{$vo.order_number}</td>
+					<td>{$vo.order_money}</td>
+					<td>
+                    <if condition="$vo[type] eq 1">
+                    支付宝
+                    <elseif condition="$vo[type] eq 2" />
+                    微信支付
+                    </if>
+                    </td>
+					<td>
+                    <if condition="$vo[status] eq 1">
+                    支付成功
+                    <else />
+                    支付失败
+                    </if>
+                    </td>
+					<td>
+                    <php>
+                    $info = orderInfo($vo['info']);
+                    </php>
+                    <foreach name="info" item="v">
+                    {$v.parent}->{$v.name} ￥{$v.price}<br/>
+                    </foreach>
+                    </td>
+					<td>
+                    {$vo.add_time}
+                    </td>
+					<td><a href="{:U('AdminPost/delete',array('term'=>empty($term['term_id'])?'':$term['term_id'],'tid'=>$vo['tid']))}" class="J_ajax_del"></a></td>
+				</tr>
+				</foreach>
+				<tfoot>
+				</tfoot>
+			</table>
+			
+			<div class="pagination">{$page}</div>
+
+	  </form>
+	</div>
+	<script src="__ROOT__/statics/js/common.js"></script>
+	<script>
+		function refersh_window() {
+			var refersh_time = getCookie('refersh_time');
+			if (refersh_time == 1) {
+				window.location = "{:U('AdminPost/index',$formget)}";
+			}
+		}
+		setInterval(function() {
+			refersh_window();
+		}, 2000);
+		$(function() {
+			setCookie("refersh_time", 0);
+			Wind.use('ajaxForm', 'artDialog', 'iframeTools', function() {
+				//批量移动
+				$('.J_articles_move').click(
+						function(e) {
+							var str = 0;
+							var id = tag = '';
+							$("input[name='ids[]']").each(function() {
+								if ($(this).attr('checked')) {
+									str = 1;
+									id += tag + $(this).val();
+									tag = ',';
+								}
+							});
+							if (str == 0) {
+								art.dialog.through({
+									id : 'error',
+									icon : 'error',
+									content : '您没有勾选信息，无法进行操作！',
+									cancelVal : '关闭',
+									cancel : true
+								});
+								return false;
+							}
+							var $this = $(this);
+							art.dialog.open(
+									"__ROOT__/index.php?g=portal&m=AdminPost&a=move&ids="
+											+ id, {
+										title : "批量移动",
+										width : "80%"
+									});
+						});
+			});
+		});
+	</script>
+</body>
+</html>

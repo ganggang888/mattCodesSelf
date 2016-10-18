@@ -1,0 +1,457 @@
+body{
+	font-family:"方正细圆简体";
+	  color: #736868;
+}
+
+.text-20{
+	    font-size:20px;
+    margin-bottom:15px;
+      font-family:"方正细圆简体";
+        color: #736868;
+}
+.text-one2{
+	margin-left: 24px;
+	  font-family:"方正细圆简体";
+	  color: #736868;
+}
+.text-one20{
+	margin-left: 40px;
+	  font-family:"方正细圆简体";
+	    color: #736868;
+}
+
+.key h1 {
+    font-size:28px;
+    color:#736868 ;
+ letter-spacing: -1px;
+      font-family:"方正细圆简体";
+        color: #736868;
+      
+       
+}
+.icon-un:before{
+    content:"\f000"
+}
+.soid{
+	border: 1px #0099FF solid;
+}
+/*字体*/
+.text-tor{
+	font-size: 20px;
+}
+
+.text-traning{
+	text-align: center;
+	font-size: 40px;
+
+}
+.text-traningtext{
+    height: 45px;
+	font-size: 32px;
+
+}
+.textkey h1{
+	font-size: 36px;
+	    margin-bottom:15px
+}
+.text-main
+/*前面为全局*/
+.MBconta{
+	width: 72%;
+	margin: auto;
+}
+
+.contaone{
+width: 74%;
+	margin: auto;
+}
+
+
+.contactc{
+	max-width: 800px;
+		margin: auto;
+}
+
+
+.text-headlineimg{
+	font-size: 46px;
+	margin-top: 30.5%;
+	letter-spacing: -4px; 
+}
+.headlinesize{
+	margin-top:7%;
+}
+.headline{
+	margin-top:5%;
+}
+.chopsticks{
+	margin-top:-6%;
+}
+/*官方修改*/
+.list-unstyle1{
+	margin-left: -12.5%;
+}
+.list-mediaa{
+	margin-top: 1.8%;
+	margin-left: 5.5%;
+	border-radius:40px 40px ;
+	height: 30px;
+	line-height: 30px;
+	background-color: #00AA88;
+	text-align: center;
+	color: #F5F5F5;
+	width: 19.5%;
+}
+.text-mlift{
+	margin-left: 3%;
+}
+.img-text{
+	margin-left: 28%;
+}
+
+
+/*官方修改完毕*/
+.Darod2{
+margin-left: 7%;
+}
+
+.body{
+	height:240px ;
+}
+.share{
+height: 305px;
+line-height: 305px;
+}
+.Mbtextopone{
+	position: absolute;
+	margin-top: 0%;
+	background-color:#f06(0,152,50);
+opacity:0.8;
+}
+/*Datingrobot结束*/
+.bg-one{
+	    color:#333;
+	        color:inherit;
+	            background-color:#FFFFFF;
+	                border-color:#FFFFFF
+}
+.bg-one:hover{
+    color:#333;
+    border-color:#FFFFFF;
+    background-color:#FFFFFF;
+}
+.bg-tor{
+
+	            background-color:#f5f6f6;
+	                border-color:#f5f6f6
+}
+.bg-tor:hover{
+    border-color:#f5f6f6;
+    background-color:#f5f6f6;
+}
+.range-top{
+	margin-top: 75px;
+}
+.x0-move1 {
+    margin-left:50px;
+    margin-top: 15px;
+}
+
+.x0-move2{
+	  margin-left:5.333333%;
+    margin-top: 80px;
+}
+.x0-move3{
+    margin-top: 6%;
+}
+.x0-move4 {
+    margin-left:3.5333333%;
+    margin-top: 40px;
+}
+.x0-move5 {
+    margin-left:-1.5333333%;
+    margin-top: 3%;
+}
+.x1-move1 {
+    margin-top:-1.33333%;
+}
+.x1-mbone{
+	margin-left: 9px;
+}
+/*表格*/
+
+.table1 {
+    width:100%;
+    max-width:100%;
+
+    border-collapse:collapse;
+    border-spacing:0
+}
+
+.table1 th {
+    vertical-align:bottom;
+    padding:8px;
+    text-align:left
+}
+
+.table1 td {
+    padding:8px;
+    vertical-align:top
+}
+
+.table2 {
+    width:100%;
+    max-width:100%;
+
+    border-collapse:collapse;
+    border-spacing:0
+}
+
+.table2 th {
+    vertical-align:bottom;
+    padding:8px;
+    text-align:left
+}
+
+.table2 td {
+    padding:12px;
+    vertical-align:top
+}
+.Mbindex{
+	position: absolute;
+	margin-top: 0%;
+	background-color:#f06(0,152,50);
+opacity:0.8;
+}
+
+
+/*button*/
+
+
+
+/*自适应开始最宽的默认宽度*/
+.contatop:after,.contatop-layout:after,{
+    content:" ";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+    overflow:hidden
+}
+
+.contatop,.contatop-layout,{
+    display:block
+}
+.contatop,.contatop-layout {
+    margin:0 auto;
+}
+
+@media (min-width:760px) {
+.contatop {
+    width:760px
+}
+}
+
+@media (min-width:900px) {
+.contatop {
+    width:1000px
+}
+}
+
+@media (min-width:1200px) {
+.contatop {
+    width:1326px
+}
+}
+
+
+/*第二个全局头部*/
+
+
+.contator:after,.contator-layout:after,{
+    content:" ";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+    overflow:hidden
+}
+
+.contator,.contator-layout,{
+    display:block
+}
+.contator,.contator-layout {
+    margin:0 auto;
+}
+
+@media (min-width:760px) {
+.contator {
+    width:740px
+}
+}
+
+@media (min-width:1000px) {
+.contator {
+    width:880px
+}
+@media (min-width:1200px) {
+.contator {
+    width:1326px;
+}
+}
+.Mapp,.contator-layout,{
+    display:block
+}
+.Mapp,.contator-layout {
+    margin:0 auto;
+}
+@media (min-width:760px) {
+.Mapp {
+    width:740px
+}
+}
+
+@media (min-width:1000px) {
+.Mapp {
+    width:840px
+}
+}
+
+@media (min-width:1200px) {
+.Mapp {
+    width:1100px
+}
+}
+/*第三个相当于只有百分之86%左右*/
+.consix:after,.consix-layout:after,{
+    content:" ";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+    overflow:hidden
+}
+
+.consix,.consix-layout,{
+    display:block
+}
+.consix,.consix-layout {
+    margin:0 auto;
+    padding:0 10px
+}
+
+@media (min-width:760px) {
+.consix {
+    width:680px
+}
+}
+
+@media (min-width:1000px) {
+.consix {
+    width:900px
+}
+}
+
+@media (min-width:1200px) {
+.consix {
+    width:1326px
+}
+}
+/*我们的教授用*/
+.confour:after,.confour-layout:after,{
+    content:" ";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+    overflow:hidden
+}
+
+.confour,.confour-layout,{
+    display:block
+}
+.confour,.confour-layout {
+    margin:0 auto;
+    padding:0 10px
+}
+
+@media (min-width:760px) {
+.confour {
+    width:750px
+}
+}
+
+@media (min-width:1000px) {
+.confour {
+    width:970px
+}
+}
+
+@media (min-width:1200px) {
+.confour {
+    width:1326px
+}
+}
+/*轮播的小条*/
+
+
+.convive{
+	margin:  0 auto;
+}
+@media (min-width:760px) {
+.convive {
+    width:760px;
+     position: fixed;top:78px;  z-index: 8888;
+}
+}
+
+@media (min-width:1000px) {
+.convive {
+    width:982px;
+     position: fixed;z-index: 8888;
+left: 13px;
+
+}
+}
+
+@media (min-width:1200px) {
+.convive {
+    width:1004px;
+     position: fixed;  z-index: 8888;
+     left: 290px;
+}
+}
+
+/*六张图片的代码*/
+@media (min-width:760px) {
+.conss {
+	position: absolute;
+top: -0px;
+height: 154px;
+
+    opacity: 0.4;
+    background-color: #00A67E
+}
+}
+
+@media (min-width:1000px) {
+.conss {
+		position: absolute;
+left: 0px;
+      width:99%;
+    opacity: 0.4;
+    background-color: #00A67E
+}
+@media (min-width:1200px) {
+.conss {
+	position: absolute;
+
+left: 0px;
+height: 156px;
+       width:99%;
+    opacity: 0.4;
+    background-color: #00A67E;
+
+}
+}
+

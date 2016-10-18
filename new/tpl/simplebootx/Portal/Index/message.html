@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>聊天</title>
+</head>
+<style>
+td{ padding:5px!important}
+</style>
+<body>
+<table width="100%" border="1">
+  <tr>
+    <td>发送者</td>
+    <td>接收者</td>
+    <td width="800">内容</td>
+    <td width="180">时间</td>
+  </tr>
+  <foreach name="result" item="vo">
+  <tr>
+    <td>{$vo.fromjid}<if condition="strstr($vo['fromjid'],'zhuanjia')">
+    (专家)
+    <else />
+    （用户）
+    </if>
+    </td>
+    <td>{$vo.tojid}<if condition="strstr($vo['tojid'],'zhuanjia')">
+    (专家)
+    <else />
+    （用户）
+    </if></td>
+    <td style="width:800px">{:base64_decode($vo['body'])}</td>
+    <td>{:date("Y-m-d H:i:s",substr($vo[sentdate], 0, strlen($sentdate) - 3))}</td>
+  </tr>
+  </foreach>
+</table>
+{$page}
+</body>
+</html>

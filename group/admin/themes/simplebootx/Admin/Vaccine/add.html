@@ -1,0 +1,145 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+	<div class="wrap jj">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('Vaccine/index')}">疫苗列表</a></li>
+			<li class="active"><a href="javascript:;">添加疫苗</a></li>
+		</ul>
+		<div class="common-form">
+			<form method="post" class="form-horizontal J_ajaxForm" action="">
+				<fieldset>
+					<div class="control-group">
+						<label class="control-label">名称:</label>
+						<div class="controls">
+							<input type="text" class="input" name="name" value="">
+							<span class="must_red">*</span>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">剂次总数:</label>
+						<div class="controls">
+							<input type="text" class="input" name="total" value="">
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    <div class="control-group">
+						<label class="control-label">剂次值:</label>
+						<div class="controls">
+							<input type="text" class="input" name="index" value="">
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    
+					<div class="control-group">
+						<label class="control-label">类别:</label>
+						<div class="controls">
+							<select name="type">
+                            <option value="1">一类</option>
+                            <option value="2">二类</option>
+                            </select>
+							<span class="must_red">*</span>
+						</div>
+					</div>
+					
+
+					<div class="control-group">
+						<label class="control-label">是否为必须:</label>
+						<div class="controls">
+							<select name="is_necessary" id="important">
+							<option value="0">否</option>
+							<option value="1">是</option>
+						</select>
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    <div class="control-group">
+						<label class="control-label">是否免费:</label>
+						<div class="controls">
+							<select name="is_free" id="is_free">
+							<option value="0">否</option>
+							<option value="1">是</option>
+						</select>
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    <div class="control-group">
+						<label class="control-label">月份:</label>
+						<div class="controls">
+							<select name="required_months" id="month">
+							<php>
+								for($i=0;$i<=72;$i++) {
+							</php>
+							<option value="{$i}">{$i}月份</option>
+							<php>
+								}
+							</php>
+						</select>
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    
+                    <div class="control-group">
+						<label class="control-label">疫苗首字母:</label>
+						<div class="controls">
+							<input type="text" name="first_letter">
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    <div class="control-group">
+						<label class="control-label">免疫程序:</label>
+						<div class="controls">
+							<textarea rows="6" name="detail_field_1"></textarea>
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    
+                    <div class="control-group">
+						<label class="control-label">接种方法:</label>
+						<div class="controls">
+							<textarea rows="6" name="detail_field_2"></textarea>
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    
+                    <div class="control-group">
+						<label class="control-label">作用:</label>
+						<div class="controls">
+							<textarea rows="6" name="detail_field_3"></textarea>
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    <div class="control-group">
+						<label class="control-label">禁忌症:</label>
+						<div class="controls">
+							<textarea rows="6" name="detail_field_4"></textarea>
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    <div class="control-group">
+						<label class="control-label">不良反应:</label>
+						<div class="controls">
+							<textarea rows="6" name="detail_field_5"></textarea>
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    <div class="control-group">
+						<label class="control-label">注意事项:</label>
+						<div class="controls">
+							<textarea rows="6" name="detail_field_6"></textarea>
+							<span class="must_red">*</span>
+						</div>
+					</div>
+					<input type="hidden" name="create_time" value="{:date('Y-m-d H:i:s')}"><input type="hidden" name="update_time" value="{:date('Y-m-d H:i:s')}">
+				</fieldset>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary btn_submit J_ajax_submit_btn">添加</button>
+					<a class="btn" href="__URL__">返回</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="__ROOT__/statics/js/common.js"></script>
+    <script type="text/javascript" src="__ROOT__/statics/js/content_addtop.js"></script>
+
+</body>
+</html>

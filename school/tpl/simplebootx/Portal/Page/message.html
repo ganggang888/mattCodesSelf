@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<script type="text/javascript" src="__TMPL__Public/js/jquery-1.8.2.min.js" ></script>
+<link rel="stylesheet" href="__TMPL__Public/css/Global.css" />
+<link rel="stylesheet" href="__TMPL__Public/css/base.css" />
+<link rel="stylesheet" href="__TMPL__Public/css/message board.css" />
+<title>{$site_seo_title} {$site_name} 留言板</title>
+</head>
+<body>
+<div class="overall">
+  <div class="top"> <a href="javascript:;" onClick="history.go(-1)"><img src="__TMPL__Public/images/arrow_left.png"/></a> <span>留言板</span>
+  <tc_include file="Public:menu" />
+  </div>
+  <div class="middle">
+    <div class="messageimg"> <a><img src="__TMPL__Public/images/message.png"></a> </div>
+    <div class="message" style="height: 430px;">
+      <ul class=" messageul">
+        <li >姓名 :</li>
+        <li >年龄 :</li>
+        <li>手机号 :</li>
+        <li>联系地址 :</li>
+        <li>留言 :</li>
+      </ul>
+      <ul class="messageul1">
+        <li>
+          <input type="text" name="text" id="name" class="text"  style="width: 90%;"/>
+        </li>
+        <li >
+          <input type="text" name="phone" id="age" class="text"  style="width: 90%;"/>
+        </li>
+        <li>
+          <input type="text" name="phone" id="phone" class="text"  style="width: 90%;"/>
+        </li>
+        <li>
+          <input type="text" name="text" id="address" class="text"  style="width: 90%;"/>
+        </li>
+        <li>
+          <textarea  cols="20" rows="5" id="content">
+
+</textarea>
+        </li>
+      </ul>
+    </div>
+    <p> <span style="display: block;margin-left:2% ;background:#8bc53f;
+				   	height: 46px;width:96%;border-radius:10px 10px ;text-align:center;margin-top: 36px;" onClick="sendMessage()" > <a style="line-height: 46px; ; font-size: 25px; color:azure;">提交</a> </span> </p>
+            <tc_include file="Public:bottom" />
+  </div>
+</div>
+</body>
+<script>
+function sendMessage()
+{
+	var name = $("#name").val();
+	var age = $("#age").val();
+	var phone = $("#phone").val();
+	var address = $("#address").val();
+	var content = $("#content").val();
+	var data = {
+		name:name,
+		age:age,
+		phone:phone,
+		address:address,
+		content:content,
+		is_ajax:1
+	}
+	$.ajax({
+		type:"POST",
+		url:"",
+		data:data,
+		success: function(data){
+			if (data.status == 0) {
+				alert(data.info);
+				return false;
+			} else {
+				alert('恭喜留言成功,我们会尽快联系您的！');
+				window.location.href=data.referer;
+			}
+		}
+	})
+}
+</script>
+</html>

@@ -1,0 +1,221 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+.overall {
+	width: 100%;
+	background: #ffeaba;
+	font-size:14px;
+
+}
+.above {
+	width: 100%;
+	height: 60px;
+background-color: #4d3208;
+}
+
+
+
+/*修改对象*/
+
+/*响应式，针对iPhone各个型号的高度*/
+@media only screen and (max-height: 530px) and (min-height: 440px) {
+
+	.select{
+	width: 100%;height: 80px;margin-top: 10px;
+}
+			.above{
+		height: 47px;
+background-color: #4d3208;
+	}
+	.Logo1{
+position: absolute;
+top:7.5px;
+left: 84%;
+width: 12%;
+
+}
+.Logo1 a{
+	display: block;
+	height: 18px;
+	background-color: #8bc53f;
+	border-radius: 6px 6px;
+	text-align: center;
+	color: #FFFFFF;
+}
+}
+@media only screen and (max-height: 599px) and (min-height: 531px) {
+	.select{
+	width: 100%;height: 80px;margin-top: 14px;
+}
+	.above{
+		height: 47px;
+background-color: #4d3208;
+	}
+		.Logo1{
+position: absolute;
+top:7.5px;
+left: 84%;
+width: 12%;
+
+}
+.Logo1 a{
+	display: block;
+	height: 18px;
+	background-color: #8bc53f;
+	border-radius: 6px 6px;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+}
+@media only screen and (max-height: 680px) and (min-height: 600px) {
+	.select{
+	width: 100%;height: 90px;margin-top: 10px;
+}
+
+		.above{
+		height: 55px;
+background-color: #4d3208;
+
+	}
+			.Logo1{
+position: absolute;
+top:7.5px;
+left: 82%;
+width: 13%;
+
+}
+.Logo1 a{
+	display: block;
+	height: 22px;
+	background-color: #8bc53f;
+	border-radius: 8px 8px;
+	text-align: center;
+	color: #FFFFFF;
+}
+}
+@media only screen and (max-height: 736px) and (min-height: 681px) {
+	.select{
+	width: 100%;height: 90px;margin-top: 10px;
+}
+
+	.above{
+		height: 60px;
+background-color: #4d3208;
+	}
+				.Logo1{
+position: absolute;
+top:6.5px;
+left: 82%;
+width: 13%;
+
+
+}
+.Logo1 a{
+	display: block;
+	height: 25px;
+	line-height: 25px;
+	background-color: #8bc53f;
+	border-radius: 8px 8px;
+	font-size: 18px;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+}
+/*轮播特效*/
+.middle {
+	width: 100%;
+	margin: auto;
+}
+.middle p{
+	padding: 5px;font-size: 1.6em;color: #FFFFFF;height: 95px;
+}
+.middle span{
+	padding: 58px 20px;font-size: 1.2em;color: #FFFFFF;float: right;font-weight: bold;
+}
+.md_01{
+	height: 240px;
+	background:#57B1E6;
+}  
+/*轮播开始*/
+.addWrap{ position:relative; width:100%;background:#fff;margin:0; padding:0;}
+.addWrap .swipe{overflow: hidden;}
+.addWrap .swipe-wrap{overflow:hidden;position:relative; }
+.addWrap .swipe-wrap > div {float: left;width: 100%;position:relative; }
+
+#position{ position:absolute; bottom:0; right:0;  margin:0;  opacity: 0.4; width:100%; filter: alpha(opacity=50);text-align:center;}
+#position li{width:10px;height:10px;margin:0 2px;display:inline-block;-webkit-border-radius:5px;border-radius:5px;background-color:#f9a51a    ;}
+#position li.cur{background-color:#FF0000;}
+.img-responsive { display: block; max-width: 100%;  height: auto;}
+
+
+
+/*轮播结束*/
+.md_02{
+	width: 96%;
+	margin: auto;
+	height: 190px;
+	background: #f9a51a;
+	border-radius: 7px;
+	
+}
+.md_02 a{
+	color: #FFFFFF;
+}
+.md_03{
+	width: 96%;
+	margin: auto;
+	height: 190px;
+	background: #00a67e;
+	border-radius: 7px;
+	margin-top:10px ;
+}
+.md_03 a{
+	color: #FFFFFF;
+}
+.md_04{
+	width: 96%;
+	margin: auto;
+	height:190px;
+	background: #8bc53f;
+	border-radius: 7px;
+	margin-top:10px ;
+}
+.md_04 a{
+	color: #FFFFFF;
+}
+.md_05{
+	width: 100%;
+	margin: auto;
+	height: 186px;
+
+}
+         .md_05 a{
+                        float: left;
+                        display: block;margin-left:2.2% ;background:#f9a51a;
+                        font-size: 18px;
+                        color: #FFFFFF;
+                        height: 86px;width:30.5%;border-radius:5px 5px ;margin-top: 8px;
+                        line-height: 86px;
+                        text-align: center;
+                     }
+
+.footer{
+	width: 96%;
+	margin:0 auto;
+		height: 174px;
+}
+.footer ul{
+	margin-top: 12px;
+}
+.footer ul li{
+margin-top: 8px;
+	color:#8bc53f ;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+}
+

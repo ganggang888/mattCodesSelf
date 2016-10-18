@@ -1,0 +1,40 @@
+<?php
+$z[0]=Array("field","",290,309);
+$z[0][4]['name']="title";
+$z[1]=Array("global","",310,336);
+$z[1][4]['name']="cfg_webname";
+$z[2]=Array("field","",377,406);
+$z[2][4]['name']="keywords";
+$z[3]=Array("field","",446,504);
+$z[3][4]['name']="description";
+$z[3][4]['function']="html2text(@me)";
+$z[4]=Array("include","",861,896);
+$z[4][4]['filename']="head.htm";
+$z[5]=Array("global","",1013,1035);
+$z[5][4]['name']="cfg_buy";
+$z[6]=Array("type"," [field:typelink /]",1159,1211);
+$z[6][4]['typeid']="14";
+$z[7]=Array("type"," [field:typelink /]",1339,1391);
+$z[7][4]['typeid']="15";
+$z[8]=Array("type"," [field:typelink /]",1528,1580);
+$z[8][4]['typeid']="16";
+$z[9]=Array("type"," [field:typelink /]",1711,1763);
+$z[9][4]['typeid']="17";
+$z[10]=Array("type"," [field:typelink /]",2015,2067);
+$z[10][4]['typeid']="12";
+$z[11]=Array("arclist","\r\n      	<li><a href=\"[field:arcurl/]\"><img src=\"[field:picname/]\" width=\"100\" height=\"72\"><span>[field:title/]</span><p>[field:description function='cn_substr(@me,76)'/]...</p>\r\n        <p>[field:pubdate function=\"MyDate('Y-m-d',@me)\"/]</p></a></li>\r\n        ",2178,2498);
+$z[11][4]['typeid']="6";
+$z[11][4]['titlelen']="42";
+$z[11][4]['row']="5";
+$z[12]=Array("type"," [field:typelink /]",2654,2706);
+$z[12][4]['typeid']="13";
+$z[13]=Array("arclist","\r\n      	<li><a href=\"[field:arcurl/]\"><img src=\"[field:picname/]\" width=\"100\" height=\"72\"><span>[field:title/]</span><p>[field:description function='cn_substr(@me,76)'/]...</p>\r\n        <p>[field:pubdate function=\"MyDate('Y-m-d',@me)\"/]</p></a></li>\r\n        ",2817,3138);
+$z[13][4]['typeid']="7";
+$z[13][4]['titlelen']="42";
+$z[13][4]['row']="5";
+$z[14]=Array("include","",3179,3216);
+$z[14][4]['filename']="footer.htm";
+$z[15]=Array("include","",3226,3263);
+$z[15][4]['filename']="bottom.htm";
+
+?>

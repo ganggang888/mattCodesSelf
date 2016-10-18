@@ -1,0 +1,76 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="javascript:;">所有优惠码</a></li>
+  </ul>
+  <form class="well form-search">
+			<div class="search_type cc mb10">
+				<div class="mb10">
+					<span class="mr20">
+						优惠码：
+						<input type="text" id="code" value="{$code}">
+				<a href="javascript:;" onClick="todo()" class="btn btn-primary">搜索</a>&nbsp;&nbsp;
+					</span>
+					<script>
+					function todo() {
+						var code = $("#code").val();
+						window.location.href='/index.php?g=Admin&m=Subject&a=code&menuid=183&code='+code;
+					}
+					</script>
+				</div>
+			</div>
+		</form>
+  <form class="J_ajaxForm" action="" method="post">
+    <table class="table table-hover table-bordered table-list">
+      <thead>
+        <tr>
+          <th width="50">id</th>
+          <th>用户</th>
+          <th>优惠码</th>
+          <th>状态</th>
+          <th>优惠码信息</th>
+          <th>添加时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <foreach name="result" item="vo">
+        <tr>
+          <td>{$vo.id}</td>
+          <td>
+          <php>
+          $user = getUsername($vo['uid']);
+          echo $user['user_login'];
+          </php>
+          </td>
+          <td>{$vo.code}</td>
+          <td>
+          <if condition="$vo[status] eq 1">
+          已兑换
+          <else />
+          未兑换
+          </if>
+          </td>
+          <td><php>$info = orderInfo($vo['info']);</php>
+          <foreach name="info" item="v">
+                    {$v.parent}->{$v.name} ￥{$v.price}<br/>
+                    </foreach>
+          </td>
+          <td>{$vo.add_time}</td>
+          <td><a href="{:U('Admin/subject/delCode',array('id'=>$vo[id]))}">删除</a>
+          <if condition="$vo[status] eq 0">
+           | <a href="{:U('Admin/subject/changeCode',array('id'=>$vo[id]))}" class="J_ajax_dialog_btn" data-msg="确定执行吗？">已兑换</a>
+           </if>
+           </td>
+        </tr>
+      </foreach>
+      <tfoot>
+      </tfoot>
+    </table>
+    <div class="pagination">{$page}</div>
+  </form>
+</div>
+<script src="__ROOT__/statics/js/common.js"></script>
+</body>
+</html>

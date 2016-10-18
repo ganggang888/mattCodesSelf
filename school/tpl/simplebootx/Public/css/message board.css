@@ -1,0 +1,46 @@
+ .message ul{
+				   	float: left;
+				   }
+				   .messageul{
+				   	width: 35%;
+				   }
+				      .messageul1{
+				   	width: 65%;
+				   }
+				   	.messageul li{
+				   		list-style: none;
+				   		text-align:right;
+				   		margin-top: 40px;
+				   	}
+				   	.messageul1 li{
+				   		list-style: none;
+				   		text-align:left;
+				   		margin-left: 3%;	
+				   		margin-top: 40px;		   		
+		 }
+		 .message textarea{
+border:4px #baad8b solid;
+	   background:transparent;
+  border-radius:10px 10px ;
+    width: 90%;
+
+		 }
+		 .messageimg img{
+		 	width: 44%;
+		 	margin: 40px 20% 20px 28%;
+		 }
+		 .footer{
+	width: 96%;
+	margin:0 auto;
+		height: 174px;
+}
+.footer ul{
+	margin-top: 52px;
+}
+.footer ul li{
+margin-top: 8px;
+	color:#8bc53f ;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+}

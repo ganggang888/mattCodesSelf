@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>{$site_name} 我们是谁</title>
+    <tc_include file="Public:css" />
+    <style>
+		.demo-nav.fixed.fixed-top{z-index:8;background:#fff;width:100%;padding:0;border-bottom:solid 3px #0a8;-webkit-box-shadow:0 3px 6px rgba(0, 0, 0, .175);box-shadow:0 3px 6px rgba(0, 0, 0, .175);}
+    </style>
+	</head>
+	<body>
+
+ <tc_include file="Public:header" />
+<tc_include file="Public:nav" />
+ 
+
+
+<!--图片导航-->
+			<br/><br/>
+			<br/><br/>
+			<div class="contatop textkey text-default  height">
+				<div class=" xm6 ">
+                <foreach name="result" item="vo">
+                <if condition="$key neq 0"><br/>
+			<br/>
+			<br/></if>
+                <a href="{:leuu('article/index',array('id'=>$vo['tid']))}"><h1 <if condition="$key eq 0">class="text-main"</if>>{$vo.post_title}</h1></a>
+                <php>
+                $info = json_decode($vo[smeta],true);
+                </php>
+                <if condition="!empty($info['thumb'])">
+                <p class="xm0"><a href="{:leuu('article/index',array('id'=>$vo['tid']))}"><img src="{:sp_get_asset_upload_path($info['thumb'])}" width="100%" alt="{$vo.post_title}" title="{$vo.post_title}"></a></p>
+                </if>
+                <php>
+                $content = strip_tags($vo['post_content']);
+                </php>
+                <if condition="strlen($content) gt 200">
+                <p>{:mb_substr($content,0,200,'utf-8')}...</p>
+                <else />
+                {$content}
+                </if>
+                </foreach>
+              </div>
+					<div class="table-responsive xm3  float-right ">
+                   <table class="table2">
+                   <foreach name="result" item="vo">
+                   <tr><td><a href="{:leuu('article/index',array('id'=>$vo['tid']))}" ><h3>{$vo.post_title}<h3></a></td></tr>
+                   </foreach>
+                   </table>
+           </div>
+           <tc_include file="Public:foot" />
+			</div>
+
+	</body>
+</html>

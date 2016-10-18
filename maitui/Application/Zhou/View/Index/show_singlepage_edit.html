@@ -1,0 +1,135 @@
+<include file="public:admin_top" />
+<body>
+	<nav class="breadcrumb">
+		<i class="iconfont">&#xf012b;</i>
+		首页
+		<span class="c-gray en">&gt;</span>
+		模块管理
+		<span class="c-gray en">&gt;</span>
+		修改页面
+		<a class="btn btn-success radius r mr-20" style="line-height: 1.6em; margin-top: 3px" href="javascript:location.replace(location.href);" title="刷新">
+			<i class="icon-refresh"></i> 刷 新
+		</a>
+		<a class="btn btn-primary radius r mr-20" style="line-height: 1.6em; margin-top: 3px" href="javascript:history.back();" title="返回">
+			<i class="icon-circle-arrow-left"></i> 返 回
+		</a>
+	</nav>
+	<div class="pd-20">
+		<form action="{:U('Index/save_singlepage_edit')}" method='post'>
+		<table class='form-table'>
+			<tr>
+				<th>页面名称</th>
+				<td><input type='text' name='name' disabled class='l-input' value="{$singlepage[0]['name']}" /></td>
+			</tr>
+			<tr>
+				<th>页面标题</th>
+				<td><input type='text' name='title' class='l-input' value="{$singlepage[0]['title']}" /></td>
+			</tr>
+			<tr>
+				<th>SEO关键词</th>
+				<td>
+					<input type='text' name="seo_key" class='l-input' value="{$singlepage[0]['seo_key']}" />
+					<span class='tip'>关键词用英文逗号 “ , ” 隔开</span>
+				</td>
+			</tr>
+			<tr>
+				<th>SEO描述</th>
+				<td>
+					<textarea class='simple-textarea' name="seo_description">{$singlepage[0]['seo_description']}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<th>Banner图片</th>
+				<td>
+					<input type="hidden" name="image" id="imghidden" value="{$singlepage[0]['image']}" />
+					<input id="file_upload" name="file_upload" type="file" multiple="true">
+					<div id='imgbox'>
+						<notempty name="singlepage[0]['image']">
+			        		<img src="__PUBLIC__/Upload/Uploadify/banner/{$singlepage[0]['image']}" style='width:120px; height:80px; border:1px solid #ccc; padding:2px;' />
+		        			<a href="javascript:delimg();" style="border:1px solid #ddd;background:#fff; display:block; width:124px; margin-top:2px; text-align:center;">删 除</a>
+		        		</notempty>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>内容</th>
+				<td>
+					<textarea id='editor' name="content" type="text/plain" style="width:800px; height:500px;">{$singlepage[0]['content']}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<th>&nbsp;</th>
+				<td>
+					<input type='hidden' name='id' value="{$singlepage[0]['id']}" id='aid' />
+					<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;确 定&nbsp;&nbsp;">
+				</td>
+			</tr>	
+		</table>
+		</form>
+	</div>
+	<script type="text/javascript" src="__H-UI__/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/layer1.9/layer.js"></script>
+	<script type="text/javascript" src="__H-UI__/lib/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.js"></script>
+	<script type="text/javascript" src="__H-UI__/js/H-ui.admin.doc.js"></script>
+	
+	<!-- 编辑器 -->
+	<script type="text/javascript" charset="utf-8" src="__UED__/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__UED__/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="__UED__/lang/zh-cn/zh-cn.js"></script>
+    
+    <!-- 上传组件 -->
+    <script src="__PUBLIC__/Uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Uploadify/uploadify.css">
+    
+    <script type="text/javascript">
+    	var ue = UE.getEditor('editor');
+    </script>
+    
+    
+    <!-- 上传组件 -->
+    <script type="text/javascript">
+		<?php $timestamp = time();?>
+		$(function() {
+			$('#file_upload').uploadify({
+				'formData'       : {
+					'timestamp'   : '<?php echo $timestamp;?>',
+					'token'       : '<?php echo md5('unique_salt' . $timestamp);?>',
+					'upload_path' : '/Public/Upload/Uploadify/banner'	
+				},
+				'swf'            : '__PUBLIC__/Uploadify/uploadify.swf',
+				'uploader'       : '__PUBLIC__/Uploadify/uploadify.php',
+				'buttonText'     : "选择图片",
+				'multi'          : false ,
+				'fileSizeLimit'  : '2000KB',
+				'fileTypeExts'   : '*.gif; *.jpg; *.png; *.jpeg',
+				'onUploadSuccess':function(file,data,response){
+                    $("#imgbox").append("<img src='__PUBLIC__/Upload/Uploadify/banner/"+data+"' style='width:120px; height:80px; border:1px solid #ccc; padding:2px;' />");
+                    $('#imghidden').attr('value',data);
+                },
+			});
+		});
+		
+		
+		//删除图片
+		function delimg(){
+			var imgstr = $("#imghidden").val();
+			var id = $("#aid").val();
+			if(confirm('你确定要删除该图片？')){
+				$.ajax({
+				    type: "POST",
+				    url: "__URL__/single_img_del",
+				    data: "id="+id+"&str="+imgstr,
+				    success: function(msg){
+				    	$("#imgbox").empty();
+				    	layer.msg('删除图片成功！',{icon: 1});
+				    	$("#imghidden").attr('value','');
+				    	$("#uploadbtn").show();
+				    }
+				});
+			}
+		}
+	</script>
+</body>
+</html>

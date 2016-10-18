@@ -1,0 +1,2 @@
+<li><a href="[field:arcurl/]"><img src="[field:picname/]" width="100" height="72"><span>[field:title/]</span><p>[field:description function='cn_substr(@me,80)'/]...</p>
+        <p>[field:pubdate function="MyDate('Y-m-d',@me)"/] </p></a></li>

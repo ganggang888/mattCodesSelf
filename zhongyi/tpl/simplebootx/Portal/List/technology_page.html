@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{$post_title} {$site_name}</title>
+<tc_include file="Public:css"/>
+<script src="__TMPL__Public/js/jquery-1.8.3.js"></script>
+<script src="__TMPL__Public/js/base.js" type="text/javascript"></script>
+<script>
+	$(function(){
+		$(".vdo-list,.piclist").slide();
+	})
+</script>
+</head>
+<body class="guasha">
+<div class="limiter">
+<tc_include file="Public:header"/>
+<!--面包开始-->
+<div class="bread">
+  <div class="fl">
+    <h3>{$term_name}</h3>
+    <p>{$post_keywords}</p>
+  </div>
+  <div class="fr"> <a href="{$Think.const.WEB_PATH}">首页</a>><a href="{:leuu('portal/index/page',array('id'=>22))}">技术验方</a>><a>{$term_name}</a> </div>
+</div>
+<!--面包结束--> 
+
+<!--主体开始-->
+<div class="main">
+  <div class="article clearfix">
+    <div class="left">
+      <div class="pics piclist">
+        <ul>
+          <php> //$jifa=sp_sql_posts("cid:7;field:post_title,post_content,post_keywords,post_excerpt,tid,smeta;order:listorder asc;limit:100;");
+          $jifa = Allwenzhang($id,"传承人",0,100,'post_modified');
+          
+          </php>
+          <foreach name="jifa" item="vo">
+            <php> $smeta = json_decode($vo['smeta'],true); </php>
+            <if condition="!empty($smeta['thumb'])">
+              <li><a href="{:leuu('article/index',array('id'=>$vo['tid']))}"><img src="{:sp_get_asset_upload_path($smeta['thumb'])}" width="390" height="200" alt="{$vo.post_title}"></a></li>
+            </if>
+          </foreach>
+        </ul>
+        <span class="prev gray"></span> <span class="next"></span> </div>
+    </div>
+    <div class="right">
+      <div class="tit">
+        <h5>传承人</h5>
+        <a href="{:leuu('portal/list/index',array('id'=>term_ids($id,'传承人')))}" class="more">更多>></a> </div>
+      <dl class="dl zhuanjia">
+        <dt>
+          <div class="fpic fpic-red"> <a href="{:leuu('portal/article/index',array('id'=>$jifa[0]['tid']))}">
+            <php> $smeta = json_decode($jifa[0]['smeta'],true); </php>
+            <img src="{:sp_get_asset_upload_path($smeta['thumb'])}" width="190" height="154" alt="{$jifa[0]['post_title']}"> <span></span> <em class="tips"> {$jifa[0]['post_title']} </em> </a> </div>
+        </dt>
+        <dd>
+          <p><strong>简介</strong></p>
+          <p>{:msubstr(strip_tags($jifa[0]['post_content']),0,250)}</p>
+        </dd>
+      </dl>
+    </div>
+  </div>
+  <div class="article clearfix">
+    <div class="left">
+      <div class="tit">
+        <php> //$bao=sp_sql_posts("cid:9;field:post_title,post_content,post_keywords,post_modified,post_excerpt,tid,smeta;order:listorder asc;limit:4;");
+       $bao = Allwenzhang($id,"媒体报道",0,4,'post_modified'); 
+       </php>
+        <h5>媒体报道</h5>
+        <a href="{:leuu('portal/list/index',array('id'=>term_ids($id,'媒体报道')))}" class="more">更多>></a> </div>
+        <if condition="$bao">
+      <dl class="dl smdl">
+      
+        <a href="{:leuu('portal/article/index',array('id'=>$bao[0]['tid']))}">
+        <php> $smeta = json_decode($bao[0]['smeta'],true); </php>
+        <dt> <img src="{:sp_get_asset_upload_path($smeta['thumb'])}" alt="{$bao[0]['post_title']}"> </dt>
+        <dd>
+          <h6 class="high">1.{$bao[0]['post_title']}</h6>
+          <p>{:msubstr(strip_tags($bao[0]['post_content']),0,25)}</p>
+          <p class="high">{$bao[0]['post_modified']}</p>
+        </dd>
+        </a>
+      </dl>
+      </if>
+      <ul class="gua-list">
+        <foreach name="bao" item="vo">
+          <if condition="$key neq 0">
+            <li><a href="{:leuu('portal/article/index',array('id'=>$vo['tid']))}">
+              <php>echo $key+1;</php>
+              .{$vo.post_title}</a><span class="fr">{$vo.post_modified}</span></li>
+          </if>
+        </foreach>
+      </ul>
+    </div>
+    <div class="right">
+      <div class="tit">
+        <h5>传承人</h5>
+        <php> //$jifa=sp_sql_posts("cid:7;field:post_title,post_content,post_keywords,post_modified,post_excerpt,tid,smeta;order:listorder asc;limit:3;");
+        $jifa = Allwenzhang($id,"传承人",0,3,'post_modified');
+                </php>
+        <a href="{:leuu('portal/list/index',array('id'=>term_ids($id,'传承人')))}" class="more">更多>></a> </div>
+        <foreach name="jifa" item="vo">
+        <if condition="$key neq 0">
+        <php> $smeta = json_decode($vo['smeta'],true); </php>
+        <dl class="dl smdl <if condition='$key eq 1'>chdl</if>">
+        <a href="{:leuu('article/index',array('id'=>$vo['tid']))}">
+        <dt> <img src="{:sp_get_asset_upload_path($smeta['thumb'])}" alt="{$vo.post_title}" width="156" height="106"> </dt>
+        <dd>
+          <h6 class="high">{$key}.{$vo.post_title}<span class="fr">{$vo.post_modified}</span></h6>
+          <p>{:msubstr(strip_tags($vo['post_content']),0,30)}</p>
+        </dd>
+        </a>
+      </dl>
+        </if>
+        </foreach>
+    </div>
+  </div>
+  <div class="article">
+    <div class="tit">
+    <php> //$lishi=sp_sql_posts("cid:21;field:post_title,post_content,post_keywords,post_modified,post_excerpt,tid,smeta;order:listorder asc;limit:50;");
+      $lishi = Allwenzhang($id,"历史沿岸",0,50,'post_modified');
+                </php>
+      <h5>历史沿岸</h5>
+      <a href="{:leuu('portal/list/index',array('id'=>term_ids($id,'历史沿岸')))}" class="more">更多>></a> </div>
+      
+    <ul class="his-list">
+    <foreach name="lishi" item="vo">
+    <php> $smeta = json_decode($vo['smeta'],true); </php>
+    <li> <a href="{:leuu('article/index',array('id'=>$vo['tid']))}"> <img src="{:sp_get_asset_upload_path($smeta['thumb'])}" width="182" height="123" alt="{$vo.post_title}">
+        <div class="txt"> <em>{:date("Y-m-d",strtotime($vo['post_modified']))}</em>
+          <p>{$vo.post_title}</p>
+        </div>
+        </a> </li>
+    </foreach>
+    </ul>
+  </div>
+  <div class="article">
+    <div class="tit">
+      <h5>视频库</h5>
+      <php> //$video=sp_sql_posts("cid:11;field:post_title,post_keywords,post_excerpt,tid,smeta;order:listorder asc;limit:100;");
+                $video = Allwenzhang($id,"视频库",0,100,'post_modified');
+                </php>
+      <a href="{:leuu('portal/list/index',array('id'=>term_ids($id,'视频库')))}" class="more">更多>></a> </div>
+    <div class="pics vdo-list">
+      <div class="box">
+        <ul class="">
+        <foreach name="video" item="vo">
+        <php> $smeta = json_decode($vo['smeta'],true); </php>
+        <li>
+            <div class="fpic"> <a href="{:leuu('portal/article/index',array('id'=>$vo['tid']))}"> <img src="{:sp_get_asset_upload_path($smeta['thumb'])}" width="263" height="184" alt="{$vo.post_title}"> <span></span> <em class="tips"> {$vo.post_title} </em> </a> </div>
+          </li>
+        </foreach>
+        </ul>
+      </div>
+      <span class="prev gray"></span> <span class="next"></span> </div>
+  </div>
+  <div class="article clearfix">
+    <div class="left">
+      <div class="tit">
+        <h5>风采展示</h5>
+        <php> //$feng=sp_sql_posts("cid:10;field:post_title,post_keywords,post_excerpt,tid,smeta;order:listorder asc;limit:100;");
+                $feng = Allwenzhang($id,"风采展示",0,100,'post_modified');
+                </php>
+                
+        <a href="{:leuu('portal/list/index',array('id'=>term_ids($id,'风采展示')))}" class="more">更多>></a> </div>
+      <div class="pics piclist">
+        <ul>
+        <foreach name="feng" item="vo">
+        <php> $smeta = json_decode($vo['smeta'],true); </php>
+        <li><a href="{:leuu('portal/article/index',array('id'=>$vo['tid']))}"> <img src="{:sp_get_asset_upload_path($smeta['thumb'])}" width="390" height="200" alt="{$vo.post_title}"> </a></li>
+        </foreach>
+        </ul>
+        <span class="prev gray"></span> <span class="next"></span> </div>
+    </div>
+    <div class="right">
+      <div class="tit">
+        <h5>项目特色</h5>
+        <php> //$tese=sp_sql_posts("cid:6;field:post_title,post_content,post_keywords,post_excerpt,tid,smeta;order:listorder asc;limit:4;");
+                $tese = Allwenzhang($id,"项目特色",0,4,'post_modified');
+                </php>
+        <a href="{:leuu('portal/list/index',array('id'=>term_ids($id,'项目特色')))}" class="more">更多>></a> </div>
+        <if condition="$tese">
+      <table class="proj-list">
+        <tr>
+          <td width="50%"><a href="{:leuu('portal/article/index',array('id'=>$tese[0]['tid']))}">
+            <p class="red">1.{$tese[0]['post_title']}</p>
+            <p>{:msubstr(strip_tags($tese[0]['post_content']),0,48)}</p>
+            </a></td>
+          <td width="50%"><a href="{:leuu('portal/article/index',array('id'=>$tese[1]['tid']))}">
+            <p class="red">2.{$tese[1]['post_title']}</p>
+            <p>{:msubstr(strip_tags($tese[1]['post_content']),0,48)}</p>
+            </a></td>
+        </tr>
+        <tr>
+          <td width="50%"><a href="{:leuu('portal/article/index',array('id'=>$tese[2]['tid']))}">
+            <p class="red">3.{$tese[2]['post_title']}</p>
+            <p>{:msubstr(strip_tags($tese[2]['post_content']),0,48)}</p>
+            </a></td>
+          <td width="50%"><a href="{:leuu('portal/article/index',array('id'=>$tese[3]['tid']))}">
+            <p class="red">4.{$tese[3]['post_title']}</p>
+            <p>{:msubstr(strip_tags($tese[3]['post_content']),0,48)}</p>
+            </a></td>
+        </tr>
+      </table>
+      </if>
+    </div>
+  </div>
+  <div class="article clearfix">
+    <div class="half-left">
+      <div class="tit">
+        <h5>史料</h5>
+        <php> //$shi=sp_sql_posts("cid:12;field:post_title,post_keywords,post_content,post_excerpt,tid,smeta;order:listorder asc;limit:1;");
+                $shi = Allwenzhang($id,"史料",0,1,'post_modified');
+                </php>
+        <a href="{:leuu('portal/list/index',array('id'=>term_ids($id,'史料')))}" class="more">更多>></a> </div>
+      <foreach name="shi" item="vo">
+      <php> $smeta = json_decode($vo['smeta'],true); </php>
+      <div class="img-wrap"> <a href="{:leuu('portal/article/index',array('id'=>$vo['tid']))}"> <img src="{:sp_get_asset_upload_path($smeta['thumb'])}" width="458" height="247" alt="{$vo.post_title}">
+        <div class="Jhook">
+          <div class="cover"></div>
+          <div class="txt">
+            <div class="cell">
+              <p>{:msubstr(strip_tags($vo['post_content']),0,120)}</p>
+            </div>
+          </div>
+        </div>
+        </a> </div>
+      </foreach>
+    </div>
+    <div class="half-right">
+      <div class="tit">
+        <h5>器具</h5>
+        <php> //$qi=sp_sql_posts("cid:12;field:post_title,post_keywords,post_content,post_excerpt,tid,smeta;order:listorder asc;limit:1;");
+                $qi = Allwenzhang($id,"器具",0,1,'post_modified');
+                </php>
+        <a href="{:leuu('portal/list/index',array('id'=>term_ids($id,'器具')))}" class="more">更多>></a> </div>
+      <foreach name="qi" item="vo">
+      <php> $smeta = json_decode($vo['smeta'],true); </php>
+      <div class="img-wrap"> <a href="{:leuu('portal/article/index',array('id'=>$vo['tid']))}"> <img src="{:sp_get_asset_upload_path($smeta['thumb'])}" width="458" height="247" alt="{$vo.post_title}">
+        <div class="Jhook">
+          <div class="cover"></div>
+          <div class="txt">
+            <div class="cell">
+              <p>{:msubstr(strip_tags($vo['post_content']),0,120)}</p>
+            </div>
+          </div>
+        </div>
+        </a> </div>
+      </foreach>
+    </div>
+  </div>
+</div>
+<!--主体结束-->
+<tc_include file="Public:foot"/>
+</body>
+</html>

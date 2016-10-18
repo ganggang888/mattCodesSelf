@@ -1,0 +1,76 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+	<div class="wrap jj">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('Student/index')}">所有学员</a></li>
+			<li class="active"><a href="javascript:;" target="_self">添加学员</a></li>
+		</ul>
+		<div class="common-form">
+			<form method="post" class="form-horizontal J_ajaxForm" action="{:U('Student/add_post')}">
+				<fieldset>
+					<div class="control-group">
+						<label class="control-label">学号:</label>
+						<div class="controls">
+							<input type="text" class="input" name="num" value="">
+							<span class="must_red">*</span>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">籍贯:</label>
+						<div class="controls">
+							<input type="text" class="input" name="place" value="">
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    <div class="control-group">
+						<label class="control-label">年龄:</label>
+						<div class="controls">
+							<input type="text" class="input" name="age" value="">
+							<span class="must_red">*</span>
+						</div>
+					</div>
+                    <div class="control-group">
+						<label class="control-label">学员图像:</label>
+						<div class="controls">
+							<div  style="text-align: left;"><input type='hidden' name='img' id='thumb' value=''>
+			<a href='javascript:void(0);' onClick="flashupload('thumb_images', '附件上传','thumb',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,1','','','');return false;">
+			<img src='__ROOT__/statics/images/icon/upload-pic.png' id='thumb_preview' width='135' height='113' style='cursor:hand' /></a>
+			<!-- <input type="button" class="btn" onclick="crop_cut_thumb($('#thumb').val());return false;" value="裁减图片">  -->
+            <input type="button"  class="btn" onClick="$('#thumb_preview').attr('src','__ROOT__/statics/images/icon/upload-pic.png');$('#thumb').val('');return false;" value="取消图片">
+            </div>
+							<span class="must_red">*</span>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">学历:</label>
+						<div class="controls">
+							<textarea name="education" rows="5" cols="57"></textarea>
+							<span class="must_red">*</span>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label">证书:</label>
+						<div class="controls">
+							<input type="text" class="input" name="book" value="">
+						</div>
+					</div>
+                    <div class="control-group">
+						<label class="control-label">工作经历:</label>
+						<div class="controls">
+                            <textarea name="experience" rows="5" cols="57"></textarea>
+						</div>
+					</div>
+                    
+				</fieldset>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary btn_submit J_ajax_submit_btn">添加</button>
+					<a class="btn" href="__URL__">返回</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="__ROOT__/statics/js/common.js"></script>
+    <script type="text/javascript" src="__ROOT__/statics/js/content_addtop.js"></script>
+</body>
+</html>

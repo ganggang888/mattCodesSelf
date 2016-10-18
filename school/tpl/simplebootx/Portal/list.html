@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content=
+    "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    name="viewport">
+    <link href="__TMPL__Public/css/Global.css" rel="stylesheet">
+    <link href="__TMPL__Public/css/base.css" rel="stylesheet">
+    	<link rel="stylesheet" href="__TMPL__Public/css/activity.css" />
+    	
+    <script src="__TMPL__Public/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <base target="_blank">
+   <title>{$name} {$seo_title} {$site_name}</title>
+</head>
+
+<body class="drawer">
+    <div class="overall">
+        <div class="top">
+            <a href="javascript:;" onClick="history.go(-1)"><img src="__TMPL__Public/images/arrow_left.png" style="height: 20px; margin-top: 14px;margin-left: 8%;"></a> <span >活动</span>
+            <tc_include file="Public:menu" />
+        </div>
+
+        <div class="middle">
+            <div style="width: 96%; margin: auto;">
+            <php>
+					$lists = sp_sql_posts_paged("cid:$cat_id;order:post_date DESC;",100);
+				</php>
+                <volist name="lists['posts']" id="vo">
+               <div class="activity" id="acti" style="color:#FFF">{$vo.post_title}
+               <a class="down"><img src="__TMPL__Public/images/arrow_down.png"></a>
+               </div>
+               <div id="huodong" class="display" style="display: none;">
+               <span >{$vo.post_title}</span>
+               	{$vo.post_content}
+                <a class="attend" style="color:#FFF" href="{:U('user/center/checkClass')}">参加</a>
+                <a class="up">
+                	<img src="__TMPL__Public/images/arrow_up.png" 
+                		style="height: 13px; margin-top:-14px;margin-left: 85%;width: 6%;">
+                </a>
+               </div>
+               </volist>
+               
+                
+<script>
+$(function(){
+  $(".down").click(function(){
+	$(this).parent().hide();
+  	$(this).parent().next().show();
+  });
+  $(".up").click(function(){
+	$(this).parent().hide();
+  	$(this).parent().prev().show();
+  })
+})
+</script>
+                      
+                
+               
+               
+                      
+                
+               
+             
+            </div>
+            </div>
+              <tc_include file="Public:bottom" />
+            
+            
+        </div>
+        
+    </div>
+<style>
+#huodong p{ text-align:left; text-indent:2ems}
+</style>
+</body>
+</html>

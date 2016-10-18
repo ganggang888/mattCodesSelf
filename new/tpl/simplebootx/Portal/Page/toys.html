@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content=
+    "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    name="viewport">
+
+    <title>{$post_title} {$site_name}</title>
+    <link href="__TMPL__Public/css/pintuer.css" rel="stylesheet">
+    <link href="__TMPL__Public/css/index.css" rel="stylesheet">
+    <link href="__TMPL__Public/css/traning.css" rel="stylesheet">
+    <style>
+.demo-nav.fixed.fixed-top{z-index:8;background:#fff;width:100%;padding:0;border-bottom:solid 3px #0a8;-webkit-box-shadow:0 3px 6px rgba(0, 0, 0, .175);box-shadow:0 3px 6px rgba(0, 0, 0, .175);}
+    </style>
+</head>
+
+<body>
+<tc_include file="Public:header" />
+        <div class="wrap contatop">
+        <div class="bpic" style="opacity:1;">
+		<div><a></a></div>
+	</div>
+<a class="arr_l png disabled"></a>
+
+	<div class="b1 scroll1">
+		<ul style="left:0px;">
+        <foreach name="result" item="vo">
+        <li <if condition="$key eq 0">class="active"</if>>
+				<img src="{$vo.img}" alt="{$vo.name}"><ins></ins>
+				<div><a><img src="{$vo.gif}" height="629" alt="{$vo.name}"></a></div>
+			</li>
+        </foreach>
+		</ul>
+	</div>
+<a class="arr_r png"></a>
+<ins class="nm"></ins>
+
+</div>
+
+        	<!--轮播上面轮播结束-->
+
+        <div class="container key">
+            <h1 class="text-center text-gray ">
+                带操作系统的0-1岁孩子的教玩具
+            </h1><br>
+
+            <div class=" text-gray text-center">
+                6个系列，3个月年龄段，31个兄弟姐妹于千万宝贝一起成长
+            </div>
+        </div><br>
+        <br>
+			<!--导航结束-->	<!--轮播开始-->
+<div id="imageShow" >
+	<div id="imgshow_mask"></div>
+		<div class="scrollbg ">
+		<div class="scroll contatop">
+			<a id="left_img_btn" class="s_pre  " href="javascript:void(0)"></a>
+			<div class="current " id="current"></div>
+			<div class="outScroll_pic ">
+				<ul class="scroll_pic cls  " id="small_pic" style="list-style: none;">
+					
+				</ul>
+			</div>
+			<a id="right_img_btn" class="s_next " href="javascript:void(0)"></a>
+		</div>
+	</div>
+    <php>
+    $info = allAidInfo();
+    </php>
+	<ul class="imagebg contatop " id="imagebg">
+		<li data-sPic="__TMPL__Public/images//traininglogo3.png ">
+			<a  class="bannerbg_main ">
+            <foreach name="info['one']" item="vo">
+            <div class="xm3 xm1-move ">
+			 	<a  class="xm0"><img src="{$vo.img}" width="100%"></a>
+			 	<h1 class="text-main  xm1-move">{$vo.name}</h1>
+			 	<a class="text-default xm1-move">
+                <if condition="$vo['term'] eq 1">
+                适用于9-12个月
+                <elseif condition="$vo['term'] eq 2"/>
+                适用于5-8个月
+                <elseif condition="$vo['term'] eq 3"/>
+                适用年龄0-4半个月
+                </if>
+                </a>
+			 </div>
+            </foreach>
+			</a>
+		</li>
+		<!--测试结果-->
+        
+		<li data-sPic="__TMPL__Public/images/traininglogo1.png">
+		<a  class="bannerbg_main ">
+			 
+			
+			<foreach name="info['two']" item="vo">
+            <div class="xm3 xm1-move ">
+			 	<a  class="xm0"><img src="{$vo.img}" width="100%"></a>
+			 	<h1 class="text-main  xm1-move">{$vo.name}</h1>
+			 	<a class="text-default xm1-move">
+                <if condition="$vo['term'] eq 1">
+                适用于9-12个月
+                <elseif condition="$vo['term'] eq 2"/>
+                适用于5-8个月
+                <elseif condition="$vo['term'] eq 3"/>
+                适用年龄0-4半个月
+                </if>
+                </a>
+			 </div>
+            </foreach>
+			</a>
+		</li>
+		<li data-sPic="__TMPL__Public/images/traininglogo4.png">
+			<a  class="bannerbg_main ">
+			 
+			
+			<foreach name="info['three']" item="vo">
+            <div class="xm3 xm1-move ">
+			 	<a  class="xm0"><img src="{$vo.img}" width="100%"></a>
+			 	<h1 class="text-main  xm1-move">{$vo.name}</h1>
+			 	<a class="text-default xm1-move">
+                <if condition="$vo['term'] eq 1">
+                适用于9-12个月
+                <elseif condition="$vo['term'] eq 2"/>
+                适用于5-8个月
+                <elseif condition="$vo['term'] eq 3"/>
+                适用年龄0-4半个月
+                </if>
+                </a>
+			 </div>
+            </foreach>
+			</a>
+		</li>
+		<li data-sPic="__TMPL__Public/images/traininglogo3-3.png">
+			<a  class="bannerbg_main ">
+            <foreach name="info['four']" item="vo">
+            <div class="xm3 xm1-move ">
+			 	<a  class="xm0"><img src="{$vo.img}" width="100%"></a>
+			 	<h1 class="text-main  xm1-move">{$vo.name}</h1>
+			 	<a class="text-default xm1-move">
+                <if condition="$vo['term'] eq 1">
+                适用于9-12个月
+                <elseif condition="$vo['term'] eq 2"/>
+                适用于5-8个月
+                <elseif condition="$vo['term'] eq 3"/>
+                适用年龄0-4半个月
+                </if>
+                </a>
+			 </div>
+            </foreach>			</a>
+		</li>
+		<li data-sPic="__TMPL__Public/images/traininglogo6.png">
+			<a  class="bannerbg_main ">
+			 
+			
+			<foreach name="info['five']" item="vo">
+            <div class="xm3 xm1-move ">
+			 	<a  class="xm0"><img src="{$vo.img}" width="100%"></a>
+			 	<h1 class="text-main  xm1-move">{$vo.name}</h1>
+			 	<a class="text-default xm1-move">
+                <if condition="$vo['term'] eq 1">
+                适用于9-12个月
+                <elseif condition="$vo['term'] eq 2"/>
+                适用于5-8个月
+                <elseif condition="$vo['term'] eq 3"/>
+                适用年龄0-4半个月
+                </if>
+                </a>
+			 </div>
+            </foreach>
+			</a>
+		</li>
+		<li data-sPic="__TMPL__Public/images/traininglogo5.png">
+			<a  class="bannerbg_main ">
+			 
+			
+			<foreach name="info['six']" item="vo">
+            <div class="xm3 xm1-move ">
+			 	<a  class="xm0"><img src="{$vo.img}" width="100%"></a>
+			 	<h1 class="text-main  xm1-move">{$vo.name}</h1>
+			 	<a class="text-default xm1-move">
+                <if condition="$vo['term'] eq 1">
+                适用于9-12个月
+                <elseif condition="$vo['term'] eq 2"/>
+                适用于5-8个月
+                <elseif condition="$vo['term'] eq 3"/>
+                适用年龄0-4半个月
+                </if>
+                </a>
+			 </div>
+            </foreach>
+			</a>
+		</li>
+	
+
+
+	</ul>
+	
+
+	
+</div>
+
+
+
+
+
+
+
+   <!--尾巴开始-->
+<!--轮播结束-->
+
+        <!--中间轮播开始-->
+
+      <!--中间轮播结束-->
+        <br>
+
+
+        <div class="consix tring line ">
+        
+            <div class="xm5">
+            		<br/>
+
+                <img src="__TMPL__Public/images/ipad.png" width="60%" class="xm0">
+
+                <div class=" text-gray">
+                    <ul class="list-unstyle height-big">
+                        <li class="x9-move"><img src="__TMPL__Public/images/traingjia.png" width="40%"></li>
+
+                        <li class="text-traningtext">带操作系统的0-1岁</li>
+
+                        <li class="text-traningtext">孩子的教玩具</li>
+
+
+                        <a><li class=" text-main">点击查看更多</li></a>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="xm6 float-right"><img src="__TMPL__Public/images/traingBaby.png"
+            width="100%"></div>
+        </div><br>
+        <br>
+        <br>
+        <br>
+       <br>
+        <br>
+        <br>
+        	       <br>
+        <br>
+        <br>
+        <div class="container  text-gray ">
+            <div class="xm3  xm3-move"><img src="__TMPL__Public/images/mattlogo.png" width=
+            "80%"></div>
+                    <h1 style="   font-size:40px;
+    margin-bottom:15px">教具秘籍教你和宝宝一起</h1>
+
+                    <h1 style="font-size:40px;
+    margin-bottom:15px">快乐成长</h1>
+            <div class=" text-gray ">
+                <ul class="list-unstyle height-big xm6  float-right">
+      
+
+                    <li>麦麦育儿机器人提供宝宝0-3岁每日成长的互动游戏，让</li>
+
+                    <li>你轻松带着宝宝一起在玩乐中成长</li>
+                </ul>
+            </div>
+        </div><br>
+        <br>
+        <br>
+        <br>
+       <br>
+        <br>
+        <br>
+        	       <br>
+        <br>
+        <br>
+
+        <div class="contatop line text-center">
+            <div class="xm4">
+                <img src="__TMPL__Public/images/Mblogo2.png" width="33%">
+
+                <div class="text-gray">
+                    <ul class="list-unstyle height-big">
+                    	<br/><br/><br/>
+                        <a><li class="text-traningtext text-yellow">下载麦麦育儿机器人</li></a>
+
+                        <a><li class="text-traningtext text-yellow">体验麦忒教玩具</li></a>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="xm3" style="margin-left:4%;">
+                <img src="__TMPL__Public/images/Mblogo1.png" width="44%">
+
+                <div class="text-gray">
+                    <ul class="list-unstyle height-big">
+                    	<br/><br/><br/>
+                        <a><li class="text-traningtext text-main">点击购买</li></a>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="xm3 float-right">
+                <img src="__TMPL__Public/images/mattm.png" width="33%">
+
+                <div class=" text-gray">
+                    <ul class="list-unstyle height-big">
+                    	                        <br/><br/><br/>
+                        <li class="text-traningtext  text-yellow">热线咨询</li>
+                        <a><li class="text-traningtext text-yellow">
+                        400-998-2033</li></a>
+                    </ul>
+                </div>
+            </div>
+        </div><br>
+        	
+
+        <!--尾巴开始-->
+
+      	<tc_include file="Public:foot_nav" />
+        </div>
+			<!--尾巴结束-->
+        
+        
+    <script src="__TMPL__Public/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="__TMPL__Public/js/imgSlider.js" type="text/javascript"></script> 
+        <script src="__TMPL__Public/js/jquery.tools.min.js" type="text/javascript"></script>
+
+<script src="__TMPL__Public/js/script.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+img.init();
+    img.play(0);
+    //阻止事件冒泡
+    function estop(e){
+    var e=arguments.callee.caller.arguments[0]||event;
+    if (e && e.stopPropagation){
+    //因此它支持W3C的stopPropagation()方法
+       e.stopPropagation();
+    }else{
+    //否则，我们需要使用IE的方式来取消事件冒泡
+       window.event.cancelBubble = true;
+       return false;
+    }
+    }
+    </script>
+</body>
+</html>

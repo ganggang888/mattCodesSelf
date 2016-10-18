@@ -1,0 +1,40 @@
+<?php
+$z[0]=Array("field","",292,311);
+$z[0][4]['name']="title";
+$z[1]=Array("global","",312,338);
+$z[1][4]['name']="cfg_webname";
+$z[2]=Array("field","",379,408);
+$z[2][4]['name']="keywords";
+$z[3]=Array("field","",448,506);
+$z[3][4]['name']="description";
+$z[3][4]['function']="html2text(@me)";
+$z[4]=Array("include","",861,897);
+$z[4][4]['filename']="head2.htm";
+$z[5]=Array("field","",935,957);
+$z[5][4]['name']="typeimg";
+$z[6]=Array("type","[field:typelink /]",1142,1193);
+$z[6][4]['typeid']="23";
+$z[7]=Array("type","[field:typelink /]",1303,1354);
+$z[7][4]['typeid']="22";
+$z[8]=Array("type","[field:typelink /]",1461,1512);
+$z[8][4]['typeid']="25";
+$z[9]=Array("type","[field:typelink /]",1622,1673);
+$z[9][4]['typeid']="24";
+$z[10]=Array("type","[field:typelink /]",1777,1828);
+$z[10][4]['typeid']="27";
+$z[11]=Array("type","[field:typelink /]",1932,1983);
+$z[11][4]['typeid']="26";
+$z[12]=Array("field","",2099,2120);
+$z[12][4]['name']="content";
+$z[13]=Array("global","",3682,3705);
+$z[13][4]['name']="cfg_down";
+$z[14]=Array("global","",3873,3895);
+$z[14][4]['name']="cfg_buy";
+$z[15]=Array("global","",4016,4038);
+$z[15][4]['name']="cfg_tel";
+$z[16]=Array("global","",4115,4137);
+$z[16][4]['name']="cfg_tel";
+$z[17]=Array("include","",4244,4281);
+$z[17][4]['filename']="bottom.htm";
+
+?>

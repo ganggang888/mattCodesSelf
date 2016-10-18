@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="__TMPL__Public/css/Global.css" />
+<link rel="stylesheet" href="__TMPL__Public/css/base.css" />
+<base target="_blank">
+<title>用户中心</title>
+</head>
+<body class="drawer">
+<div class="overall">
+  <div class="top"> <a href="javascript:;" onClick="history.go(-1)"><img src="__TMPL__Public/images/arrow_left.png" style="height: 20px; margin-top: 14px;margin-left: 8%;"/></a> <span style="margin-left:-4.5%;">用户中心</span>
+    <tc_include file="Public:menu" />
+  </div>
+  <div class="middle">
+    <p> <span style="display: block;margin-left:2% ;background:#F7AB00;
+				   	height: 45px;width:96%;border-radius:5px 5px ;text-align:center;margin-top: 8px; line-height:45px; color:#FFF" > {$user.user_login}<a style="line-height: 45px; ; font-size: 22px; color:azure;"></a> </span> </p>
+    <style type="text/css">
+				   	 .Yh a{
+				   	 	float: left;
+				   	 	display: block;margin-left:2.2% ;background:#F7AB00;
+				     	height: 70px;width:30.5%;border-radius:5px 5px ;margin-top: 8px;
+				   	 }
+				   	 .Yh span{
+				   	 	line-height: 70px;
+				   	    margin-left: 31%;
+				   	 }
+				   </style>
+    <div class="Yh" style="width: 100%;height: 165px;margin: 0 auto;">
+      <p><a href="{:leuu('user/center/checkClass')}" style="background: #ABCD04;"><span>选课</span></a><a href="{:leuu('user/center/codeInfo')}" style="background: #00A73D;"><span>优惠码</span></a><a href="{:leuu('portal/list/classInfo')}"><span>课程</span></a></p>
+      <p><a href="{:leuu('portal/index/inquiry')}" style="background: #00A73D;"><span>考试</span></a><a href="{:leuu('portal/list/certificate_info')}"><span>证书</span></a><a href="{:U('portal/list/index',array('id'=>1))}" style="background: #ABCD04;"><span>活动</span></a></p>
+    </div>
+    <div style="width: 96%;height: 240px;background:#ABCD04 ;margin: 0 auto;"> bodyer </div>
+    <p> <span style="display: block;margin-left:2% ;background-color:brown;
+				   	height: 43px;width:96%;border-radius:10px 10px ;text-align:center;margin-top: 13px;" > <a href="{:leuu('user/center/logout')}" style="line-height: 43px; ; font-size: 25px; color:azure; text-decoration:none">退出</a> </span> </p>
+  </div>
+  <tc_include file="Public:bottom" />
+</div>
+</body>
+</html>
+<style>
+.Yh a {
+	color: #000
+}
+</style>

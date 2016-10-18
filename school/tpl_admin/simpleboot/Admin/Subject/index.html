@@ -1,0 +1,65 @@
+<admintpl file="header" />
+</head>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="javascript:;">所有课程</a></li>
+    <li><a href="{:U('Subject/add',array('term'=>empty($term['term_id'])?'':$term['term_id']))}" target="_self">添加课程</a></li>
+  </ul>
+  <form class="J_ajaxForm" action="" method="post">
+    <table class="table table-hover table-bordered table-list">
+      <thead>
+        <tr>
+          <th width="50">id</th>
+          <th>标题</th>
+          <th>介绍</th>
+          <th>缩略图</th>
+          <th>内容</th>
+          <th>所属分类</th>
+          <th>点击量</th>
+          <th>添加时间</th>
+          <th>发布人</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <foreach name="result" item="vo">
+        <tr>
+          <td>{$vo.id}</td>
+          <td><a href="" target="_blank"> <span>{$vo.title}</span></a></td>
+          <td>{$vo.about}</td>
+          <td><if condition="!empty($vo[img])"> <img src="{$vo.img}" width="40" />
+              <else />
+              无 </if></td>
+          <td><php> echo mb_substr(strip_tags($vo[content]),0,80,'utf-8'); </php></td>
+          <td>{$vo.name}</td>
+          <td>{$vo.hits}</td>
+          <td>{$vo.add_time}</td>
+          <td>
+          <php>
+          $info = getUsername($vo['uid']);
+          echo $info['user_login'];
+          </php></td>
+          <td><a href="{:U('Subject/edit',array('id'=>$vo[id]))}">修改</a> | <a href="{:U('Subject/delete',array('id'=>$vo[id]))}" class="J_ajax_del">删除</a></td>
+        </tr>
+      </foreach>
+      <tfoot>
+        <tr>
+          <th>id</th>
+          <th>标题</th>
+          <th>介绍</th>
+          <th>缩略图</th>
+          <th>内容</th>
+          <th>所属分类</th>
+          <th>点击量</th>
+          <th>添加时间</th>
+          <th>发布人</th>
+          <th>操作</th>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="pagination">{$page}</div>
+  </form>
+</div>
+<script src="__ROOT__/statics/js/common.js"></script>
+</body>
+</html>

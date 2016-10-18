@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>{$name} {$seo_title} {$site_name}</title>
+<meta name="keywords" content="{$seo_keywords}" />
+<meta name="description" content="{$seo_description}">
+<tc_include file="Public:header" />
+</head>
+
+<tc_include file="Public:menu" />
+<div class="banner1"><img src="__TMPL__Public/images/banner1.jpg" width="1002" height="246" /></div>
+<div class="main1">
+  <tc_include file="Public:left" />
+  <div class="m_r">
+    <div class="m_r1">
+      <div class="m_rt"><img src="__TMPL__Public/images/right_t.jpg" width="771" height="38" /></div>
+      <div class="m_rz">
+        <div class="m_rz1"> <span><font color="#333">首页</font>&nbsp;>&nbsp;{$name}</span>{$name}</div>
+        <php> $lists = sp_sql_posts_paged("cid:$cat_id;order:post_date DESC;",10); </php>
+        <div class="new2">
+          <ul>
+            <volist name="lists['posts']" id="vo">
+              <li><span>{$vo.post_date}</span><a href="{:leuu('Portal/article/index',array('id'=>$vo['tid']))}">{$vo.post_title}</a></li>
+            </volist>
+          </ul>
+        </div>
+        <div class="shu2">
+          <div class="ppage">{$lists['page']}</div>
+        </div>
+      </div>
+      <div class="m_rb"> <img src="__TMPL__Public/images/right_b.jpg" width="771" height="38" /></div>
+    </div>
+  </div>
+</div>
+<tc_include file="Public:foot" />

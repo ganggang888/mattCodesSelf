@@ -1,0 +1,179 @@
+
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>麦麦育儿机器人</title>
+	<meta charset='utf-8'>
+	<meta name="applicable-device" content="mobile">
+	<meta http-equiv="mobile-agent" content="format=html5;">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="keywords" content="麦麦育儿机器人,麦麦育儿机器人,成长记录,宝宝成长记,宝宝,宝贝,成长,育儿, 育儿工具, 拍照, 动态, 分享,亲们一起来关爱宝宝,麦麦育儿机器人官网,麦麦育儿机器人安卓,麦麦育儿机器人iPhone,麦麦育儿机器人Android,麦麦育儿机器人官网"/>
+	<meta name="description" content="建立一个关爱宝宝的私密圈子，家人、亲友一起分享宝宝快乐成长过程。轻松记录宝宝成长过程，留住美好瞬间;随时了解宝宝动态，出差在外也不会错过;与家人、亲友一起分享，宝宝有更多关爱;绝对私密，只有邀请才能参与;云存储技术 ，珍贵数据永远不丢失;育儿工具，初为人父初为人母一样轻松;简单好用，爷爷奶奶也能用."/>
+	<script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+	<script type="text/javascript" src="js/ageCalculate.js"></script>
+    <script>
+    var $_GET = (function(){
+    var url = window.document.location.href.toString();
+    var u = url.split("?");
+    if(typeof(u[1]) == "string"){
+        u = u[1].split("&");
+        var get = {};
+        for(var i in u){
+            var j = u[i].split("=");
+            get[j[0]] = j[1];
+        }
+        return get;
+    } else {
+        return {};
+    }
+})();
+    </script>
+	<style type="text/css">
+		/*common style */
+		@charset "utf-8";
+		/* 防止用户自定义背景颜色对网页的影响 */
+		html{color:#000;background:#fff;}
+		/* 始终不显示横向滚动条 */
+		body{overflow-x:hidden; /*隐藏水平滚动条*/ }
+		/* 内外边距重置 */
+		body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {margin: 0;padding: 0;}
+		/*元素被点击时产生的边框*/
+		a,button,input,textarea{-webkit-tap-highlight-color: rgba(0,0,0,0;)}
+		html { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+		a:focus {outline: none; }
+		body,button,input,select,textarea{font: 16px/1.0 "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;word-wrap: break-word;color: #000;}
+		input,select,textarea{font-size:12px;padding: 5px;outline:0 none;	}
+		/* 去除默认边框 */
+		fieldset,img,button{border:0;}
+		/* button的cursor属性 */
+		button,a{cursor:pointer;}
+		/* 默认不显示下划线 */
+		a {text-decoration:none;color: #000;}
+		/* 让链接在 hover 状态下不显示下划线 */
+		a:hover {text-decoration:none;}
+		.clear { display: block;}
+		.clear:after { content: ""; display: block; clear: both; overflow: hidden; }
+		li{list-style: none;}
+		h1,h2,h3,h4,h5 {font-weight: normal}
+		/* invite具体样式 */
+		/*幸运树活动*/
+		
+		#container {width: 90%;max-width: 750px;margin: 0 auto;background: url("img/invite_bg.jpg?v=20151109") no-repeat;background-size: 100%;padding: 0 5%;font-size: 1em;color: #907954;text-align: center;}
+		
+		
+		.baby_inform {padding-top: 20%;padding-bottom: 15%;}
+		#imgContainer{background: white;width: 80px;height: 80px;margin: 0 auto;border-radius: 40px;}
+		.baby_inform img {width: 76px;height: 76px;border-radius: 38px;margin:2px;}
+		.baby_inform p {/*float: left;*//*height: 60px;line-height: 60px;padding-left: 2%;*/}
+		.baby_inform span {display: inline-block;/*padding: 0 5px;*/}
+		.tip {line-height: 25px;text-align: left;}
+		#container input.phoneNum {display: block;width: 98%;height: 40px; line-height:40px; border: solid 1px #e4e4e4;padding: 0 0 0 10px;text-indent: 10px;font-size: 1em;margin: 0 auto;margin-top: 5%;margin-bottom: 3%;border-radius: 3px;-webkit-appearance: none;}
+		#container button {display: block;width: 100%;height: 45px;background: #66d521;color: white;font-size: 1.2em;border-radius: 3px;margin-bottom: 7%;}
+		#container #sub {display: block;width: 100%;height: 45px;background: #66d521;color: white;font-size: 1.2em;border-radius: 3px;margin-bottom: 7%; border:0px; cursor:pointer;}
+		.invite_tip {color: #b7aea7;font-size: 0.875em;}
+		.invite_code {font-size: 0.95em;color: #78bbe8;padding: 5% 0 3%;}
+		.invite_logo {position: relative;top: 0; width:135px; height:41px;padding-top: 7%;padding-bottom: 6%;}
+		.phoneError{visibility:hidden; color:#F69E1B; margin-bottom: 3px;}
+		.inviteExpire{padding-top:60%; font-size:1.3em; font-weight:300;}
+		.successCare {display: inline-block;margin-top: 60%;margin-bottom: 6%;padding-left: 7%;background: url("img/successIcon.png") no-repeat;background-size: 19px 19px;font-size:19px;}
+	</style>
+	
+	<script type="text/javascript">
+		var babyAge = '1459180800000';
+		
+		$(document).ready(function(){
+			//setAge();
+			logoPutBottom();
+		});		
+		
+		
+		function setAge(){
+			if(babyAge){
+				var ageStr = getBabyAgeByBirthday(new Date(parseInt(babyAge)));
+				ageStr = ageStr.replace(/宝宝/,'');
+				ageStr = ageStr + '了';
+				$(".birth").text(ageStr);
+			}
+		}
+		
+		function logoPutBottom(){
+			var containerHeight = $("#container").height();
+			var windowHeight = $(window).height();
+			if( containerHeight < windowHeight ){
+				$("#container").css("height", windowHeight); 
+				console.log(windowHeight+","+$(".invite_logo").outerHeight(true)+","+$(".wrap").outerHeight(true))
+				var top = $("#container").height() - $(".invite_logo").outerHeight(true) - $(".wrap").outerHeight(true);
+				$(".invite_logo").css("top", top);
+			}
+		}
+		
+		
+		function isWx(){
+	        return navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == "micromessenger";
+	    }
+	    function isAndroid(){
+	    	return navigator.userAgent.toLowerCase().indexOf('android') >=0 ;
+	    }
+		
+		var downloadFromFusionTried = false;
+		function onDownload(){
+			
+			var delay = 100;
+			
+			if(isWx() && isAndroid() && downloadFromFusionTried == false){
+				delay = 1500;
+				downloadFromFusionTried = true;
+				dUrl = "http://qr.mattservice.com/app";
+				window.open(dUrl);
+			}else{
+				delay = 100;
+			}
+			
+			setTimeout(function(){
+				window.location.href= "http://qr.mattservice.com/app";	
+			}, delay);
+			
+		}
+		
+	</script>
+	
+</head>
+
+<body>
+	<div id="container">
+		<div class="wrap">
+			<div class="baby_inform clear">
+				<div id="imgContainer">
+					
+						<img alt="" src="http://stlib.qbb6.com/wclt/img/home_sm/add_relative/codeInvite/babyImg.png">
+					
+					
+				</div>
+				<!-- 幸运树活动 -->
+				
+					<div><span class="successCare">关注成功！</span></div>
+					
+						<p>快去下载麦麦育儿机器人来看看我的照片和视频吧！</p>
+					
+					
+				
+				<!-- 幸运树活动 -->
+				
+			</div>
+			
+			<button ontouchstart="onDownload();">下载麦麦育儿机器人APP</button>
+			
+			<div class="desc">
+				<div>已安装亲宝宝，可输入以下邀请码完成关注：</div>
+				<span>47796095738</span>
+			</div>
+		</div>
+			
+		<img alt="" class="invite_logo" src="http://www.mattservice.com/Public/Home/images/logo.png">
+	</div>
+</body>
+</html>

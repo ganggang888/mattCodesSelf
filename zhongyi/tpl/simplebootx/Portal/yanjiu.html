@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{$post_title} {$site_name}</title>
+<tc_include file="Public:css"/>
+<script src="__TMPL__Public/js/jquery-1.8.3.js" type="text/javascript"></script>
+<script src="__TMPL__Public/js/base.js" type="text/javascript"></script>
+</head>
+<body class="guasha2">
+<div class="limiter">
+<tc_include file="Public:header"/>
+	<!--面包开始-->
+	<div class="bread">
+		<div class="fl">
+			<h3>{$post_title}</h3>
+			<p>{$post_keywords}</p>
+		</div>
+		<div class="fr">
+			<a href="{$Think.const.WEB_PATH}">首页</a>><a>{$post_title}</a>
+		</div>
+	</div>
+	<!--面包结束-->
+<php>
+$result = yanjiuInfo();
+</php>
+	<!--主体开始-->
+	<div class="main clearfix">
+		<!--article s-->
+        <foreach name="result" item="vo">
+		<div class="article">
+			<div class="title">
+				<h5>{$vo.name}</h5>
+				<a href="{:leuu('portal/list/yanjiu_list',array('id'=>$vo['term_id']))}" class="more">更多>></a>
+			</div>
+			<div class="gline">
+				<span class="lft gtit">工作<i class="red">动态</i></span>
+				<span class="rt gtit"><i class="red">专家</i>介绍</span>
+			</div>
+			<div class="gcon">
+				<div class="lft">
+                <php> //$one=sp_sql_posts("cid:23;field:post_title,post_keywords,post_excerpt,tid,smeta;order:listorder asc;limit:4;");
+                $one = Allwenzhang($vo['term_id'],"工作动态",0,4,'post_modified');
+                </php>
+					<div class="job has-bg">
+						<dl class="">
+							<dd>
+								<h6><a href="{:leuu('portal/article/index',array('id'=>$one[0]['tid']))}">标题：{$one[0]['post_title']}</a></h6>
+							</dd>
+						</dl>
+						<ul>
+                        <foreach name="one" item="vo">
+                        <if condition="$key neq 0">
+                        <li><a href="{:leuu('portal/article/index',array('id'=>$vo['tid']))}">
+								{$key}.{$vo.post_title}
+							</a></li>
+                        </if>
+                        </foreach>
+						</ul>
+					</div>
+				</div>
+				<div class="rt">
+					<div class="pics">
+						<div class="box">
+							<ul class="">
+                            <php> //$two=sp_sql_posts("cid:24;field:post_title,post_keywords,post_content,post_excerpt,tid,smeta;order:listorder asc;limit:50;");
+                            $two = Allwenzhang($vo['term_id'],"专家介绍",0,50,'post_modified');
+                </php>
+                <foreach name="two" item="vo">
+                <php> $smeta = json_decode($vo['smeta'],true); </php>
+                <li>
+									<div class="fpic">
+										<a href="{:leuu('portal/article/index',array('id'=>$vo['tid']))}">
+											<img src="{:sp_get_asset_upload_path($smeta['thumb'])}" width="240" height="157" alt="{$vo.post_title}">
+											<span></span>
+											<em class="tips">
+												{:msubstr(strip_tags($vo['post_content']),0,50)}
+											</em>
+										</a>	
+									</div>
+								</li>
+                </foreach>
+							</ul>
+						</div>
+						<span class="prev"></span>
+						<span class="next"></span>
+					</div>
+				</div>	
+			</div>
+<php> //$three=sp_sql_posts("cid:25;field:post_title,post_keywords,post_content,post_excerpt,tid,smeta;order:listorder asc;limit:50;");
+$three = Allwenzhang($vo['term_id'],"成果荣誉",0,50,'post_modified');
+                </php>
+			<div class="gline">
+				<span class="lft gtit">成果<i class="red">荣誉</i></span>
+			</div>
+			<div class="gcon">
+				<div class="glist">
+					<ul>
+                    <foreach name="two" item="vo">
+                <php> $smeta = json_decode($vo['smeta'],true); </php>
+                <li>
+							<a href="{:leuu('portal/article/index',array('id'=>$vo['tid']))}">
+								<div><img src="{:sp_get_asset_upload_path($smeta['thumb'])}" width="200" height="132" alt="{$vo.post_title}"></div>
+								<p class="center">{$vo.post_title}</p>
+							</a>
+						</li>
+                </foreach>
+					</ul>
+				</div>
+			</div>
+		</div>
+        </foreach>
+	</div>
+	<!--主体结束-->
+<tc_include file="Public:foot"/>
+
+<script>
+$(function(){
+	$(".pics").slide();
+})
+</script>
+</body>
+</html>

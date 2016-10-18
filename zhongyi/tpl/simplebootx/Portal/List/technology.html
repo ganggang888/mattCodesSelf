@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>技法与验方项目列表</title>
+<tc_include file="Public:css"/>
+</head>
+<body class="jifa yanfang">
+<div class="limiter">
+	<tc_include file="Public:header"/>
+	<!--面包开始-->
+	<div class="bread">
+		<div class="fl">
+			<h3>项目列表</h3>
+			<p>UPCOMING EVENTS</p>
+		</div>
+		<div class="fr">
+			<a href="{$Tink.const.WEB_PATH}">首页</a>><a href="{:leuu('portal/index/page',array('id'=>22))}">技术验方</a>><a>项目列表</a>
+		</div>
+	</div>
+	<!--面包结束-->
+
+	<!--主体开始-->
+	<div class="main clearfix">
+		<div class="left">
+			<div class="tit">
+				<h5>民间技法项目列表</h5>
+			</div>
+            <foreach name="result" item="vo">
+            <dl class="dl fixdl">
+				<dt>
+					<a href="{:leuu('portal/list/technology_page',array('id'=>$vo['term_id']))}"><img src="{$vo.img}" alt="{$vo.name}" width="156" height="106"></a>
+				</dt>
+				<dd>
+					<h5>{$vo.name}</h5>
+					<p>
+						{$vo.description}
+					</p>
+				</dd>
+			</dl>
+            </foreach>
+			<div class="center">
+				<span class="page">
+					{$page}
+				</span>
+			</div>			
+		</div>
+		<div class="right">
+			<div class="box jiansuo">
+				<div class="tit">
+					<h5>技法检索</h5>
+				</div>
+				<ul class="xing">
+					<li>
+						<div class="one">
+							<span>形式：</span><a href="{:leuu('portal/list/technology')}">全部</a>
+						</div>
+						<div class="two">
+                        <php>
+                        $allTags = allTags();
+                        </php>
+                        <foreach name="allTags" item="tag">
+                        <a href="javascript:void(0)" id="{$tag.id}" <if condition="$tag['id'] eq $tags">class="selected"</if>>{$tag.name}</a>
+                        </foreach>
+						</div>
+					</li>
+					<li class="center mt10">
+                    <a style="display: inline-block;
+  width: 100px;
+  height: 30px;
+  background-color: #e19d35;
+  color: #fff;
+  border: none;
+  padding: 0;
+  cursor: pointer;  width: 150px;
+  border: 1px solid #c78003;
+  border-radius: 1px;
+  /* Webkit: Safari 4-5, Chrome 1-9; */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fd9213), to(#cd7308));
+  /* Webkit: Safari 5.1+, Chrome 10+; */
+  background-image: -webkit-linear-gradient(top, #fd9213, #cd7308); line-height:30px" href="javascript:;" onClick="searchs()">我要搜索</a>
+			<!--			<input type="submit" value="我要搜索">-->
+					</li>
+				</ul>
+				
+			</div>
+		
+			<div class="box">
+				<div class="banner">
+					<a href="#">
+						<img src="__TMPL__Public/img/user_bg.jpg" alt="">
+					</a>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="banner">
+					<a href="#">
+						<img src="__TMPL__Public/img/user_bg.jpg" alt="">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--主体结束-->
+<tc_include file="Public:foot"/>
+
+<script>
+$(function(){
+	$('.xing li a').on("click",function(){
+		$('.xing li a').attr("class","");
+		$(this).toggleClass("selected");
+	});
+});
+function searchs()
+{
+	var id = $(".xing .selected").attr("id");
+	if (id == '') {
+		alert('请选择条件');
+		return false;
+	}
+	window.location.href='index.php?g=portal&m=list&a=technology&tag='+id;
+}
+</script>
+</body>
+</html>

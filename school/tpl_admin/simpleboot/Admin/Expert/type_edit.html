@@ -1,0 +1,40 @@
+<admintpl file="header" />
+<script type="text/javascript" src="__ROOT__/statics/js/common.js"></script>
+<script type="text/javascript" src="__ROOT__/statics/js/content_addtop.js"></script>
+</head>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:U('Expert/index')}">专家列表</a></li>
+        <li ><a href="{:U('Expert/expert_type')}" target="_self">专家类别</a></li>
+        <li><a href="{:U('Expert/type_add')}" target="_self">添加分类</a></li>
+        <li class="active"><a href="#" target="_self">修改分类</a></li>
+    </ul>
+    <div class="common-form">
+        <form method="post" class="form-horizontal J_ajaxForm" action="{:U('Expert/type_edit_post',array('id'=>$type['id']))}">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label">专家类别:</label>
+                    <div class="controls">
+                        <input type="text" style="width:400px;" name="post[type_name]" id="title"  required value="{$type.type_name}" style="color:red" class="input input_hd J_title_color" placeholder="请输入分类" onkeyup="strlen_verify(this, 'title_len', 160)" />
+                        <span class="must_red">*</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">描述:</label>
+                    <div class="controls">
+                        <textarea name='post[introduce]' id='introduce' style='width:98%;height:100px;' >{$type.introduce}</textarea>
+
+                    </div>
+                </div>
+
+            </fieldset>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn_submit J_ajax_submit_btn">添加</button>
+                <a class="btn" href="__URL__">返回</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

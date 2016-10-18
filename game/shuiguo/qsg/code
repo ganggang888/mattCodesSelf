@@ -1,0 +1,63 @@
+wx.config({
+    debug: false, 
+    appId: 'wx59b381a35cdfff10', 
+    timestamp: 1449279968 ,
+    nonceStr: 'jodIGcW2CpZRNoTm',
+    signature: 'b6112f90bff5189571569213195fb12a8ff6b87a',
+    jsApiList: ['showOptionMenu','onMenuShareTimeline', 'onMenuShareAppMessage','showMenuItems', 'hideMenuItems']
+});
+wx.ready(function () {
+    wx.showOptionMenu();
+    wx.showMenuItems({
+        menuList: [
+                'menuItem:profile', 
+        ],
+    });
+    wx.hideMenuItems({
+        menuList: [
+            'menuItem:copyUrl', 
+            'menuItem:openWithQQBrowser',
+            'menuItem:openWithSafari',
+            'menuItem:share:qq',
+            'menuItem:share:weiboApp'
+        ],
+    });
+    wx.onMenuShareTimeline({
+        title: window.shareData.title,
+        link: window.shareData.link,
+        imgUrl: window.shareData.imgurl,
+        success: function () {
+            if(jQuery.isFunction(onShareComplete)){
+                onShareComplete();
+            }
+        },
+        trigger:function(){
+            this.title=window.shareData.title;
+            this.imgUrl=window.shareData.imgurl;
+            this.link=window.shareData.link;
+        }
+    });
+    wx.onMenuShareAppMessage({
+        title: window.shareFriendData.title,
+        desc: window.shareFriendData.content,
+        link: window.shareFriendData.link,
+        imgUrl: window.shareFriendData.imgurl,
+        type: 'link',
+        dataUrl: '',
+        success: function () {
+            if(jQuery.isFunction(onShareComplete)){
+                onShareComplete();
+            }
+        },
+        trigger:function(){
+            this.title= window.shareFriendData.title;
+            this.desc= window.shareFriendData.content;
+            this.imgUrl=window.shareFriendData.imgurl;
+            this.link=window.shareFriendData.link;
+        }
+    });
+});
+$(function(){
+    $('<script type="text/javascript" src="http://tajs.qq.com/stats?sId=52912260" charset="UTF-8"></script>').appendTo('body');
+});
+

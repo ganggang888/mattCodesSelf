@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>怀孕周记</title>
+
+    <include file="Public:ui" />
+    <style>
+        body{font-family: '微软雅黑';}
+        .zhouji-top{display: block; max-width: 100%; margin: auto;}
+
+        /*文章内容*/
+        .con-box{margin: 20px 0;}
+        .con-box  .con-info{font-size:12px; color: #999; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 5px;}
+        .con-box  .con-info em{font-style: normal; margin-right: 20px;}
+
+
+        /*投票*/
+        .toupiao{background: #f5f5f5; padding: 15px; margin: 30px auto; }
+        .toupiao .tit{font-size: 18px; border-bottom: 1px solid #ccc; margin-bottom: 15px; padding-bottom: 5px;}
+        .toupiao-box{overflow: hidden;}
+        .toupiao-box  a {display: block; width: 20%;float: left; text-align: center; padding: 15px;}
+        .toupiao-box  a:hover{text-decoration: none; background: #fff;}
+        .toupiao-box  a img{display: block; margin:10px auto;}
+        .toupiao-box  a span{display: block; color: #333;}
+        .toupiao-box  a em{color: #D96533; font-style: normal;}
+
+
+        /*评论！*/
+        .com{margin-bottom: 50px;}
+        .com-list .row{padding: 20px 0;}
+        .com .tit{font-size:18px;}
+        .com .tit span{color: #D96533;}
+
+        .com-edit{margin: 20px 0;}
+
+        .com-list{background: #f5f5f5; padding: 20px;}
+        .com-list .com-info em{font-style: normal; color: #999; margin-left: 20px; font-size: 12px;}
+        .com-con{font-size: 13px; margin-top: 5px;color: #666;}
+    </style>
+<!-- mattservice.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?0f1613d9e02019a4ea5f6ff5f5926759";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<include file="Public:pc-nav" />
+
+
+<div class="wrapper container" style="padding: 0;">
+    <div class="inner">
+        <img src="__PUBLIC__/Home/images/zhouji-top.png" class="zhouji-top" alt="">
+
+
+        <div style="background: #f5f5f5;padding: 20px; margin: 20px auto;">
+            <select class="form-control" style="width: 220px; margin: auto;" onchange="location.href=this.options[this.selectedIndex].value;">
+                <option>点击选取你怀孕的周数</option>
+                <volist name="liebiao" id="vo">
+                    <option value="/zhouji/content/id/{$vo.aid}">{$vo.title}</option>
+                </volist>
+            </select>
+        </div>
+
+        <!--这里文章详情-->
+        <div class="con-box">
+            <!--标题-->
+            <h3>{$content[0]['title']}</h3>
+
+            <!--文章信息-->
+            <div class="con-info">
+                <em><span class="glyphicon glyphicon-time"></span> {$content[0]['modify_time']|to_date='Y-m-d H:i:s'}</em> <em><span class="glyphicon glyphicon-user"></span> {$content[0]['author']}</em>
+            </div>
+
+            <!--下面编辑器！-->
+            <div>
+                {$content[0]['content']|to_html}
+
+            </div>
+
+            <!--下面投票！-->
+            <div class="toupiao">
+                <!--
+                <div class="tit">在这一孕周你的心情如何？</div>
+                <div class="toupiao-box">
+                    <a href="javascript:;">
+                        <img src="__PUBLIC__/Home/images/1.gif">
+                        <span>开心</span>
+                        <em>1 人</em>
+                    </a>
+                    <a href="javascript:;">
+                        <img src="__PUBLIC__/Home/images/2.gif">
+                        <span>流泪</span>
+                        <em>1 人</em>
+                    </a>
+                    <a href="javascript:;">
+                        <img src="__PUBLIC__/Home/images/3.gif">
+                        <span>可怜</span>
+                        <em>1 人</em>
+                    </a>
+                    <a href="javascript:;">
+                        <img src="__PUBLIC__/Home/images/4.gif">
+                        <span>呵呵</span>
+                        <em>1 人</em>
+                    </a>
+                    <a href="javascript:;">
+                        <img src="__PUBLIC__/Home/images/5.gif">
+                        <span>草泥马</span>
+                        <em>1 人</em>
+                    </a>
+                </div>
+                -->
+                <!--接着选择孕周！-->
+                <div style="padding: 20px; margin-top: 20px;">
+                    <select class="form-control" style="width: 220px; margin: auto;" onchange="location.href=this.options[this.selectedIndex].value;">
+                        <option>点击选取你怀孕的周数</option>
+                        <volist name="liebiao" id="vo">
+                            <option value="/zhouji/content/id/{$vo.aid}">{$vo.title}</option>
+                        </volist>
+                    </select>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <!--这里评论！-->
+        <div class="com" style="display: none">
+            <div class="tit"><span class="glyphicon glyphicon-comment" style="color: #999;"></span> 评论（<span>11</span>人参与，<span>11</span>条评论）</div>
+            <div class="com-edit row">
+                <div class="col-xs-3 col-sm-2" style="text-align: center;">
+                    <img src="__PUBLIC__/Home/images/icon.jpg"  class="img-circle" width="80"  alt="...">
+                    <span style="display:block; margin-top: 10px;color: #999;">陈阿文</span>
+                </div>
+                <div class="col-xs-9 xol-sm-10">
+                    <textarea rows="4" class="form-control" style="resize: none" placeholder="说点什么吧..."></textarea>
+                </div>
+            </div>
+
+            <div class="com-list">
+
+
+                <!--这里遍历：div-->
+
+                <div class="row">
+                    <div class="col-xs-2 col-md-1" style="padding-right: 0;">
+                        <img src="__PUBLIC__/Home/images/icon.jpg"  class="img-circle" width="70"  alt="...">
+                    </div>
+                    <div class="col-xs-10 col-md-11">
+                        <div class="com-info">
+                            <a href="javascript:;">陈阿文</a> <em><span class="glyphicon glyphicon-time"></span> 2015-09-09 14:22</em>
+                            <div class="com-con">
+                                阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 col-md-1" style="padding-right: 0;">
+                        <img src="__PUBLIC__/Home/images/icon.jpg"  class="img-circle" width="70"  alt="...">
+                    </div>
+                    <div class="col-xs-10 col-md-11">
+                        <div class="com-info">
+                            <a href="javascript:;">陈阿文</a> <em><span class="glyphicon glyphicon-time"></span> 2015-09-09 14:22</em>
+                            <div class="com-con">
+                                阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 col-md-1" style="padding-right: 0;">
+                        <img src="__PUBLIC__/Home/images/icon.jpg"  class="img-circle" width="70"  alt="...">
+                    </div>
+                    <div class="col-xs-10 col-md-11">
+                        <div class="com-info">
+                            <a href="javascript:;">陈阿文</a> <em><span class="glyphicon glyphicon-time"></span> 2015-09-09 14:22</em>
+                            <div class="com-con">
+                                阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 col-md-1" style="padding-right: 0;">
+                        <img src="__PUBLIC__/Home/images/icon.jpg"  class="img-circle" width="70"  alt="...">
+                    </div>
+                    <div class="col-xs-10 col-md-11">
+                        <div class="com-info">
+                            <a href="javascript:;">陈阿文</a> <em><span class="glyphicon glyphicon-time"></span> 2015-09-09 14:22</em>
+                            <div class="com-con">
+                                阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 col-md-1" style="padding-right: 0;">
+                        <img src="__PUBLIC__/Home/images/icon.jpg"  class="img-circle" width="70"  alt="...">
+                    </div>
+                    <div class="col-xs-10 col-md-11">
+                        <div class="com-info">
+                            <a href="javascript:;">陈阿文</a> <em><span class="glyphicon glyphicon-time"></span> 2015-09-09 14:22</em>
+                            <div class="com-con">
+                                阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~阿文好牛逼啊好牛逼~~
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+        <include file="Public:main-nav" />
+        <a href="/">
+            <img src="__PUBLIC__/Home/images/logo.png" width="300" style="display: block; margin: 20px auto;" alt="...">
+        </a>
+    </div>
+</div>
+
+
+<include file="Public:footer" />
+</body>
+</html>

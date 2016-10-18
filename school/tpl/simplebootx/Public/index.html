@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"><!--手机端必须要加的代码，非常重要！！！-->
+    <meta content=
+    "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    name="viewport">
+
+    <title></title>
+    <link href="css/index.css" rel="stylesheet"><!--公司引用的base，公司专门用的-->
+    <link href="css/base.css" rel="stylesheet"><!--描述：轮播的样式和js-->
+    	
+    	<!--另一个轮播-->
+    	<script type="text/javascript" src="js/swipe.js" ></script>
+
+
+    
+</head>
+
+<body>
+    <div class="overall">
+        <div class="above">
+           <a><img src="img/mattt.png"></a>
+        </div>
+        <div class="dengl">
+        	<a style="margin-left: 21%;">登录</a>
+        	<a>注册</a>
+        </div>
+        <!--中间-->
+        <div class="middle">
+            <!--图片轮播一大块--><!--效果html开始-->
+<div class="addWrap" >
+  <div class="swipe" id="mySwipe">
+    <div class="swipe-wrap">
+      <div><a href="javascript:;"><img class="img-responsive" src="images/1.jpg"/></a></div>
+      <div><a href="javascript:;"><img class="img-responsive" src="images/2.jpg"/></a></div>
+      <div><a href="javascript:;"><img class="img-responsive" src="images/3.jpg"/></a></div>
+      <div><a href="javascript:;"><img class="img-responsive" src="images/3.jpg"/></a></div>
+    </div>
+  </div>
+  <ul id="position">
+    <li class="cur"></li>
+    <li class=""></li>
+    <li class=""></li>
+    <li class=""></li>
+  </ul>
+</div>
+<script src="js/swipe.js"></script> 
+<script type="text/javascript">
+var bullets = document.getElementById('position').getElementsByTagName('li');
+var banner = Swipe(document.getElementById('mySwipe'), {
+	auto: 2000,
+	continuous: true,
+	disableScroll:false,
+	callback: function(pos) {
+		var i = bullets.length;
+		while (i--) {
+		  bullets[i].className = ' ';
+		}
+		bullets[pos].className = 'cur';
+	}
+});
+</script>
+<!--效果结束-->
+            <div class="select">
+                <p><img src="img/Choose%20Us.png" style=
+                "width: 80%;margin-left: 10%;margin-top:15px ;"></p>
+            </div>
+
+              <div class="md_03">
+            	<a><img src="img/team of experts.png"></a>
+            </div>
+
+            <div class="md_03">
+            	<img src="img/4.png">
+            </div>
+  <div class="md_03">
+            	<a><img src="img/Professional tutorial.png"></a>
+            </div>
+          
+
+            <div class="md_05">
+                 <div class="Student">
+                  	 <a>   
+                       <dl>
+                       	<dt><img src="img/6.png"></dt>
+                       	<dd>课程介绍</dd>
+                       </dl>
+                     <a>    
+                   	 <a>   
+                       <dl>
+                       	<dt><img src="img/5.png"></dt>
+                       	<dd>考试查询</dd>
+                       </dl>
+                     <a>  
+                     	 <a>   
+                       <dl>
+                       	<dt><img src="img/9.png"></dt>
+                       	<dd>专家团队</dd>
+                       </dl>
+                     <a> 
+                     	 <a>   
+                       <dl>
+                       	<dt><img src="img/8.png"></dt>
+                       	<dd>最新活动</dd>
+                       </dl>
+                     <a> 
+                     	 <a>   
+                       <dl>
+                       	<dt><img src="img/10.png"></dt>
+                       	<dd>证书介绍</dd>
+                       </dl>
+                     <a> 
+                     	 <a>   
+                       <dl>
+                       	<dt><img src="img/7.png"></dt>
+                       	<dd>关于我们</dd>
+                       </dl>
+                     <a> 
+                 </div>
+            </div>
+        </div>
+
+        <div class="md_04">
+            <p style=
+            "font-size: 1.5em;color: #FFFFFF;height: 95px;text-align: center;padding-top: 7px;letter-spacing: 2px;">
+            本期优秀学员介绍</p>
+        </div>
+        
+      <a>   
+      <div class="md_06">
+                 留言板
+        </div>
+      </a>
+        <div class="footer">
+            <ul>
+                <li>联系电话</br>
+                
+                
+                400-998-2033</li>
+
+                <li>学校地址</br>
+                	东体育会路上海外国语大学贤达学院行政楼14F</li>
+
+                <li style="margin-top: 45px;margin-left: 67%;font-size: 14px;">麦麦育儿机器人</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

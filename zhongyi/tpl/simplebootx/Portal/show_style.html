@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{$post_title} {$site_name}</title>
+<tc_include file="Public:css"/>
+<script src="__TMPL__Public/js/base.js"></script>
+</head>
+<body class="jifa yanjiusuo">
+<div class="limiter">
+<tc_include file="Public:header"/>
+
+	<!--面包开始-->
+	<div class="bread">
+		<div class="fl">
+			<h3>{:getTermName($term_id)}详情</h3>
+			<p>{$post_keywords}</p>
+		</div>
+		<div class="fr">
+			<a href="{$Think.const.WEB_PATH}">首页</a>><if condition="!empty($grand)">
+                {$grand.name} > {$p_term.name} > <a href="index.php?g=portal&m=list&a=index&id={$now_term.term_id}">{$now_term.name}</a>
+                <elseif condition="!empty($p_term)" />
+                {$p_term.name} ><a href="index.php?g=portal&m=list&a=index&id={$now_term.term_id}" > {$now_term.name}</a>
+                <else />
+                <a href="index.php?g=portal&m=list&a=index&id={$now_term.term_id}"> {$now_term.name}</a>
+                </if>
+		</div>
+	</div>
+	<!--面包结束-->
+
+	<!--主体开始-->
+	<div class="main clearfix">
+		<div class="left">
+			<div class="pics piclist">
+            <php>
+            $photos = $smeta['photo'];
+            </php>
+				<ul>
+                <foreach name="photos" item="vo">
+                <li><a href="javascript:;">
+						<img src="{:sp_get_asset_upload_path($vo['url'])}" width="636" height="191" alt="{$vo.alt}">
+					</a></li>
+                </foreach>
+				</ul>
+				<span class="prev gray"></span>
+				<span class="next"></span>
+			</div>
+			<div class="mark clearfix">
+				<span class="hred">{$post_title}</span>
+				<span class="fr">
+					<i class="eye"></i>阅读量 {$post_hits}
+				</span>
+			</div>
+			<div class="user-info">
+				{$post_content}
+			</div>	
+			<div class="page-guid">
+				<if condition="!empty($prev)">
+			
+                    <a href="{:U('article/index',array('id'=>$prev['tid']))}" class="mr15">上一篇：{$prev['post_title']}</a>
+					</if>
+					<if condition="!empty($next)">
+					<a href="{:U('article/index',array('id'=>$next['tid']))}" class="mr15">下一篇：{$next['post_title']}</a>
+					</if>
+			</div>
+		</div>
+		<tc_include file="Public:right"/>
+	</div>
+	<!--主体结束-->
+<tc_include file="Public:foot"/>
+
+<script>
+$(function(){
+	$(".pics").slide();
+})
+	
+</script>
+</body>
+</html>

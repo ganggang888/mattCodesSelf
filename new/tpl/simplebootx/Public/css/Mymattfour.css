@@ -1,0 +1,67 @@
+*{
+	   list-style: none;
+}
+  #slide {
+  	margin-left: -30px;
+  	width: 700px;
+   height: 650px;
+   position: relative;
+   overflow: hidden;
+
+   
+  }
+  #slide ul {
+   position: absolute;
+   height: 650px;
+   width: 11930px;
+  }
+  #slide ul li {
+   width: 700px;
+   height: 650px;
+   overflow: hidden;
+   float: left;
+  }
+  #slide .ico {
+   width: 620px;
+   height: 20px;
+   overflow: hidden;
+   text-align: center;
+   color: #FF6600;
+   position: absolute;
+   left: 0px;
+   bottom: 10px;
+   z-index: 1;
+  }
+  #slide .ico a {
+   display: inline-block;
+   width: 25px;
+   height:25px;
+   background: url(out.png) no-repeat 0px 0px;
+  }
+  #slide .ico .active {
+   background: url(out1.png) no-repeat 0px 0px;
+  }
+  #btnLeft {
+
+   height: 400px;
+   left: 0px;
+   top: 0px;
+   background: url() no-repeat 0px 0px;
+   position: absolute;
+   z-index: 2;
+  }
+  #btnLeft :hover {
+   background: url() no-repeat 0px 0px;
+  }
+  #btnRight {
+
+   height: 400px;
+   right: 0px;
+   top: 0px;
+   background: url() no-repeat 0px 0px;
+   position: absolute;
+   z-index: 2;
+  }
+  #btnRight :hover {
+   background: url() no-repeat 0px 0px;
+  }  

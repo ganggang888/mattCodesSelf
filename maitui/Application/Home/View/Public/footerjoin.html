@@ -1,0 +1,39 @@
+
+<style>
+    /**
+    footer
+    **/
+    .main-footer{border-top:1px solid #eee; background:#000; }
+    .main-footer h3{font-size: 18px; padding-bottom: 5px; color: #ccc;}
+    .main-footer .row a{margin-right: 10px;display: inline-block;color: #999;}
+    .main-footer .row img{width: 120px;display: block;}
+    .main-footer .bottom{text-align: center;line-height: 60px;color: #999;font-size: 12px;}
+</style>
+<footer class="main-footer" style="padding-bottom:30px;">
+    <div class="container">
+        <div class="bottom" style="line-height:30px!important">www.mattservice.com 沪ICP备09045106号-1 <if condition="$shows eq 1"><br/><a href="javascript:;" id="theMap" style="color:#FFF">麦忒地图</a></if></div>
+		
+    </div>
+</footer>
+<div class="bottom" style="color:#fff; line-height:30px; position:fixed; bottom:0; z-index:9999; background:#333; text-align:center; width:100%;filter:alpha(opacity=70);-moz-opacity:0.70; opacity:0.70;">加盟热线：<a href="tel:4009982033" style="color:#fff">4009982033</a> &nbsp; &nbsp;</div>
+
+<script>
+$("#theMap").click(function(){
+
+    if ($("#map").css("display") == 'inline-block') {
+        $("#map").hide(300);
+        $('html,body').animate({ scrollTop: document.body.clientHeight }, 700);
+    } else {
+        $("#map").show(300);
+        $('html,body').animate({ scrollTop: document.body.clientHeight }, 700);
+    }
+    
+
+})
+</script>
+    <script>
+function theWith()
+{
+    return $(window).width();
+}
+    </script>

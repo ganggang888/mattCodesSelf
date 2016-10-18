@@ -1,0 +1,86 @@
+<admintpl file="header" />
+<link href="/statics/simpleboot/css/pager.css" rel="stylesheet" type="text/css">
+</head>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+    <ul class="nav nav-tabs">
+        <li ><a href="{:U('Sdtmain/index')}">学员列表</a></li>
+        <li class="active"><a href="{:U('Sdtmain/add')}" target="_self">工作经历</a></li>
+    </ul>
+    <form class="J_ajaxForm" action="" method="post">
+        <div class="search_type cc mb10">
+            <div class="well form-search">
+					<span class="mr20">
+						<p style="font-size: 20px;margin: 0 0 0px">{$name}</p>
+					</span>
+            </div>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="15"><label><input type="checkbox" class="J_check_all" data-direction="x" data-checklist="J_check_x"></label></th>
+                <th width="15">排序</th>
+                <th width="50">开始时间</th>
+                <th width="50">结束时间</th>
+                <th width="50">工作地点</th>
+                <th width="30">宝宝月龄</th>
+                <th width="50">宝宝性别</th>
+                <th width="50">备注</th>
+                <th width="60">操作</th>
+            </tr>
+            </thead>
+            <foreach name="works" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="J_check" data-yid="J_check_y" data-xid="J_check_x" name="ids[]" value="{$vo.id}" title="ID:{$vo.id}"></td>
+                    <td><input name="" class="input input-order" type="text" size="5" value="ID:{$vo.id}" title="ID:{$vo.id}"></td>
+                    <td> <span>{$vo.from_time}</span></td>
+                    <td> <span>{$vo.to_time}</span></td>
+                    <td> {$vo.work_address}</td>
+                    <td> {$vo.baby_month}个月</td>
+                    <td>{$gender = ($vo['baby_gender'] == 0)?'女':'男'}</td>
+                    <td>
+                        <if condition="!empty($vo['remark'])">
+                            已填写
+                            <else />
+                            未填写
+                        </if>
+                    </td>
+                    <td>
+                        <a href="{:U('Sdtmain/work_edit',array('id'=>$vo['id']))}">修改</a>
+                        <a href="{:U('Sdtmain/work_delete',array('id'=>$vo['id']))}" class="J_ajax_del">删除</a>
+                    </td>
+                </tr>
+            </foreach>
+
+            <tfoot>
+
+            </tfoot>
+        </table>
+        <div class="table-actions">
+            <button class="btn btn-primary btn-small J_ajax_submit_btn" type="submit" data-action="{:U('Sdtmain/work_delete')}" data-subcheck="true" data-msg="你确定删除吗？">批量删除</button>
+        </div>
+        <div class="pagination">{$Page}</div>
+
+    </form>
+</div>
+<script src="__ROOT__/statics/js/common.js"></script>
+
+<script type="text/javascript">
+    function refersh_window() {
+        var refersh_time = getCookie('refersh_time');
+        if (refersh_time == 1) {
+            window.location = "{:U('Certificate/index',$formget)}";
+        }
+    }
+    setInterval(function() {
+        refersh_window();
+    }, 2000);
+    $(function() {
+        setCookie("refersh_time", 0);
+        Wind.use('ajaxForm', 'artDialog', 'iframeTools', function() {
+            //批量移动
+        });
+    });
+</script>
+</body>
+</html>

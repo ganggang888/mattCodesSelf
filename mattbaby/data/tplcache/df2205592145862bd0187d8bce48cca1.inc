@@ -1,0 +1,1 @@
+<li><a href="[field:arcurl/]"><img src="[field:picname/]" class="imgall"></a></li>

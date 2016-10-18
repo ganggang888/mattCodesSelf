@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>{$site_seo_title} {$site_name}</title>
+<meta name="keywords" content="{$site_seo_keywords}" />
+<meta name="description" content="{$site_seo_description}">
+<tc_include file="Public:header" />
+</head>
+
+<tc_include file="Public:menu" />
+<div class="banner" style="background-image:url(__TMPL__Public/images/flash.jpg); width:1149px; height:561px; ">
+  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="1149" height="561">
+    <param name="movie" value="__TMPL__Public/flash.swf" />
+    <param name="quality" value="high" />
+    <param name="wmode" value="transparent" />
+    <embed src="校园站banner cs4.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="1149" height="561" wmode="transparent"></embed>
+  </object>
+</div>
+<div class="zb">
+  <!--<div class="zb1"><a href="join.aspx" class="joinmatt"></a></div>-->
+</div>
+<div class="main">
+  <div class="m1">
+    <div class="mmm"><a href="{:leuu('Portal/list/index',array('id'=>11))}"><img class="mmm123" src="__TMPL__Public/images/teacher.jpg" height="15" /><span>客户分享<span class="mmmnews"> Customer</span></span></a> </div>
+    <div class="m3"><a href="{:leuu('Portal/list/index',array('id'=>11))}"></a></div>
+  </div>
+  <div class="m1_1">
+    <div class="mmm"><a href="{:leuu('Portal/teacher/index')}"><img class="mmm123" src="__TMPL__Public/images/teacher.jpg" height="15" /><span>早教老师<span class="mmmnews"> Teacher</span></span></a></div>
+    <div class="m3_3"><a href="{:leuu('Portal/teacher/index')}"></a></div>
+  </div>
+  <div class="m1_1_1">
+    <div class="mmm"><a href="student.html"><img class="mmm123" src="__TMPL__Public/images/teacher.jpg" height="15" /><span>VCR欣赏<span class="mmmnews"> Vcr</span></span></a></div>
+    <div class="m3_3_3"><a href="student.html"></a></div>
+  </div>
+  <div class="news_s">
+    <div class="ma1"> <a href="{:leuu('Portal/list/index',array('id'=>3))}"><img class="mmm123" src="__TMPL__Public/images/teacher.jpg" height="15" /><span>麦忒家庭育儿直通车<span class="mmmnews"> News</span></span></a><a href="news.html"><img src="__TMPL__Public/images/more.jpg" width="37" height="17" class="more" /></a></div>
+    <div class="news_sb">
+      <ul>
+        <php> $lastnews=sp_sql_posts("cid:3;field:post_title,post_excerpt,tid,smeta;order:listorder desc;limit:3;"); </php>
+        <foreach name="lastnews" item="vo">
+          <li><span>{:mb_substr($vo[post_date],0,10,'utf-8')}</span><a href="{:leuu('Portal/article/index',array('id'=>$vo['tid']))}">{$vo.post_title}</a></li>
+        </foreach>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="piao_img" style="position:absolute; display:; top: 147px; left: 5px;" onMouseOver="javascript:stop()" onMouseOut="javascript:start()">
+  <table width='120' cellpadding='8' cellspacing='3'>
+    <tr>
+      <td align='center'  style='LETTER-SPACING: 0.2em;cursor:none;'><a href="about.html?id=29"><img src="__TMPL__Public/images/triballoon.gif" border="0" width ="286px" height="552px"></a><br>
+        <font color='green'> </font></td>
+    </tr>
+  </table>
+</div>
+<script type="text/javascript" >
+    //飘动图片begin
+
+    var xPos = 20;
+    var yPos = document.body.clientHeight;
+    var step = 1;
+    var delay = 30;
+    var height = 0;
+    var Hoffset = 0;
+    var Woffset = 0;
+    var yon = 0;
+    var xon = 0;
+    var pause = true;
+    var interval;
+    piao_img.style.top = yPos;
+    function changePos() {
+        width = document.body.clientWidth;
+        height = document.body.clientHeight;
+        Hoffset = piao_img.offsetHeight;
+        Woffset = piao_img.offsetWidth;
+        piao_img.style.left = xPos + document.body.scrollLeft+"px";
+        piao_img.style.top = yPos + document.body.scrollTop+"px";
+        if (yon) {
+            yPos = yPos + step;
+        }
+        else {
+            yPos = yPos - step;
+        }
+        if (yPos < 0) {
+            yon = 1;
+            yPos = 0;
+        }
+        if (yPos >= (height - Hoffset)) {
+            yon = 0;
+            yPos = (height - Hoffset);
+        }
+        if (xon) {
+            xPos = xPos + step;
+        }
+        else {
+            xPos = xPos - step;
+        }
+        if (xPos < 0) {
+            xon = 1;
+            xPos = 0;
+        }
+        if (xPos >= (width - Woffset)) {
+            xon = 0;
+            xPos = (width - Woffset);
+        }
+    }
+    function stop() {
+        clearInterval(interval);
+        //alert("stop")
+    }
+    function start() {
+        piao_img.visibility = "visible";
+        interval = setInterval('changePos()', delay);
+    }
+    start();
+    //飘动图片end
+</script>
+<tc_include file="Public:foot" />

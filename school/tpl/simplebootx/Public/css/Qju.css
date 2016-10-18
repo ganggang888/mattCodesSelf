@@ -1,0 +1,216 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+.overall {
+	width: 100%;
+	background: #ffeaba;
+
+}
+.above {
+	width: 100%;
+	height: 20px;
+}
+.Logo {
+	float: left;
+	width: 30%;
+	float: left;
+
+}
+
+
+/*修改对象*/
+.baomin {
+	width: 47%;
+	background: #27b410;
+	height: 20px;
+	border-radius: 40px 40px;
+	font-size: 0.8em;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 20px;
+	float: left;
+	margin-top: 5px;
+}
+.denglu {
+	width: 47%;
+	background: #27b410;
+	height: 20px;
+	border-radius: 40px 40px;
+	font-size: 0.8em;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 20px;
+	float: right;
+	margin-top: 5px;
+}
+/*响应式，针对iPhone各个型号的高度*/
+@media only screen and (max-height: 530px) and (min-height: 440px) {
+	.Login {
+		background-color: #5f5f5f;
+		float: right;
+		width: 40%;
+		border: none;
+		height: 47px;
+	}
+	.zi{
+		font-size: 1.6em;
+		text-align: center;
+		font-weight: bold;
+		letter-spacing: 1px;
+		height: 50px;
+		line-height: 20px;
+	}
+}
+@media only screen and (max-height: 599px) and (min-height: 531px) {
+	.Login {
+		background-color: #5f5f5f;
+		float: right;
+		width: 40%;
+		border: none;
+		height: 47px;
+	}
+	.zi{
+		font-size: 1.8em;
+		text-align: center;
+		font-weight: bold;
+		letter-spacing: 1px;
+		height: 50px;
+		line-height: 25px;
+	}
+}
+@media only screen and (max-height: 680px) and (min-height: 600px) {
+	.Login {
+		background-color: #5f5f5f;
+		float: right;
+		width: 40%;
+		border: none;
+		height: 55px;
+	}
+	.zi{
+		font-size: 1.8em;
+		text-align: center;
+		font-weight: bold;
+		letter-spacing: 1px;
+		height: 60px;
+		line-height: 30px;
+	}
+}
+@media only screen and (max-height: 736px) and (min-height: 681px) {
+	.Login {
+		background-color: #5f5f5f;
+		float: right;
+		width: 40%;
+		border: none;
+		height: 61px;
+	}
+	.zi{
+		font-size: 1.8em;
+		text-align: center;
+		font-weight: bold;
+		letter-spacing: 1px;
+		height: 60px;
+		line-height: 30px;
+	}
+}
+/*轮播特效*/
+.middle {
+	width: 100%;
+	margin: auto;
+}
+.md_01{
+	height: 240px;
+	background:#57B1E6;
+}  
+/*轮播开始*/
+.mBan2 {padding-top: 9.2%;}
+.mBan2 .slideBox{ width:100%; height:auto; position:relative; }
+/* background: url(../images/btnBg.png) no-repeat;*/
+
+.mBan2 .slideBox .hd{ height: 10px; overflow: hidden; position: absolute; bottom: 4px; z-index: 1; width: 50px; margin-left: -46px; left: 55%; padding: 4px 0px 0px 11px; }
+.mBan2 .slideBox .hd ul{ zoom: 1; }
+.mBan2 .slideBox .hd ul li{ float: left; width: 6px; height: 6px; background: url(../images/btn1.png) no-repeat; cursor: pointer; margin-right: 10px; }
+.mBan2 .slideBox .hd ul li.on{ background: url(../images/btn2.png) no-repeat; }
+.mBan2 .slideBox .bd{ position:relative; height:100%; z-index:0;   }
+.mBan2 .slideBox .bd ul,.slideBox .bd ul li{width:100%!important}
+.mBan2 .slideBox .bd img{ width:100%; height:auto; display:block;  }
+
+/*轮播结束*/  
+
+/*滑动轮播
+.addWrap .swipe-wrap{overflow:hidden;position:relative;background: #666666;}
+.addWrap .swipe-wrap > div {float: left;position:relative;}
+#position{  margin:0 auto; margin-top: -5.5%; opacity: 0.4; width:100%; filter: alpha( opacity=50);margin-left: 45%;}
+#position li{width:10px;height:10px;margin:0 2px;display:inline-block;-webkit-border-radius:5px;border-radius:5px;background-color:#AFAFAF;}
+#position li.cur{background-color:#FF0000;}
+.img-responsive { display: block; max-width: 100%;  height: auto;}
+
+滑动轮播结束*/
+.md_02{
+	width: 90%;
+	margin: auto;
+	height: 150px;
+	background: #f7ab00;
+	border-radius: 7px;
+	
+}
+.md_02 a{
+	color: #FFFFFF;
+}
+.md_03{
+	width: 90%;
+	margin: auto;
+	height: 150px;
+	background: #00a73d;
+	border-radius: 7px;
+	margin-top:10px ;
+}
+.md_03 a{
+	color: #FFFFFF;
+}
+.md_04{
+	width: 90%;
+	margin: auto;
+	height: 150px;
+	background: #abcd04;
+	border-radius: 7px;
+	margin-top:10px ;
+}
+.md_04 a{
+	color: #FFFFFF;
+}
+.md_05{
+	width: 90%;
+	margin: auto;
+	height: 150px;
+	margin-top:10px ;
+}
+.top{
+	height:70px ;
+	width: 100%;
+}
+.btm{
+	height:70px ;
+	width: 100%;
+}
+.tt{
+	width: 31%;
+	height: 70px;
+	border-radius: 7px;
+	text-align: center;	
+	line-height: 70px;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.tt a{
+	color: #FFFFFF;
+}
+.footer{
+	width: 100%;
+}
+.Img{
+	width: 90%;
+	margin: auto;
+	height: 90px;  background: #57B1E6;
+}

@@ -1,0 +1,117 @@
+<admintpl file="header" />
+<style>
+    .t_head{
+        text-align: center;
+        background-color: #dbe5e7;
+        font-size: 20px;
+        height: 40px;
+        float: inherit;
+        margin: 0 0 0px;
+        line-height: 40px;
+    }
+    fieldset{
+
+        margin:0px auto
+    }
+    p{
+        font-size: 20px;
+        margin: 0 0 0px;
+    }
+</style>
+</head>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:U('Sdtmain/index')}">学员列表</a></li>
+        <li class="active"><a href="#" target="_self">在校总体表现</a></li>
+    </ul>
+    <div class="common-form">
+    <div class="search_type cc mb10">
+        <div class="well form-search">
+                <span class="mr20">
+                    <p>{$student.name}->{$class.name}</p>
+                </span>
+        </div>
+    </div>
+    <form method="post" class="form-horizontal J_ajaxForms" action="{:U('Sdtmain/result_general_post',array('student_id'=>$student['id'],'info_id'=>$class['id']))}">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label">获证时间:</label>
+                <div class="controls">
+                <input type="text" name="post[pass_time]" id="pass_time"  value="{:date('Y-m-d',time())}" size="21" class="J_date" >
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">课程评价:</label>
+                <div class="controls">
+                <textarea name='post[general_result]' id='general_result' style='width:60%;height:100px;'></textarea>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn_submit J_ajax_submit_btn">提交</button>
+            <a class="btn" href="{:U('Sdtmain/result_index',array('id'=>$student['id']))}">返回</a>
+        </div>
+    </form>
+    </div>
+</div>
+<script type="text/javascript" src="__ROOT__/statics/js/common.js"></script>
+<script type="text/javascript" src="__ROOT__/statics/js/content_addtop.js"></script>
+<script type="text/javascript">
+    $(function () {
+        /////---------------------
+        var form = $('form.J_ajaxForms');
+        Wind.use('validate', 'ajaxForm', 'artDialog', function () {
+            form.validate({
+                submitHandler: function (forms) {
+                    //if (formloading) return;
+                    $(forms).ajaxSubmit({
+                        url: form.attr('action'), //按钮上是否自定义提交地址(多按钮情况)
+                        dataType: 'json',
+                        beforeSubmit: function (arr, $form, options) {
+                            formloading = true;
+                        },
+                        success: function (data, statusText, xhr, $form) {
+                            formloading = false;
+//                            var a =JSON.stringify(data);
+//                            alert(a);
+                            if (data.status) {
+                                //alert();
+                                setCookie("refersh_time", 1);
+                                //添加成功
+                                Wind.use("artDialog", function () {
+                                    art.dialog({
+                                        id: "succeed",
+                                        icon: "succeed",
+                                        fixed: true,
+                                        lock: true,
+                                        background: "#CCCCCC",
+                                        opacity: 0,
+                                        content: "添加成功!",
+                                        button: [
+                                          {
+                                                name: '返回列表页',
+                                                callback: function () {
+                                                    location = "{:U('Sdtmain/result_index',array('id'=>$student['id']))}";
+                                                    return true;
+                                                }
+                                            }
+                                        ]
+                                    });
+                                });
+                            } else {
+                                isalert(data.info);
+                            }
+                        }
+                    });
+                }
+            })
+        })
+    })
+
+
+</script>
+</body>
+
+
+</html>

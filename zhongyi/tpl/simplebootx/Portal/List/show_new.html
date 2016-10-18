@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{$post_title} {$site_name}</title>
+<tc_include file="Public:css"/>
+</head>
+<body class="camp-det">
+<div class="limiter">
+<tc_include file="Public:header"/>
+	<!--面包开始-->
+	<div class="bread">
+		<div class="fl">
+			<h3>{:getTermName($term_id)}详情</h3>
+			<p>{$post_keywords}</p>
+		</div>
+		<div class="fr">
+			<a href="{$Think.const.WEB_PATH}">首页</a>><a>{:getTermName($term_id)}详情</a>
+		</div>
+	</div>
+	<!--面包结束-->
+
+	<!--主体开始-->
+	<div class="main clearfix">
+		<div class="left">
+			<div>
+            <php>
+            $imgs = json_decode($smeta,true);
+            </php>
+            <if condition="!empty($imgs['thumb'])"><img src="{:sp_get_asset_upload_path($imgs['thumb'])}" alt="{$post_title}"></if>
+				
+			</div>
+			<div class="mark center">
+				<strong class="high">{$post_title}</strong>
+				<span class="fr">
+					<i class="eye hover"></i>阅读量 {$post_hits}
+				</span>
+			</div>
+			<div class="center mt10">
+				发布日期：{$post_modified}
+			</div>
+			<div class="user-info">
+				{$post_content}
+			</div>	
+
+
+						
+		</div>
+		<div class="right">
+			<div class="datebox">
+				<div class="datetxt">
+					<span class="fl">活动日历<br>September</span>
+					<span class="fr">10月</span>
+				</div>
+				<table>
+					<tr>
+						<th class="cur">日</th>
+						<th>一</th>
+						<th>二</th>
+						<th>三</th>
+						<th>四</th>
+						<th>五</th>
+						<th>六</th>
+					</tr>
+					<tr>
+						<td><span></span></td>
+						<td><span></span></td>
+						<td><span>1</span></td>
+						<td><span>2</span></td>
+						<td><span>3</span></td>
+						<td><span>4</span></td>
+						<td><span>5</span></td>
+					</tr>
+					<tr>
+						<td><span>6</span></td>
+						<td><span class="today">7</span></td>
+						<td><span class="cur">8</span></td>
+						<td><span>9</span></td>
+						<td><span>10</span></td>
+						<td><span>11</span></td>
+						<td><span>12</span></td>
+					</tr>
+					<tr>
+						<td><span>13</span></td>
+						<td><span>14</span></td>
+						<td><span>15</span></td>
+						<td><span>16</span></td>
+						<td><span>17</span></td>
+						<td><span>18</span></td>
+						<td><span>19</span></td>
+					</tr>
+					<tr>
+						<td><span>20</span></td>
+						<td><span>21</span></td>
+						<td><span>22</span></td>
+						<td><span>23</span></td>
+						<td><span>24</span></td>
+						<td><span>25</span></td>
+						<td><span>26</span></td>
+					</tr>
+					<tr>
+						<td><span>27</span></td>
+						<td><span>28</span></td>
+						<td><span>29</span></td>
+						<td><span>30</span></td>
+						<td><span>31</span></td>
+						<td><span></span></td>
+						<td><span></span></td>
+					</tr>
+					<tr>
+						<td colspan="7" align="right">
+							<div class="datetips">
+							<em class="td"><i></i>今天</em><em class="has"><i></i>有活动</em>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+				
+			
+		</div>
+	</div>
+	<!--主体结束-->
+<tc_include file="Public:foot"/>
+</body>
+</html>

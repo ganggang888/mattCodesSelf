@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>{$site_name} {$post_title}</title>
+    <link rel="stylesheet" href="css/pintuer.css">
+    <tc_include file="Public:css" />
+    <style>
+		.demo-nav.fixed.fixed-top{z-index:8;background:#fff;width:100%;padding:0;border-bottom:solid 3px #0a8;-webkit-box-shadow:0 3px 6px rgba(0, 0, 0, .175);box-shadow:0 3px 6px rgba(0, 0, 0, .175);}
+    </style>
+	</head>
+	<body>
+<tc_include file="Public:header" />
+<tc_include file="Public:nav" />
+			<br/><br/>
+			<br/><br/>
+			<div class="contatop textkey line   ">
+				<div class="xm6 ">
+                <h1 class="text-main">{$post_title}</h1>
+                <span class="text-big text-gray ">{$post_keywords} ({$post_modified})</span>
+					<br/>
+					<br/>
+                {$post_content}
+				</div>
+				
+			
+				<php>
+                $resultInfo = termInfo(6);
+                </php>
+			<div class="table-responsive xm3  float-right">
+                   <table class="table1">
+                   <foreach name="resultInfo" item="vo">
+                   <tr><td><a href="{:leuu('portal/list/index',array('id'=>$vo['term_id']))}" <if condition="$term_id eq $vo['term_id']">class="text-main"</if>><h3>{$vo.name}</h3></a></td></tr>
+                   </foreach>
+                   </table>
+           </div>
+           <tc_include file="Public:foot" />
+			</div>
+
+	</body>
+</html>

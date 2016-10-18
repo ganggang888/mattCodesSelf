@@ -1,0 +1,92 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+	<div class="wrap J_check_wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:;">疫苗列表</a></li>
+			<li><a href="{:U('Vaccine/add')}">添加疫苗</a></li>
+		</ul>
+
+		<form class="well form-search">
+			<div class="search_type cc mb10">
+				<div class="mb10">
+					<span class="mr20">
+						名称： 
+						<input type="text" name="name" id="name" style="width: 200px;" value="{$name}" placeholder="请输入名称..."> --
+						月份：
+						<select name="month" id="month">
+						
+							<php>
+								for($i=0;$i<=36;$i++) {
+							</php>
+							<option value="{$i}" <if condition="$month eq $i">selected="selected"</if>>{$i}月份</option>
+							<php>
+								}
+							</php>
+						</select>
+						<a href="javascript:;" onClick="todo()" class="btn btn-primary">搜索</a>
+					</span>
+					<script>
+					function todo() {
+						var name = $("#name").val();
+						var month = $("#month").val();
+						window.location.href='index.php?g=Admin&m=Vaccine&a=index&name='+name+'&month='+month;
+					}
+					</script>
+				</div>
+			</div>
+		</form>
+		<form class="form-horizontal J_ajaxForm" action="" method="post">
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th width="100">ID</th>
+						<th>疫苗名称</th>
+                        <th>疫苗类别</th>
+                        <th>适应月龄</th>
+                        <th>是否必要</th>
+                        <th>疫苗作用</th>
+                        <th>禁忌症</th>
+						<th width="120">时间</th>
+						<th width="120">操作</th>
+					</tr>
+				</thead>
+				<foreach name="result" item="vo">
+				<tr>
+					<td>{$vo.id}</td>
+					<td>{$vo.name}</td>
+                    <td>{$vo.type}类</td>
+                    <td>{$vo.required_months}月龄</td>
+                    <th>
+                    <if condition="$vo['is_necessary'] eq 1">
+                    必要
+                    <else />
+                    可替代
+                    </if></th>
+                    <td>{$vo.detail_field_3}</td>
+                    <td>{$vo.detail_field_4}</td>
+					<td>
+					{$vo.update_time}
+					</td>
+					<td>
+						<a href="{:U('Vaccine/edit',array('id'=>$vo['id']))}">修改</a>|
+						<a href="{:U('Vaccine/delete',array('id'=>$vo['id']))}" class="J_ajax_del">删除</a>
+	
+					</td>
+				</tr>
+				</foreach>
+			</table>
+		</form>
+        <div class="pagination">{$page}</div>
+	</div>
+	<script src="__ROOT__/statics/js/common.js"></script>
+	<script>
+		$(function() {
+
+			$("#navcid_select").change(function() {
+				$("#mainform").submit();
+			});
+
+		});
+	</script>
+</body>
+</html>
