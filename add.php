@@ -32,7 +32,7 @@ $result = mysql_fetch_array($info);
 
 array_map(function($v){addOpenfireUsers($v['username'],$password1,'','');},$result);
 var_dump($result);*/
-addOpenfireUsers("18816978529",$password1,'','');
+//addOpenfireUsers("18816978529",$password1,'','');
 
 
 
@@ -66,3 +66,10 @@ $a = postRequest("http://120.131.81.178:9090/plugins/userService/users",'<?xml v
 
 
 var_dump($a);*/
+$array = array(
+    array('id'=>1,'name'=>'haha1','term_id'=>1),
+    array('id'=>2,'name'=>'haha2','term_id'=>1),
+    array('id'=>3,'name'=>'haha3','term_id'=>1),
+    array('id'=>4,'name'=>'haha4','term_id'=>1),
+);
+var_dump(count(array_chunk($array,2)));
