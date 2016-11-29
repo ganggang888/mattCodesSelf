@@ -66,10 +66,13 @@ $a = postRequest("http://120.131.81.178:9090/plugins/userService/users",'<?xml v
 
 
 var_dump($a);*/
-$array = array(
+/*$array = array(
     array('id'=>1,'name'=>'haha1','term_id'=>1),
     array('id'=>2,'name'=>'haha2','term_id'=>1),
     array('id'=>3,'name'=>'haha3','term_id'=>1),
     array('id'=>4,'name'=>'haha4','term_id'=>1),
 );
-var_dump(count(array_chunk($array,2)));
+var_dump(count(array_chunk($array,2)));*/
+$tex = '【13701766266】: 1    (Thu Oct 27 2016 16:03:55 GMT+0800 (中国标准时间))转发给专家';
+$info = explode('    ',$tex);
+var_dump($info[0]);

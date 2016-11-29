@@ -33,3 +33,6 @@ var_dump($_FILES);
 ?>
 </body>
 </html>
+<?php
+var_dump($_SERVER['DOCUMENT_ROOT']);
+?>

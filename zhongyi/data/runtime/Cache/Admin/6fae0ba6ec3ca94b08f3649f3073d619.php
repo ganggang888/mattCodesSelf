@@ -6,7 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
 		<meta name="renderer" content="webkit|ie-comp|ie-stand">
 		<meta name="robots" content="noindex,nofollow">
-		<link href="/tpl_admin/simpleboot/assets/css/admin_login.css" rel="stylesheet" />
+		<link href="/zhongyi/tpl_admin/simpleboot/assets/css/admin_login.css" rel="stylesheet" />
 		<style>
 			#login_btn_wraper{
 				text-align: center;
@@ -32,7 +32,7 @@
 	</head>
 <body>
 	<div class="wrap">
-		<h1><a href="" style="z-index:9999; text-indent:20px; color:#FFF; text-decoration:none">后台管理中心</a></h1>
+		<h1><a href="/zhongyi" style="z-index:9999; text-indent:20px; color:#FFF; text-decoration:none">后台管理中心</a></h1>
 		<form method="post" name="login" action="<?php echo U('public/dologin');?>" autoComplete="off" class="J_ajaxForm">
 			<div class="login">
 				<ul>
@@ -60,14 +60,14 @@
 
 <script>
 var GV = {
-	DIMAUB: "/",
+	DIMAUB: "/zhongyi/",
 	JS_ROOT: "statics/js/",//js版本号
 	TOKEN : ''	//token ajax全局
 };
 </script>
-<script src="/statics/js/wind.js"></script>
-<script src="/statics/js/jquery.js"></script>
-<script type="text/javascript" src="/statics/js/common.js"></script>
+<script src="/zhongyi/statics/js/wind.js"></script>
+<script src="/zhongyi/statics/js/jquery.js"></script>
+<script type="text/javascript" src="/zhongyi/statics/js/common.js"></script>
 <script>
 ;(function(){
 	document.getElementById('J_admin_name').focus();
