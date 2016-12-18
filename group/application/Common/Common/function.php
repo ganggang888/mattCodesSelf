@@ -1830,11 +1830,12 @@ function curl_file_get_contents($durl)
 function getUrlInfo($url, $div, $array)
 {
     $content = curl_file_get_contents($url);
-    $regex4 = "/<div class=\"" . $div . "\".*?>.*?<\/div>/ism";
+    $content = trim($content);
+    $regex4 = "/<div class=\"" . $div . "\".*?>.*?<\/div>.*?<\/div>.*?<\/div>.*?<\/div>/ism";
     preg_match_all($regex4, $content, $matches);
     $nr = $matches[0][0];
-    $nr = str_replace($array, "", $nr);
-    return $nr;
+    //$nr = str_replace($array, "", $nr);
+    return trim($nr);
 }
 
 /**
@@ -1945,3 +1946,70 @@ fclose($fp2);
 
 return $filename; 
 } 
+
+/**
+ * 发起一个post请求到指定接口
+ * 
+ * @param string $api 请求的接口
+ * @param array $params post参数
+ * @param int $timeout 超时时间
+ * @return string 请求结果
+ */
+function postRequest( $api, array $params = array(), $timeout = 30 ) {
+    $ch = curl_init();
+    curl_setopt( $ch, CURLOPT_URL, $api );
+    // 以返回的形式接收信息
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+    // 设置为POST方式
+    curl_setopt( $ch, CURLOPT_POST, 1 );
+    curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $params ) );
+    // 不验证https证书
+    curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, 0 );
+    curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, 0 );
+    curl_setopt( $ch, CURLOPT_TIMEOUT, $timeout );
+    curl_setopt( $ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/x-www-form-urlencoded;charset=UTF-8',
+        'Accept: application/json',
+    ) ); 
+    // 发送数据
+    $response = curl_exec( $ch );
+    // 不要忘记释放资源
+    curl_close( $ch );
+    return $response;
+}
+
+
+function encryptsss ($value)
+{   
+    $key = "GUbjZBfniQzrtrCm055hxER6N37YeRyG";
+    $padSize = 16 - (strlen ($value) % 16) ;
+    $value = $value . str_repeat (chr ($padSize), $padSize) ;
+    $output = mcrypt_encrypt (MCRYPT_RIJNDAEL_128, $key, $value, MCRYPT_MODE_CBC, "055hxER6N37YeRyG") ;                
+    return base64_encode ($output) ;        
+}
+
+
+ /*
+ * 统一Ajax返回
+ * @param	$errorCode			Int		返回ID
+ * @param	$errorMessage		text	错误信息
+ * @param	$list		        array	返回数组
+ * @param	$result		        Int		是否错误
+ */
+
+
+function AjaxReturn($errorCode,$errorMessage,$list,$result){
+    header("Content-type: text/html; charset=utf-8");
+    $arr = array(
+        'errorCode' 	=> $errorCode,
+        'errorMessage'	=> $errorMessage,
+        'list'			=> $list,
+        'result'		=> $result,
+    );
+    if ($_COOKIE['encryption'] == 1) {
+        echo encryptsss(json_encode($arr));exit();
+    } else {
+        echo json_encode($arr);exit();
+    }
+
+}

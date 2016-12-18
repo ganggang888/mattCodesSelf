@@ -22,7 +22,7 @@ class IndexController extends HomebaseController {
         vendor('phpexcel.PHPExcel.Writer.Excel5');
         vendor('phpexcel.PHPExcel.Writer.Excel2007');
         //创建一个excel对象
-        $filePath = "AddrBook.xls"; 
+        $filePath = "kaoqin.xlsx"; 
         //建立reader对象  
         $PHPReader = new \PHPExcel_Reader_Excel2007();  
         if(!$PHPReader->canRead($filePath)){  
@@ -42,17 +42,46 @@ class IndexController extends HomebaseController {
         $allColumn = $currentSheet->getHighestColumn();  
         /**取得一共有多少行*/  
         $allRow = $currentSheet->getHighestRow();  
-          
+          var_dump($allColumn);var_dump($allRow);
         //循环读取每个单元格的内容。注意行从1开始，列从A开始  
         for($rowIndex=1;$rowIndex<=$allRow;$rowIndex++){  
-            for($colIndex='A';$colIndex<=$allColumn;$colIndex++){  
+            for($colIndex='A';$colIndex!=$allColumn;$colIndex++){  
                 $addr = $colIndex.$rowIndex;  
+                //var_dump($addr);
                 $cell = $currentSheet->getCell($addr)->getValue();  
+                $cell = $currentSheet->getCell($addr)->getStyle();
+                if ($colIndex == 'P') {
+                    var_dump($cell);
+                }
                 if($cell instanceof \PHPExcel_RichText)     //富文本转换字符串  
                     $cell = $cell->__toString();
-                $info[] = $cell;  
+                $info[$rowIndex][$colIndex] = $cell;  
             }  
           
+        }
+        //var_dump($info);
+        foreach ($info as $key=>$vo) {
+            foreach ($vo as $v) {
+                if ($v == '出') {
+                    $begin = $key+1;
+                    break;
+                }
+                
+            }
+            
+            if ($key >= $begin && $begin) {
+                $do = array_filter($vo,function($v){return $v == '√';});
+                var_dump(count($do));
+                $tiao = array_filter($vo,function($v){return $v=='调';});
+                var_dump(count($tiao));
+                $jia = array_filter($vo,function($v){return $v=='假';});
+                var_dump(count($jia));
+                $bing = array_filter($vo,function($v){return $v=='病';});
+                var_dump(count($bing));
+                var_dump($vo['A']);exit;
+            }
+            //var_dump($begin);
+            
         }
         $i=0;
         foreach ($info as $key=>$vo) {
